@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.className="js";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentions légales — Le Bon Angle</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Le Bon Angle, retour à l'accueil">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">LE BON ANGLE</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="contenu" class="legal">
+    <div class="container container-narrow">
+      <a class="text-link back-link" href="index.html">Retour à l'accueil</a>
+      <h1>Mentions légales</h1>
+
+      <h2>Éditeur du site</h2>
+      <dl>
+        <dt>Nom commercial</dt><dd>Le Bon Angle</dd>
+        <div hidden data-cfg-if="NOM"><dt>Responsable de la publication</dt><dd data-cfg-text="NOM"></dd></div>
+        <div hidden data-cfg-if="STATUT_JURIDIQUE"><dt>Statut juridique</dt><dd data-cfg-text="STATUT_JURIDIQUE"></dd></div>
+        <div hidden data-cfg-if="SIRET"><dt>SIRET</dt><dd data-cfg-text="SIRET"></dd></div>
+        <div hidden data-cfg-if="ADRESSE"><dt>Adresse</dt><dd data-cfg-text="ADRESSE"></dd></div>
+        <div hidden data-cfg-if="EMAIL"><dt>Contact</dt><dd><a class="text-link" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></dd></div>
+      </dl>
+
+      <h2>Hébergement</h2>
+      <p>Ce site est hébergé par GitHub Pages, service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a class="text-link" href="https://pages.github.com/" rel="noopener">pages.github.com</a>.</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Les textes, la marque « Le Bon Angle » et les éléments graphiques de ce site sont protégés. Toute reproduction sans autorisation préalable est interdite.</p>
+
+      <h2>Responsabilité</h2>
+      <p>Les informations publiées sur ce site sont fournies à titre indicatif. L'accompagnement proposé ne constitue ni une prestation de recrutement ou de placement, ni un suivi médical ou thérapeutique, et n'emporte aucune garantie d'obtention d'un poste ou d'une mission.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Voir la <a class="text-link" href="confidentialite.html">politique de confidentialité</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© <span data-year></span> Le Bon Angle</p>
+    </div>
+  </footer>
+</body>
+</html>
