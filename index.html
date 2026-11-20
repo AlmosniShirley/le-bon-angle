@@ -4,50 +4,59 @@
   <meta charset="utf-8">
   <script>document.documentElement.className="js";</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Le Bon Angle — Agent de carrière pour profils Tech</title>
-  <meta name="description" content="Le Bon Angle accompagne les profils Tech pour clarifier leur prochaine étape, rendre leur valeur visible et structurer leur recherche de poste ou de mission. Offres de 150 € à 1 290 € TTC, prix affichés.">
-  <meta name="theme-color" content="#FAF7F4">
+  <title>Le Bon Angle | Design de carrière et de rôle pour professionnels Tech</title>
+  <meta name="description" content="Le Bon Angle aide les professionnels Tech à designer leur trajectoire, clarifier leur rôle cible, rendre leur valeur visible et activer la suite.">
+  <meta name="theme-color" content="#F8EFEE">
 
-  <!-- Open Graph : remplacer https://VOTRE-DOMAINE par l'URL réelle du site (voir README) -->
+  <!-- URL publique du site : à remplacer ici si vous passez sur un nom de domaine (voir README) -->
+  <link rel="canonical" href="https://almosnishirley.github.io/le-bon-angle/">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Bon Angle">
-  <meta property="og:title" content="Le Bon Angle — Agent de carrière pour profils Tech">
-  <meta property="og:description" content="Clarifier sa trajectoire. Rendre sa valeur visible. Passer à l'action.">
-  <!-- <meta property="og:url" content="https://VOTRE-DOMAINE/"> -->
-  <!-- <meta property="og:image" content="https://VOTRE-DOMAINE/assets/og-image.png"> -->
-  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="Le Bon Angle | Design de carrière et de rôle pour professionnels Tech">
+  <meta property="og:description" content="Ne cherchez pas seulement votre prochain poste. Concevez le rôle dans lequel vous pourrez vraiment créer de la valeur.">
+  <meta property="og:url" content="https://almosnishirley.github.io/le-bon-angle/">
+  <meta property="og:image" content="https://almosnishirley.github.io/le-bon-angle/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Le Bon Angle — Design de carrière et de rôle pour professionnels Tech">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=2">
 
   <!-- Données structurées : uniquement des informations réelles.
-       Les champs URL, e-mail, LinkedIn, fondatrice et localisation
-       sont ajoutés automatiquement depuis config.js s'ils sont remplis. -->
+       E-mail, LinkedIn, fondatrice et localisation sont ajoutés
+       automatiquement depuis config.js s'ils sont remplis. -->
   <script type="application/ld+json" id="ld-json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Le Bon Angle",
-    "slogan": "Clarifier sa trajectoire. Rendre sa valeur visible. Passer à l'action.",
-    "description": "Agent de carrière pour profils Tech : clarification de la prochaine étape, positionnement, CV, LinkedIn, pitch, stratégie de recherche et préparation aux entretiens.",
+    "url": "https://almosnishirley.github.io/le-bon-angle/",
+    "slogan": "Ne cherchez pas seulement votre prochain poste. Concevez le rôle dans lequel vous pourrez vraiment créer de la valeur.",
+    "description": "Design de carrière et de rôle pour professionnels Tech en transformation : clarification du rôle cible, positionnement, mise en lisibilité de la valeur et activation de la trajectoire.",
     "inLanguage": "fr",
     "priceRange": "150 € – 1 290 € TTC",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Offres d'accompagnement",
+      "name": "Les accompagnements",
       "itemListElement": [
-        { "@type": "Offer", "name": "DÉCLIC", "description": "Le bon diagnostic pour sortir du flou. 90 minutes.", "price": "150", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "SIGNATURE", "description": "Le bon message pour rendre sa valeur lisible. Deux à trois semaines.", "price": "390", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "TRAJECTOIRE", "description": "Le bon cap pour construire la suite. Huit semaines.", "price": "790", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "AGENT", "description": "Le bon appui pour activer sa carrière. Douze semaines.", "price": "1290", "priceCurrency": "EUR" }
+        { "@type": "Offer", "name": "DÉCLIC", "description": "Le bon diagnostic pour comprendre ce qui doit changer. 90 minutes.", "price": "150", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "SIGNATURE", "description": "Le bon rôle pour rendre sa valeur lisible. 2 à 3 semaines.", "price": "390", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "TRAJECTOIRE", "description": "Le bon cap pour designer sa carrière. 8 semaines.", "price": "790", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "AGENT", "description": "Le bon appui pour activer et ajuster. 12 semaines.", "price": "1290", "priceCurrency": "EUR" }
       ]
     }
   }
   </script>
 
-  <script src="config.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="config.js?v=2" defer></script>
+  <script src="script.js?v=2" defer></script>
 </head>
 
 <body>
@@ -68,13 +77,13 @@
 
       <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="#pour-qui">Pour qui</a></li>
-          <li><a href="#approche">Approche</a></li>
-          <li><a href="#offres">Offres</a></li>
+          <li><a href="#situations">Pour qui</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#offres">Accompagnements</a></li>
           <li><a href="#neuroatypisme">Neuroatypisme</a></li>
           <li><a href="#a-propos">À propos</a></li>
         </ul>
-        <a class="btn btn-primary btn-sm" href="#contact" data-booking>Réserver un échange</a>
+        <a class="btn btn-primary btn-sm" href="#contact" data-booking>Parler de ma situation</a>
       </nav>
     </div>
   </header>
@@ -85,208 +94,195 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">Agent de carrière pour profils Tech</p>
-          <h1 id="hero-title">Compétent·e, mais votre trajectoire ne reflète pas encore votre vraie valeur.</h1>
-          <p class="hero-lead">Le Bon Angle aide les profils Tech à clarifier leur prochaine étape, rendre leur valeur visible et construire une stratégie professionnelle adaptée à leur réalité.</p>
+          <p class="eyebrow">Design de carrière et de rôle · professionnels Tech</p>
+          <h1 id="hero-title">Ne cherchez pas seulement votre prochain poste.</h1>
+          <p class="hero-subtitle">Concevez le rôle dans lequel vous pourrez vraiment créer de la valeur.</p>
+          <p class="hero-lead">Le Bon Angle accompagne les professionnels Tech dont le métier, l'organisation ou les aspirations sont en transformation. Nous vous aidons à comprendre ce qui doit changer, designer votre rôle cible, rendre votre valeur lisible et activer une trajectoire cohérente.</p>
           <div class="btn-group">
-            <a class="btn btn-primary" href="#contact" data-booking>Réserver un échange découverte</a>
-            <a class="btn btn-secondary" href="#offres">Découvrir les offres</a>
+            <a class="btn btn-primary" href="#contact" data-booking>Parler de ma situation</a>
+            <a class="btn btn-ghost" href="#methode">Découvrir la méthode</a>
           </div>
-          <p class="reassurance">Pas de CV cosmétique. Pas de promesse miracle. Pas de méthode plaquée.</p>
+          <p class="reassurance">Pas de CV refait mécaniquement. Pas de personal branding artificiel. Pas de rôle plaqué sur votre parcours.</p>
         </div>
 
-        <aside class="hero-card" aria-label="La signature du Bon Angle">
-          <p class="hero-card-label"><span aria-hidden="true">//</span> la méthode en une ligne</p>
-          <ol class="signature-list">
-            <li><span class="num" aria-hidden="true">01</span> Clarifier sa trajectoire.</li>
-            <li><span class="num" aria-hidden="true">02</span> Rendre sa valeur visible.</li>
-            <li><span class="num" aria-hidden="true">03</span> Passer à l'action.</li>
-          </ol>
+        <aside class="hero-card" aria-labelledby="hero-card-title">
+          <p class="hero-card-title" id="hero-card-title">Une trajectoire cohérente avec&nbsp;:</p>
+          <ul class="hero-card-list">
+            <li>vos compétences</li>
+            <li>vos aspirations</li>
+            <li>vos besoins d'impact et d'autonomie</li>
+            <li>votre mode de fonctionnement</li>
+            <li>les transformations du marché et des organisations</li>
+          </ul>
         </aside>
       </div>
     </section>
 
-    <!-- =========================== POUR QUI =========================== -->
-    <section class="section" id="pour-qui" aria-labelledby="pour-qui-title">
+    <!-- =========================== SITUATIONS =========================== -->
+    <section class="section" id="situations" aria-labelledby="situations-title">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Pour qui</p>
-          <h2 id="pour-qui-title">Pour les profils Tech qui veulent avancer avec plus de clarté.</h2>
-          <p class="section-lead">En poste, entre deux postes ou en freelance : l'accompagnement s'adresse aux professionnels de la Tech qui se reconnaissent dans au moins une de ces situations.</p>
+          <h2 id="situations-title">Est-ce que cela vous parle&nbsp;?</h2>
+          <p class="section-lead">En CDI, en freelance, en projet d'entreprise ou en changement de métier : l'accompagnement s'adresse aux professionnels Tech qui se reconnaissent dans au moins une de ces situations.</p>
         </header>
 
         <ul class="situations">
-          <li>Vous cherchez un poste ou une mission.</li>
-          <li>Vous préparez une transition professionnelle.</li>
-          <li>Vous vous questionnez sur la suite.</li>
-          <li>Vous avez du mal à valoriser votre parcours.</li>
-          <li>Vos entretiens ne reflètent pas votre niveau réel.</li>
-          <li>Vous cherchez un environnement plus compatible avec votre fonctionnement.</li>
-          <li>Vous êtes concerné·e par le neuroatypisme ou la suradaptation.</li>
+          <li>Votre métier ne correspond plus à ce que vous voulez apporter.</li>
+          <li>Vous avez besoin de plus d'impact, d'autonomie ou de proximité avec le produit et les utilisateurs.</li>
+          <li>Vous vous demandez quelle place donner à l'IA dans votre avenir professionnel.</li>
+          <li>Vous hésitez entre évolution, changement de rôle, freelance, entrepreneuriat ou changement de métier.</li>
+          <li>Vous avez un parcours riche, mais vous ne savez pas encore comment le raconter.</li>
+          <li>Vous voulez changer de direction sans renier votre expérience.</li>
+          <li>Vous cherchez un environnement compatible avec votre manière de fonctionner.</li>
         </ul>
       </div>
     </section>
 
-    <!-- ============================ APPROCHE ============================ -->
-    <section class="section section-alt" id="approche" aria-labelledby="approche-title">
+    <!-- ========================= DESIGN DE RÔLE ========================= -->
+    <section class="section section-tint" id="design-de-role" aria-labelledby="role-title">
+      <div class="container role-grid">
+        <header class="section-head">
+          <p class="eyebrow">Design de rôle</p>
+          <h2 id="role-title">Définir le rôle avant de chercher où le trouver.</h2>
+          <p class="section-lead">Le design de rôle consiste à clarifier ce que vous voulez construire, concrètement, avant de vous lancer. Ensuite seulement, on active la recherche, comme le ferait un agent de carrière.</p>
+        </header>
+
+        <ol class="role-list">
+          <li><span class="num" aria-hidden="true">01</span> Le problème que vous voulez résoudre</li>
+          <li><span class="num" aria-hidden="true">02</span> Votre zone de contribution</li>
+          <li><span class="num" aria-hidden="true">03</span> Votre niveau d'autonomie</li>
+          <li><span class="num" aria-hidden="true">04</span> Vos responsabilités</li>
+          <li><span class="num" aria-hidden="true">05</span> Vos interactions avec le produit, le business, les utilisateurs et la technique</li>
+          <li><span class="num" aria-hidden="true">06</span> Les conditions dans lesquelles vous pouvez réussir</li>
+          <li><span class="num" aria-hidden="true">07</span> Les critères qui permettent de mesurer votre impact</li>
+          <li><span class="num" aria-hidden="true">08</span> Le type d'organisation qui peut vous correspondre</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================ MÉTHODE ============================ -->
+    <section class="section" id="methode" aria-labelledby="methode-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Approche</p>
-          <h2 id="approche-title">Trois temps, dans cet ordre.</h2>
-          <p class="section-lead">On ne commence pas par le CV. On commence par comprendre ce que vous voulez, ce que vous apportez et ce qui coince.</p>
+          <p class="eyebrow">Méthode</p>
+          <h2 id="methode-title">Notre méthode</h2>
+          <p class="section-lead">Quatre étapes, dans cet ordre. On ne commence pas par le CV : on commence par ce que vous voulez construire.</p>
         </header>
 
         <ol class="steps">
           <li class="card step">
             <span class="step-num" aria-hidden="true">01</span>
-            <h3>Comprendre</h3>
-            <p>Votre parcours, vos contraintes, vos envies et votre manière de travailler. L'objectif : identifier ce qui bloque vraiment, au-delà des symptômes.</p>
+            <h3>Se réaligner</h3>
+            <p>Envies, contraintes, impact, non-négociables et ce qui donne encore de l'énergie.</p>
           </li>
           <li class="card step">
             <span class="step-num" aria-hidden="true">02</span>
-            <h3>Positionner</h3>
-            <p>Une cible claire et un message cohérent : ce que vous apportez, à qui, dans quel contexte. CV, LinkedIn et pitch suivent ce fil, pas l'inverse.</p>
+            <h3>Designer son rôle</h3>
+            <p>Périmètre, responsabilités, autonomie, environnement et hypothèses de trajectoire.</p>
           </li>
           <li class="card step">
             <span class="step-num" aria-hidden="true">03</span>
-            <h3>Activer</h3>
-            <p>Transformer le positionnement en actions concrètes : stratégie de recherche, préparation des entretiens, suivi des démarches et des retours.</p>
+            <h3>Rendre sa valeur visible</h3>
+            <p>Colonne vertébrale du parcours, proposition de valeur, CV, LinkedIn, portfolio, GitHub, pitch et discours.</p>
+          </li>
+          <li class="card step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3>Activer sa trajectoire</h3>
+            <p>Cibles, réseau, entreprises, missions, prises de contact, entretiens et ajustements au fil des retours.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============================= OFFRES ============================= -->
-    <section class="section" id="offres" aria-labelledby="offres-title">
+    <!-- ========================= ACCOMPAGNEMENTS ========================= -->
+    <section class="section section-tint" id="offres" aria-labelledby="offres-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Offres</p>
-          <h2 id="offres-title">Quatre niveaux d'accompagnement. Des prix affichés.</h2>
-          <p class="section-lead">Chaque offre a un périmètre précis. Le bon niveau est celui qui répond à votre besoin réel, pas le plus complet.</p>
+          <p class="eyebrow">Accompagnements</p>
+          <h2 id="offres-title">Les accompagnements</h2>
+          <p class="section-lead">Quatre formats, des prix affichés. Le bon niveau est celui qui répond à votre besoin réel, pas le plus complet.</p>
         </header>
 
         <div class="offers">
           <!-- DÉCLIC -->
           <article class="card offer" aria-labelledby="offre-declic">
-            <p class="offer-index" aria-hidden="true">01</p>
             <h3 id="offre-declic" class="offer-name">DÉCLIC</h3>
-            <p class="offer-tagline">Le bon diagnostic pour sortir du flou.</p>
+            <p class="offer-tagline">Le bon diagnostic pour comprendre ce qui doit changer.</p>
             <dl class="offer-meta">
               <div><dt>Format</dt><dd>90 minutes</dd></div>
               <div><dt>Tarif</dt><dd class="price">150&nbsp;€ <span>TTC</span></dd></div>
             </dl>
-            <ul class="offer-list">
-              <li>Questionnaire préparatoire</li>
-              <li>Analyse de la situation</li>
-              <li>Identification du principal blocage</li>
-              <li>Trois actions prioritaires</li>
-              <li>Compte rendu synthétique</li>
-            </ul>
-            <a class="btn btn-secondary btn-block" href="#contact" data-booking>Choisir cette offre<span class="visually-hidden"> : DÉCLIC</span></a>
+            <p class="offer-desc">Diagnostic de situation, identification du vrai sujet, premières hypothèses de trajectoire et trois actions prioritaires.</p>
+            <a class="btn btn-primary btn-block" href="#contact" data-booking>Parler de ma situation<span class="visually-hidden"> (offre DÉCLIC)</span></a>
           </article>
 
           <!-- SIGNATURE -->
           <article class="card offer" aria-labelledby="offre-signature">
-            <p class="offer-index" aria-hidden="true">02</p>
             <h3 id="offre-signature" class="offer-name">SIGNATURE</h3>
-            <p class="offer-tagline">Le bon message pour rendre sa valeur lisible.</p>
+            <p class="offer-tagline">Le bon rôle pour rendre sa valeur lisible.</p>
             <dl class="offer-meta">
-              <div><dt>Format</dt><dd>Deux à trois semaines</dd></div>
+              <div><dt>Format</dt><dd>2 à 3 semaines</dd></div>
               <div><dt>Tarif</dt><dd class="price">390&nbsp;€ <span>TTC</span></dd></div>
             </dl>
-            <ul class="offer-list">
-              <li>Clarification de la cible</li>
-              <li>Proposition de valeur</li>
-              <li>Pitch</li>
-              <li>Analyse CV et LinkedIn</li>
-              <li>Identification des incohérences</li>
-              <li>Session de restitution</li>
-              <li>Aller-retour encadré sur les supports</li>
-            </ul>
-            <a class="btn btn-secondary btn-block" href="#contact" data-booking>Choisir cette offre<span class="visually-hidden"> : SIGNATURE</span></a>
+            <p class="offer-desc">Colonne vertébrale du parcours, rôle cible, proposition de valeur, pitch, CV et LinkedIn au service d'un positionnement cohérent.</p>
+            <a class="btn btn-primary btn-block" href="#contact" data-booking>Parler de ma situation<span class="visually-hidden"> (offre SIGNATURE)</span></a>
           </article>
 
           <!-- TRAJECTOIRE -->
           <article class="card offer" aria-labelledby="offre-trajectoire">
-            <p class="offer-index" aria-hidden="true">03</p>
             <h3 id="offre-trajectoire" class="offer-name">TRAJECTOIRE</h3>
-            <p class="offer-tagline">Le bon cap pour construire la suite.</p>
+            <p class="offer-tagline">Le bon cap pour designer sa carrière.</p>
             <dl class="offer-meta">
-              <div><dt>Format</dt><dd>Huit semaines</dd></div>
+              <div><dt>Format</dt><dd>8 semaines</dd></div>
               <div><dt>Tarif</dt><dd class="price">790&nbsp;€ <span>TTC</span></dd></div>
               <div class="offer-installments"><dt>Paiement</dt><dd>Possible en 2&nbsp;×&nbsp;395&nbsp;€ TTC</dd></div>
             </dl>
-            <ul class="offer-list">
-              <li>Diagnostic approfondi</li>
-              <li>Clarification de la prochaine étape</li>
-              <li>Définition de la cible</li>
-              <li>Positionnement</li>
-              <li>CV, LinkedIn et pitch</li>
-              <li>Stratégie de recherche</li>
-              <li>Une simulation d'entretien</li>
-              <li>Quatre rendez-vous de suivi</li>
-              <li>Plan d'action personnalisé</li>
-            </ul>
-            <a class="btn btn-secondary btn-block" href="#contact" data-booking>Choisir cette offre<span class="visually-hidden"> : TRAJECTOIRE</span></a>
+            <p class="offer-desc">Exploration des options, choix d'une trajectoire, environnements compatibles, stratégie de recherche, préparation des échanges et suivi.</p>
+            <a class="btn btn-primary btn-block" href="#contact" data-booking>Parler de ma situation<span class="visually-hidden"> (offre TRAJECTOIRE)</span></a>
           </article>
 
           <!-- AGENT -->
-          <article class="card offer offer-dark" aria-labelledby="offre-agent">
-            <p class="offer-index" aria-hidden="true">04</p>
+          <article class="card offer" aria-labelledby="offre-agent">
             <h3 id="offre-agent" class="offer-name">AGENT</h3>
-            <p class="offer-tagline">Le bon appui pour activer sa carrière.</p>
+            <p class="offer-tagline">Le bon appui pour activer et ajuster.</p>
             <dl class="offer-meta">
-              <div><dt>Format</dt><dd>Douze semaines</dd></div>
+              <div><dt>Format</dt><dd>12 semaines</dd></div>
               <div><dt>Tarif</dt><dd class="price">1&nbsp;290&nbsp;€ <span>TTC</span></dd></div>
               <div class="offer-installments"><dt>Paiement</dt><dd>Possible en 3&nbsp;×&nbsp;430&nbsp;€ TTC</dd></div>
             </dl>
-            <ul class="offer-list">
-              <li><strong>Tout le parcours TRAJECTOIRE</strong></li>
-              <li>Six rendez-vous individuels</li>
-              <li>Deux simulations d'entretien</li>
-              <li>Préparation des échanges importants</li>
-              <li>Suivi des démarches et des retours</li>
-              <li>Suivi asynchrone encadré</li>
-              <li>Cartographie ciblée</li>
-              <li>Jusqu'à dix pistes qualifiées dans le périmètre défini ensemble</li>
-              <li>Feuille de route finale</li>
-            </ul>
-            <a class="btn btn-light btn-block" href="#contact" data-booking>Choisir cette offre<span class="visually-hidden"> : AGENT</span></a>
+            <p class="offer-desc">Accompagnement rapproché, six rendez-vous, deux simulations, analyse des opportunités, pistes ciblées et ajustements au fil du marché.</p>
+            <a class="btn btn-primary btn-block" href="#contact" data-booking>Parler de ma situation<span class="visually-hidden"> (offre AGENT)</span></a>
           </article>
         </div>
 
-        <div class="offers-note">
-          <p><strong>Vous hésitez entre deux offres&nbsp;?</strong> Le premier échange sert justement à identifier votre besoin et à recommander le format le plus adapté.</p>
-          <a class="btn btn-primary" href="#contact" data-booking>Commencer par un échange</a>
-        </div>
+        <p class="offers-note"><strong>Vous ne savez pas encore lequel choisir&nbsp;?</strong> Le premier échange sert précisément à clarifier votre situation et à recommander le format le plus adapté.</p>
       </div>
     </section>
 
     <!-- ========================== NEUROATYPISME ========================== -->
-    <section class="section section-alt" id="neuroatypisme" aria-labelledby="neuro-title">
+    <section class="section" id="neuroatypisme" aria-labelledby="neuro-title">
       <div class="container neuro-grid">
         <div>
           <p class="eyebrow">Neuroatypisme</p>
-          <h2 id="neuro-title">Votre mode de fonctionnement n'est pas un problème à corriger.</h2>
-          <p class="section-lead">Le Bon Angle prend en compte les enjeux liés à la charge cognitive, aux environnements de travail, à la communication, aux entretiens et à la formulation des besoins professionnels lorsque cela est pertinent pour la personne.</p>
-          <p>Vous partagez ce que vous jugez utile. Rien de plus.</p>
+          <h2 id="neuro-title">Une approche compatible avec les profils neuroatypiques.</h2>
+          <p class="section-lead">Charge cognitive, besoins de clarté, autonomie, communication, entretiens et environnement de travail peuvent être intégrés lorsque cela est pertinent. Le Bon Angle ne diagnostique pas et ne promet pas de faire entrer les personnes dans les cases.</p>
+          <p>C'est une dimension possible de l'accompagnement, pas une condition d'accès. Vous partagez ce que vous jugez utile, rien de plus.</p>
         </div>
 
-        <div class="neuro-side">
-          <ul class="tags" aria-label="Enjeux pris en compte">
-            <li>Charge cognitive</li>
-            <li>Environnements de travail</li>
-            <li>Communication</li>
-            <li>Entretiens</li>
-            <li>Formulation des besoins</li>
-          </ul>
-          <p class="statement">Nous ne diagnostiquons pas. Nous ne promettons pas de vous faire entrer dans les cases.</p>
-        </div>
+        <ul class="tags" aria-label="Dimensions pouvant être intégrées">
+          <li>Charge cognitive</li>
+          <li>Besoins de clarté</li>
+          <li>Autonomie</li>
+          <li>Communication</li>
+          <li>Entretiens</li>
+          <li>Environnement de travail</li>
+        </ul>
       </div>
     </section>
 
     <!-- ============================ À PROPOS ============================ -->
-    <section class="section" id="a-propos" aria-labelledby="about-title">
+    <section class="section section-tint" id="a-propos" aria-labelledby="about-title">
       <div class="container about-grid">
         <figure class="about-photo">
           <img data-cfg-src="PHOTO" data-cfg-alt="NOM" alt="" width="800" height="1000" loading="lazy" decoding="async" hidden>
@@ -296,9 +292,9 @@
         <div class="about-content">
           <p class="eyebrow">À propos</p>
           <h2 id="about-title">Rendre votre valeur compréhensible.</h2>
-          <p hidden class="about-name" data-cfg-if="NOM"><span data-cfg-text="NOM"></span><span class="about-role"> · Agent de carrière pour profils Tech</span></p>
+          <p hidden class="about-name" data-cfg-if="NOM"><span data-cfg-text="NOM"></span></p>
           <p>Avec une expérience de recruteuse IT, je connais les critères réellement observés en recrutement, les incohérences qui fragilisent une candidature et les écarts entre la valeur réelle d'une personne et la manière dont elle la présente.</p>
-          <p class="about-quote">Mon rôle n'est pas de vous apprendre à jouer un personnage. Mon rôle est de vous aider à rendre votre valeur compréhensible.</p>
+          <p class="about-quote">Mon rôle n'est pas de vous apprendre à jouer un personnage. Mon rôle est de vous aider à rendre votre valeur compréhensible et à construire un rôle professionnel qui vous ressemble.</p>
           <p hidden data-cfg-if="BIO" data-cfg-text="BIO"></p>
           <p class="about-links">
             <a hidden data-cfg-if="LIEN_LINKEDIN" data-cfg-href="LIEN_LINKEDIN" class="text-link" rel="noopener" target="_blank">Profil LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a>
@@ -308,8 +304,23 @@
       </div>
     </section>
 
+    <!-- ===================== CE QUE NOUS NE PROMETTONS PAS ===================== -->
+    <section class="section" id="engagements" aria-labelledby="engagements-title">
+      <div class="container">
+        <div class="no-promise">
+          <h2 id="engagements-title">Ce que nous ne promettons pas</h2>
+          <ul class="no-promise-list">
+            <li>Aucun poste ou mission ne peut être garanti.</li>
+            <li>Aucun diagnostic médical n'est réalisé.</li>
+            <li>Aucun rôle prédéfini n'est plaqué sur le parcours.</li>
+          </ul>
+          <p class="no-promise-scope">L'accompagnement vise la clarté, le positionnement, le design du rôle et l'activation de la trajectoire.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- =============================== FAQ =============================== -->
-    <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+    <section class="section section-tint" id="faq" aria-labelledby="faq-title">
       <div class="container container-narrow">
         <header class="section-head">
           <p class="eyebrow">Questions fréquentes</p>
@@ -319,19 +330,31 @@
         <div class="faq">
           <details>
             <summary>Est-ce que vous garantissez un poste ou une mission&nbsp;?</summary>
-            <div class="faq-answer"><p>Non, aucun recrutement ne peut être garanti. L'accompagnement porte sur la clarté, le positionnement et l'activation de la recherche.</p></div>
+            <div class="faq-answer"><p>Non. Aucun recrutement ne peut être garanti. L'accompagnement porte sur la clarté, le rôle cible, le positionnement et l'activation de la trajectoire.</p></div>
           </details>
           <details>
-            <summary>Quelle offre choisir si je ne sais pas exactement ce dont j'ai besoin&nbsp;?</summary>
-            <div class="faq-answer"><p>Le premier échange sert à identifier le besoin et à recommander le format le plus adapté.</p></div>
+            <summary>Quelle différence entre design de carrière et recherche d'emploi&nbsp;?</summary>
+            <div class="faq-answer"><p>La recherche d'emploi intervient après un travail de clarification. Le design de carrière permet de déterminer ce que la personne veut construire avant de chercher où le trouver.</p></div>
+          </details>
+          <details>
+            <summary>Qu'est-ce que le design de rôle&nbsp;?</summary>
+            <div class="faq-answer"><p>Le design de rôle consiste à définir le périmètre, les responsabilités, l'autonomie, l'environnement et les critères de réussite du rôle professionnel recherché.</p></div>
+          </details>
+          <details>
+            <summary>Est-ce que vous accompagnez les freelances et les entrepreneurs&nbsp;?</summary>
+            <div class="faq-answer"><p>Oui. La méthode peut s'appliquer à un CDI, une mission freelance, une activité de conseil, un projet entrepreneurial ou une transition vers un autre métier.</p></div>
           </details>
           <details>
             <summary>Travaillez-vous uniquement avec des profils neuroatypiques&nbsp;?</summary>
-            <div class="faq-answer"><p>Non. L'approche peut convenir à tout profil Tech, avec une attention particulière aux modes de fonctionnement et aux environnements de travail.</p></div>
+            <div class="faq-answer"><p>Non. L'approche s'adresse à tous les professionnels Tech. Les enjeux liés au neuroatypisme peuvent être intégrés lorsque cela est pertinent et souhaité.</p></div>
           </details>
           <details>
             <summary>Est-ce que vous refaites uniquement le CV&nbsp;?</summary>
-            <div class="faq-answer"><p>Non. Le CV est traité comme un support au service d'un positionnement global.</p></div>
+            <div class="faq-answer"><p>Non. Le CV est un support au service d'un positionnement et d'un rôle cible.</p></div>
+          </details>
+          <details>
+            <summary>Quelle offre choisir si je ne sais pas encore ce que je veux&nbsp;?</summary>
+            <div class="faq-answer"><p>Le premier échange sert précisément à clarifier la situation et à recommander le format le plus adapté.</p></div>
           </details>
           <details>
             <summary>Les rendez-vous sont-ils en visioconférence&nbsp;?</summary>
@@ -344,21 +367,18 @@
             <summary>Peut-on payer en plusieurs fois&nbsp;?</summary>
             <div class="faq-answer"><p>Oui, pour TRAJECTOIRE (2&nbsp;×&nbsp;395&nbsp;€ TTC) et AGENT (3&nbsp;×&nbsp;430&nbsp;€ TTC), selon les modalités affichées.</p></div>
           </details>
-          <details>
-            <summary>Que se passe-t-il après le premier échange&nbsp;?</summary>
-            <div class="faq-answer"><p>La situation est analysée et une recommandation est formulée, sans obligation de poursuivre.</p></div>
-          </details>
         </div>
       </div>
     </section>
 
     <!-- ============================ CTA FINAL ============================ -->
-    <section class="cta-final" id="contact" aria-labelledby="cta-title">
-      <div class="container container-narrow cta-inner">
-        <span class="logo-mark logo-mark-light" aria-hidden="true"></span>
-        <h2 id="cta-title">Vous n'avez pas besoin de tout résoudre seul·e.</h2>
-        <p>Un premier échange permet de clarifier votre situation et de déterminer le niveau d'accompagnement réellement utile.</p>
-        <a class="btn btn-light btn-lg" href="#contact" data-booking>Parler de ma situation</a>
+    <section class="section cta-final" id="contact" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <h2 id="cta-title">Vous n'avez pas besoin de tout résoudre seul·e.</h2>
+          <p>Un premier échange permet de clarifier votre situation et de déterminer l'accompagnement réellement utile.</p>
+          <a class="btn btn-white btn-lg" href="#contact" data-booking>Parler de ma situation</a>
+        </div>
       </div>
     </section>
   </main>
@@ -368,7 +388,7 @@
     <div class="container footer-grid">
       <div>
         <p class="logo logo-footer"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">LE BON ANGLE</span></p>
-        <p class="footer-tagline">Agent de carrière pour profils Tech</p>
+        <p class="footer-tagline">Design de carrière et de rôle pour professionnels Tech</p>
         <p hidden class="footer-muted" data-cfg-if="LOCALISATION" data-cfg-text="LOCALISATION"></p>
       </div>
       <ul class="footer-links">

@@ -1,6 +1,10 @@
 # Le Bon Angle — site vitrine
 
-Site one-page statique (HTML, CSS, JavaScript vanilla), sans dépendance, sans base de données, sans cookie. Déployé automatiquement sur GitHub Pages.
+**Design de carrière et de rôle pour professionnels Tech en transformation.**
+
+Site one-page statique (HTML, CSS, JavaScript vanilla). Pas de build, pas de dépendance, pas de base de données, pas de cookie. Hébergé sur GitHub Pages.
+
+En ligne : <https://almosnishirley.github.io/le-bon-angle/>
 
 ## Structure
 
@@ -8,146 +12,158 @@ Site one-page statique (HTML, CSS, JavaScript vanilla), sans dépendance, sans b
 le-bon-angle/
 ├── index.html               Page principale (tous les textes)
 ├── config.js                ← Variables à personnaliser (nom, liens, photo…)
-├── styles.css               Styles (palette en haut du fichier)
+├── styles.css               Styles (palette Build RH en haut du fichier)
 ├── script.js                Application de la config + menu mobile
 ├── mentions-legales.html    Mentions légales (remplies depuis config.js)
 ├── confidentialite.html     Politique de confidentialité
 ├── favicon.svg              Icône
 ├── robots.txt
-├── assets/                  Photo et images
-└── .github/workflows/deploy.yml   Déploiement automatique
+├── assets/
+│   ├── fonts/               Poppins + Atkinson Hyperlegible (auto-hébergées)
+│   └── og-image.png         Image de partage 1200 × 630
+└── .github/workflows/deploy.yml   Déploiement par GitHub Actions (optionnel, voir § 5)
 ```
+
+Ordre des sections de la page : Hero · Est-ce que cela vous parle ? · Design de rôle · Notre méthode · Les accompagnements · Neuroatypisme · À propos · Ce que nous ne promettons pas · FAQ · CTA final.
 
 ---
 
-## 1. Remplacer les liens et informations personnelles
+## 1. Variables à compléter (`config.js`)
 
-Tout se passe dans **`config.js`**. Chaque variable demandée correspond à un champ :
+Tout le contenu personnel est centralisé dans **`config.js`**. Un champ vide (`""`) est masqué automatiquement : aucun crochet `[…]` ni texte de démonstration n'apparaît sur le site.
 
-| Variable              | Champ dans `config.js`           | Exemple                                  |
-|-----------------------|----------------------------------|------------------------------------------|
-| `[NOM]`               | `NOM`                            | `"Camille Martin"`                       |
-| `[EMAIL]`             | `EMAIL`                          | `"contact@lebonangle.fr"`                |
-| `[LIEN_CALENDLY_OU_FORMULAIRE]` | `LIEN_CALENDLY_OU_FORMULAIRE` | `"https://calendly.com/…"`          |
-| `[LIEN_LINKEDIN]`     | `LIEN_LINKEDIN`                  | `"https://www.linkedin.com/in/…"`        |
-| `[PHOTO]`             | `PHOTO`                          | `"assets/photo.jpg"`                     |
-| `[LOCALISATION]`      | `LOCALISATION`                   | `"Lyon · en visio partout en France"`    |
-| `[MENTIONS_LEGALES]`  | `MENTIONS_LEGALES`               | `"mentions-legales.html"` (par défaut)   |
+| Variable du brief               | Champ dans `config.js`        | Statut                     |
+|---------------------------------|-------------------------------|----------------------------|
+| `[NOM]`                         | `NOM`                         | à compléter                |
+| `[EMAIL]`                       | `EMAIL`                       | à compléter                |
+| `[LIEN_CALENDLY_OU_FORMULAIRE]` | `LIEN_CALENDLY_OU_FORMULAIRE` | **à compléter en priorité** |
+| `[LIEN_LINKEDIN]`               | `LIEN_LINKEDIN`               | à compléter                |
+| `[PHOTO]`                       | `PHOTO`                       | à compléter                |
+| `[LOCALISATION]`                | `LOCALISATION`                | à compléter                |
+| `[MENTIONS_LEGALES]`            | `MENTIONS_LEGALES`            | `mentions-legales.html` (par défaut) |
 
-Champs complémentaires : `BIO` (courte biographie), `FAQ_VISIO` (réponse à la question sur la visio), `SITE_URL`, `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE`.
+Champs complémentaires :
 
-**Règle :** un champ vide (`""`) est masqué automatiquement. Aucun texte de démonstration ni crochet `[…]` n'apparaît sur le site.
+| Champ              | Usage                                                         | Statut |
+|--------------------|---------------------------------------------------------------|--------|
+| `BIO`              | Courte biographie sous « À propos »                           | à compléter |
+| `FAQ_VISIO`        | Réponse à « Les rendez-vous sont-ils en visioconférence ? » (sinon : réponse neutre) | à compléter |
+| `SITE_URL`         | URL publique (données structurées)                            | rempli |
+| `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE` | Mentions légales (obligatoires)           | à compléter |
 
-**Boutons de rendez-vous :** tous les boutons (header, hero, cartes d'offres, CTA final) utilisent `LIEN_CALENDLY_OU_FORMULAIRE`. S'il est vide, ils ouvrent un e-mail vers `EMAIL`. Les liens externes s'ouvrent dans un nouvel onglet.
+**CTA unique :** tous les boutons « Parler de ma situation » (header, hero, quatre cartes, CTA final) pointent vers `LIEN_CALENDLY_OU_FORMULAIRE`. Tant qu'il est vide, ils ouvrent un e-mail vers `EMAIL`. Si les deux sont vides, ils renvoient vers le bloc final de la page.
 
 ## 2. Modifier les textes
 
-Tous les textes sont dans **`index.html`**, découpé en blocs commentés :
+Tous les textes sont dans **`index.html`**, en blocs commentés (`<!-- ===== HERO ===== -->`, etc.). Cherchez la phrase (Cmd/Ctrl + F) et remplacez-la.
 
-```html
-<!-- ============================= HERO ============================= -->
-```
+Les **prix** apparaissent à trois endroits : les cartes d'offres, la réponse FAQ « Peut-on payer en plusieurs fois ? » et le bloc `application/ld+json` dans le `<head>`.
 
-Cherchez la phrase à modifier (Ctrl/Cmd + F) et remplacez-la directement. Les **prix** apparaissent à trois endroits : les cartes d'offres, la réponse FAQ « Peut-on payer en plusieurs fois ? » et le bloc `application/ld+json` dans le `<head>`. Pensez à les modifier partout.
+### Palette et contrastes
 
-Les **couleurs** sont définies en haut de `styles.css` (`:root`).
-Attention : `--rose` (#B96F73) n'est utilisé que pour la décoration, car son contraste est insuffisant pour du texte. Les textes roses utilisent `--rose-text` (#9A4F54).
+Définie en haut de `styles.css` (`:root`) :
+
+| Rôle | Couleur | Remarque |
+|---|---|---|
+| Rose poudré (blocs, CTA) | `#E7C2C0` | texte toujours noir dessus |
+| Rose très clair (fonds) | `#F8EFEE` | |
+| Noir | `#171717` | |
+| Blanc | `#FFFFFF` | |
+| Accent rose foncé | `#9B6B69` | **contraste 4,4:1 : réservé aux décors et grands textes** (sous-titre du hero) |
+| Accent lisible (petits textes) | `#7E5250` | ajouté pour respecter le WCAG AA (≥ 5,8:1) |
+| Gris secondaire | `#5F5958` | jamais posé sur le rose poudré |
+| Bordures | `#D8C8C6` | |
+
+Polices : **Poppins** (titres) et **Atkinson Hyperlegible** (texte, conçue pour la lisibilité), auto-hébergées dans `assets/fonts/`, sans appel à Google.
 
 ## 3. Ajouter la photo
 
-1. Préparez une photo portrait (ratio 4:5, environ 800 × 1000 px, JPG ou WebP, moins de 200 Ko).
+1. Photo portrait (ratio 4:5, environ 800 × 1000 px, JPG ou WebP, moins de 200 Ko).
 2. Placez-la dans `assets/`, par exemple `assets/photo.jpg`.
 3. Dans `config.js` : `PHOTO: "assets/photo.jpg"`.
 
-Le texte alternatif reprend automatiquement `NOM`. Sans photo, un motif graphique neutre s'affiche à la place.
+Le texte alternatif reprend `NOM`. Sans photo, un bloc rose avec la marque s'affiche.
 
-## 4. Lancer le site en local
+## 4. Développement local
 
-Aucune installation nécessaire. Depuis le dossier du projet :
+Aucune installation ni build nécessaire.
 
 ```bash
+cd le-bon-angle
 python3 -m http.server 8000
+# puis ouvrir http://localhost:8000
 ```
 
-puis ouvrez <http://localhost:8000>. (Ouvrir `index.html` directement par double-clic fonctionne aussi.)
+Après une modification de `styles.css`, `script.js` ou `config.js`, incrémentez le `?v=` correspondant dans les trois fichiers HTML (`?v=2` → `?v=3`) pour éviter que les navigateurs gardent l'ancienne version en cache.
 
-## 5. Activer GitHub Pages
+## 5. Déploiement
 
-1. Créez un dépôt sur GitHub et poussez le projet sur la branche `main` :
-   ```bash
-   git init
-   git add .
-   git commit -m "Site Le Bon Angle"
-   git branch -M main
-   git remote add origin https://github.com/VOTRE-COMPTE/le-bon-angle.git
-   git push -u origin main
-   ```
-2. Sur GitHub : **Settings → Pages → Build and deployment → Source : GitHub Actions**.
-3. Le workflow `.github/workflows/deploy.yml` se lance à chaque push sur `main` (onglet **Actions**). L'URL du site s'affiche à la fin : `https://VOTRE-COMPTE.github.io/le-bon-angle/`.
-4. **Nom de domaine personnalisé (optionnel)** : créez à la racine un fichier `CNAME` contenant uniquement le domaine (ex. `lebonangle.fr`), configurez le DNS chez votre registrar, puis renseignez le domaine dans **Settings → Pages → Custom domain** et cochez **Enforce HTTPS**.
+**Mode actuel : publication depuis la branche `main`** (Settings → Pages → Source : *Deploy from a branch*, `main` / root).
 
-### Après la mise en ligne : SEO
-
-Les robots des réseaux sociaux ne lisent pas `config.js`. Dans le `<head>` de `index.html`, décommentez et complétez :
-
-```html
-<meta property="og:url" content="https://VOTRE-DOMAINE/">
-<meta property="og:image" content="https://VOTRE-DOMAINE/assets/og-image.png">
+```bash
+git add .
+git commit -m "Description de la modification"
+git push
 ```
 
-et ajoutez `<link rel="canonical" href="https://VOTRE-DOMAINE/">`. Pour une image de partage, créez `assets/og-image.png` en 1200 × 630 px et passez `twitter:card` à `summary_large_image`.
+Le site est mis à jour en une à deux minutes (onglet **Actions** du dépôt pour suivre).
+
+**Option : GitHub Actions.** Le workflow `.github/workflows/deploy.yml` publie uniquement les fichiers du site (pas le README). Il n'est pas encore poussé car le jeton GitHub local n'a pas le droit `workflow`. Pour l'activer :
+
+```bash
+gh auth refresh -s workflow
+git add .github && git commit -m "Ajout du workflow de déploiement" && git push
+```
+
+puis Settings → Pages → Source : **GitHub Actions**.
+
+**Nom de domaine (optionnel)** : fichier `CNAME` à la racine contenant le domaine, DNS chez le registrar, puis Settings → Pages → Custom domain + Enforce HTTPS. Mettez ensuite à jour l'URL dans `index.html` (`canonical`, `og:url`, `og:image`, JSON-LD) et `SITE_URL` dans `config.js`.
 
 ---
 
-## Checklist avant mise en ligne
+## Checklist QA avant publication
 
-**Contenus**
-- [ ] `config.js` rempli : `NOM`, `EMAIL`, `LIEN_CALENDLY_OU_FORMULAIRE`, `LIEN_LINKEDIN`, `LOCALISATION`, `SITE_URL`
-- [ ] Photo ajoutée dans `assets/` et référencée dans `PHOTO`
-- [ ] `BIO` rédigée (2 à 3 phrases)
-- [ ] Réponse `FAQ_VISIO` rédigée
-- [ ] Prix vérifiés aux trois endroits (cartes, FAQ, données structurées)
+**Contenus et positionnement**
+- [ ] Le hero annonce « design de carrière et de rôle » ; « agent de carrière » n'apparaît que comme explication secondaire
+- [ ] Aucun texte de l'ancien positionnement (« Agent de carrière pour profils Tech », « Réserver un échange », « Choisir cette offre »)
+- [ ] Aucun témoignage, logo client, chiffre de résultat ou promesse de placement
 - [ ] Relecture orthographique complète
-- [ ] Aucune promesse de placement, aucun chiffre ni témoignage non vérifié
 
-**Légal**
-- [ ] `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE` renseignés (obligatoires pour les mentions légales)
-- [ ] Politique de confidentialité relue et adaptée à l'outil de rendez-vous choisi
-- [ ] Mention de la TVA vérifiée (si micro-entreprise en franchise : prix « TTC » = prix net, ajouter « TVA non applicable, art. 293 B du CGI » si besoin)
-- [ ] Conditions générales de vente prévues (communiquées avant tout paiement)
+**Tarifs**
+- [ ] DÉCLIC 150 € TTC · 90 minutes
+- [ ] SIGNATURE 390 € TTC · 2 à 3 semaines
+- [ ] TRAJECTOIRE 790 € TTC · 8 semaines · 2 × 395 € TTC
+- [ ] AGENT 1 290 € TTC · 12 semaines · 3 × 430 € TTC
+- [ ] Mêmes montants dans la FAQ et les données structurées
+- [ ] Mention TVA vérifiée (micro-entreprise en franchise : ajouter « TVA non applicable, art. 293 B du CGI » si besoin)
 
-**Liens et boutons**
-- [ ] Chaque bouton « Réserver / Choisir cette offre / Parler de ma situation » ouvre bien l'outil de rendez-vous
-- [ ] Liens LinkedIn, e-mail, mentions légales, confidentialité fonctionnels
-- [ ] Navigation du header : chaque lien mène à la bonne section
+**Liens**
+- [ ] Les 7 boutons « Parler de ma situation » ouvrent l'outil de rendez-vous (nouvel onglet)
+- [ ] Les 5 liens du menu mènent à la bonne section, « Découvrir la méthode » mène à la méthode
+- [ ] LinkedIn, e-mail, mentions légales, confidentialité fonctionnels
+
+**Mobile**
+- [ ] iPhone et Android réels : menu (ouvrir, naviguer, fermer), lisibilité, boutons faciles à toucher
+- [ ] Largeur 320 px : aucun défilement horizontal
+- [ ] Tablette (768 px) : offres sur deux colonnes
 
 **Accessibilité**
-- [ ] Navigation complète au clavier (Tab, Maj+Tab, Entrée, Échap pour fermer le menu)
-- [ ] Focus visible sur tous les éléments interactifs
-- [ ] Lien d'évitement « Aller au contenu » visible au premier Tab
-- [ ] Test avec un lecteur d'écran (VoiceOver sur Mac/iPhone, NVDA sur Windows)
-- [ ] Zoom à 200 % sans perte de contenu
-- [ ] Audit Lighthouse (Chrome DevTools) : Accessibilité ≥ 95
+- [ ] Navigation complète au clavier (Tab, Maj+Tab, Entrée, Échap ferme le menu)
+- [ ] Focus visible partout (contour noir)
+- [ ] Lien « Aller au contenu » visible au premier Tab
+- [ ] FAQ ouvrable au clavier (Entrée / Espace)
+- [ ] Test lecteur d'écran (VoiceOver, NVDA)
+- [ ] Zoom 200 % sans perte de contenu
+- [ ] Lighthouse : Accessibilité ≥ 95
 
-**Technique**
-- [ ] Test sur Chrome, Safari, Firefox, Edge
-- [ ] Test mobile réel (iPhone + Android) : menu, lisibilité, boutons
-- [ ] Balises `og:url`, `og:image`, `canonical` complétées
+**SEO**
+- [ ] Title : « Le Bon Angle | Design de carrière et de rôle pour professionnels Tech »
+- [ ] Meta description à jour
+- [ ] Une seule balise H1
 - [ ] Aperçu de partage vérifié (LinkedIn Post Inspector)
 - [ ] Données structurées validées (<https://validator.schema.org>)
-- [ ] Workflow GitHub Actions passé au vert, HTTPS actif
 
-## Éléments encore à personnaliser
-
-1. Prénom et nom (`NOM`)
-2. Adresse e-mail (`EMAIL`)
-3. Lien Calendly ou formulaire (`LIEN_CALENDLY_OU_FORMULAIRE`)
-4. Lien LinkedIn (`LIEN_LINKEDIN`)
-5. Photo (`PHOTO` + fichier dans `assets/`)
-6. Localisation (`LOCALISATION`)
-7. Courte biographie (`BIO`)
-8. Réponse FAQ sur la visioconférence (`FAQ_VISIO`)
-9. URL du site (`SITE_URL` + balises `og:url` / `canonical` dans `index.html`)
-10. Informations légales (`STATUT_JURIDIQUE`, `SIRET`, `ADRESSE`)
-11. Image de partage `assets/og-image.png` (1200 × 630 px)
-12. Nom de domaine (fichier `CNAME`, optionnel)
+**Légal**
+- [ ] `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE` renseignés
+- [ ] Politique de confidentialité adaptée à l'outil de rendez-vous choisi
+- [ ] Conditions générales de vente prévues avant tout paiement

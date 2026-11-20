@@ -16,8 +16,8 @@ window.SITE_CONFIG = {
   EMAIL: "",
 
   /* [LIEN_CALENDLY_OU_FORMULAIRE] — Lien de prise de rendez-vous.
-     Tous les boutons « Réserver », « Choisir cette offre »,
-     « Parler de ma situation » pointent ici.
+     Tous les boutons « Parler de ma situation » (header, hero,
+     cartes d'offres, CTA final) pointent ici.
      Si vide : les boutons ouvrent un e-mail vers EMAIL. */
   LIEN_CALENDLY_OU_FORMULAIRE: "",
 
@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
 
   /* URL publique du site, ex. "https://lebonangle.fr"
      (utilisée pour les données structurées) */
-  SITE_URL: "",
+  SITE_URL: "https://almosnishirley.github.io/le-bon-angle/",
 
   /* --- Informations légales (page mentions-legales.html) --- */
   STATUT_JURIDIQUE: "", /* ex. "Entreprise individuelle (micro-entreprise)" */
