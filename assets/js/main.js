@@ -72,6 +72,12 @@
       el.textContent = m;
       el.hidden = !m;
     });
+    each("[data-precision]", function (el) {
+      var o = OFFRES[el.getAttribute("data-precision")] || {};
+      var p = str(o.precisionLancement);
+      el.textContent = p;
+      el.hidden = !p;
+    });
     each("[data-offre-paiement]", function (el) {
       var o = OFFRES[el.getAttribute("data-offre-paiement")] || {};
       var p = str(o.paiement);

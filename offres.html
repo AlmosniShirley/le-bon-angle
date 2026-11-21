@@ -22,9 +22,9 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
-  <script src="assets/js/config.js?v=10" defer></script>
-  <script src="assets/js/main.js?v=10" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <script src="assets/js/config.js?v=11" defer></script>
+  <script src="assets/js/main.js?v=11" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -39,7 +39,6 @@
         <ul>
           <li><a href="methode.html">La méthode</a></li>
           <li><a href="offres.html" aria-current="page">Les offres</a></li>
-          <li><a href="accompagnement.html">Accompagnement</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
@@ -68,17 +67,18 @@
           <article class="card offer offer-featured" aria-labelledby="o-analyse">
             <span class="tag tag-ia">Automatisé · IA</span>
             <h3 id="o-analyse">Analyse Le Bon Angle</h3>
-            <p class="offer-promise">Une première lecture structurée de votre parcours pour clarifier votre direction et améliorer vos supports.</p>
+            <p class="offer-promise">Une première lecture structurée de votre parcours pour clarifier votre direction et identifier les corrections prioritaires.</p>
             <div class="price">
               <div class="price-main"><span data-prix="analyse">12&nbsp;€</span><small>TTC</small></div>
             </div>
             <ul class="checklist offer-list">
-              <li>Analyse du CV et CV repensé</li>
+              <li>Analyse du CV et pistes de reformulation</li>
               <li>Clarification de la trajectoire</li>
               <li>Positionnement et rôle cible proposés</li>
               <li>Titre et «&nbsp;À propos&nbsp;» LinkedIn, pitch</li>
               <li>Incohérences et priorités</li>
             </ul>
+            <p class="small muted">L’analyse propose une première direction. Elle ne remplace pas un arbitrage humain ni une refonte personnalisée des supports.</p>
             <a class="btn btn-primary btn-block" href="atelier.html">Faire analyser mon parcours</a>
           </article>
 
@@ -88,7 +88,7 @@
             <p class="offer-promise">Un échange individuel pour trancher votre angle professionnel et repartir avec une direction claire.</p>
             <div class="price">
               <div class="price-main"><span data-prix="debrief">149&nbsp;€</span><small>TTC</small></div>
-              <span class="price-note" data-if-deduction>Prix de l’analyse déduit si réservé dans les <span data-deduction-jours>7</span> jours.</span>
+              <span class="price-note" data-if-deduction>Les <span data-prix="analyse">12&nbsp;€</span> de l’analyse sont déduits du Débrief réservé dans les <span data-deduction-jours>7</span> jours suivant l’analyse.</span>
             </div>
             <ul class="checklist offer-list">
               <li>Visio de 60 à 75 minutes</li>
@@ -96,7 +96,7 @@
               <li>Feuille de route sur 30 jours</li>
               <li>Synthèse écrite</li>
             </ul>
-            <a class="btn btn-secondary btn-block" href="accompagnement.html#debrief">Voir le détail<span class="visually-hidden"> du Débrief</span></a>
+            <a class="btn btn-secondary btn-block" href="accompagnement.html#debrief" aria-label="Voir le détail du Débrief &amp; Positionnement">Voir le détail</a>
           </article>
 
           <article class="card offer" aria-labelledby="o-refonte">
@@ -113,7 +113,7 @@
               <li>LinkedIn, pitch, proposition de valeur</li>
               <li>Stratégie de recherche sur 30 jours</li>
             </ul>
-            <a class="btn btn-secondary btn-block" href="accompagnement.html#refonte">Voir le détail<span class="visually-hidden"> de la Refonte</span></a>
+            <a class="btn btn-secondary btn-block" href="accompagnement.html#refonte" aria-label="Voir le détail de la Refonte &amp; Candidature">Voir le détail</a>
           </article>
 
           <article class="card offer" aria-labelledby="o-accel">
@@ -123,6 +123,7 @@
             <div class="price">
               <div class="price-main"><span data-prix="acceleration">690&nbsp;€</span><small>TTC</small></div>
               <span class="price-note" data-if-prix-cible="acceleration"><strong data-mention="acceleration">Tarif de lancement</strong>, puis <span data-prix-cible="acceleration">790&nbsp;€</span>.</span>
+              <span class="price-note" data-precision="acceleration" hidden></span>
             </div>
             <ul class="checklist offer-list">
               <li>Quatre rendez-vous sur six semaines</li>
@@ -130,7 +131,7 @@
               <li>Préparation à deux entretiens</li>
               <li>Suivi intermédiaire et bilan</li>
             </ul>
-            <a class="btn btn-secondary btn-block" href="accompagnement.html#acceleration">Voir le détail<span class="visually-hidden"> de l’Accélération</span></a>
+            <a class="btn btn-secondary btn-block" href="accompagnement.html#acceleration" aria-label="Voir le détail de l'Accélération de recherche">Voir le détail</a>
           </article>
         </div>
       </div>
@@ -158,7 +159,7 @@
               <tr><th scope="row">Rendez-vous</th><td class="no">Aucun</td><td>1 visio de 60 à 75 min</td><td>Cadrage + restitution</td><td>4 sur six semaines</td></tr>
               <tr><th scope="row">Lecture humaine</th><td class="no">Non</td><td>Oui, à partir de l’analyse</td><td>Oui</td><td>Oui</td></tr>
               <tr><th scope="row">Rôle cible</th><td>Proposé</td><td>Arbitré ensemble</td><td>Une cible principale, choisie ensemble</td><td>Clarifié ou ajusté</td></tr>
-              <tr><th scope="row">CV</th><td>Version repensée par l’IA</td><td class="no">Non inclus</td><td>Une version complète</td><td>Une version principale, et éventuellement une variante</td></tr>
+              <tr><th scope="row">CV</th><td>Pistes de reformulation</td><td class="no">Non inclus</td><td>Une version complète</td><td>Une version principale, et éventuellement une variante</td></tr>
               <tr><th scope="row">LinkedIn et pitch</th><td>Propositions</td><td>Formulation du positionnement</td><td>Réécrits</td><td>Réécrits</td></tr>
               <tr><th scope="row">Plan d’action</th><td>Priorités d’amélioration</td><td>Feuille de route 30 jours</td><td>Stratégie de recherche 30 jours</td><td>Stratégie, sélection des offres, réseau</td></tr>
               <tr><th scope="row">Entretiens</th><td class="no">—</td><td class="no">—</td><td class="no">—</td><td>Préparation à deux entretiens</td></tr>
@@ -167,6 +168,10 @@
           </table>
         </div>
         <p class="table-hint">Faites défiler le tableau horizontalement pour voir les quatre offres.</p>
+        <div class="note-box section-foot">
+          <p><strong>L’analyse fournit des pistes. La Refonte &amp; Candidature comprend un travail humain de cadrage, d’arbitrage, de réécriture et de correction.</strong></p>
+          <p>L’analyse propose une première direction. Elle ne remplace pas un arbitrage humain ni une refonte personnalisée des supports.</p>
+        </div>
       </div>
     </section>
 
@@ -175,17 +180,17 @@
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Choisir</p>
-          <h2 id="o-choose">Quelle offre pour votre situation&nbsp;?</h2>
+          <h2 id="o-choose">Quelle offre est faite pour vous&nbsp;?</h2>
           <p>Le bon format est celui qui répond à votre besoin réel, pas le plus complet.</p>
         </header>
         <ul class="chooser">
-          <li><q>Je veux une première lecture, vite, sans rendez-vous.</q><a class="arrow-link" href="atelier.html">Analyse Le Bon Angle</a></li>
-          <li><q>J’hésite entre plusieurs directions.</q><a class="arrow-link" href="accompagnement.html#debrief">Débrief &amp; Positionnement</a></li>
-          <li><q>Je sais ce que je vise, mais mes supports ne suivent pas.</q><a class="arrow-link" href="accompagnement.html#refonte">Refonte &amp; Candidature</a></li>
-          <li><q>Je veux structurer ma recherche et être suivi·e.</q><a class="arrow-link" href="accompagnement.html#acceleration">Accélération de recherche</a></li>
+          <li><q>Vous voulez comprendre comment votre parcours est perçu.</q><a class="arrow-link" href="atelier.html">Analyse Le Bon Angle — <span data-prix="analyse">12&nbsp;€</span></a></li>
+          <li><q>Vous hésitez entre plusieurs directions.</q><a class="arrow-link" href="accompagnement.html#debrief">Débrief &amp; Positionnement — <span data-prix="debrief">149&nbsp;€</span></a></li>
+          <li><q>Vous savez ce que vous visez, mais vos supports ne suivent pas.</q><a class="arrow-link" href="accompagnement.html#refonte">Refonte &amp; Candidature — <span data-prix="refonte">450&nbsp;€</span></a></li>
+          <li><q>Vous voulez être accompagné·e pendant votre recherche.</q><a class="arrow-link" href="accompagnement.html#acceleration">Accélération de recherche — <span data-prix="acceleration">690&nbsp;€</span><span data-if-prix-cible="acceleration">, puis <span data-prix-cible="acceleration">790&nbsp;€</span></span></a></li>
         </ul>
         <div class="note-box sage section-foot">
-          <p><strong>Vous ne savez pas lequel choisir&nbsp;?</strong> Commencez par l’analyse&nbsp;: elle sert aussi à savoir de quoi vous avez besoin ensuite. Ou <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>prenez rendez-vous</a> pour en parler.</p>
+          <p><strong>Vous ne savez pas encore quelle formule choisir&nbsp;?</strong> Un échange court peut permettre de vérifier le format le plus adapté. Cet échange ne constitue pas une séance de coaching. <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a></p>
         </div>
       </div>
     </section>
@@ -211,7 +216,7 @@
         <ul class="footer-links">
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
-          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prendre rendez-vous</a></li>
+          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a></li>
           <li hidden data-cfg-if="LIEN_LINKEDIN"><a href="#" data-cfg-href="LIEN_LINKEDIN">LinkedIn</a></li>
           <li hidden data-cfg-if="EMAIL"><a href="#" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></li>
         </ul>

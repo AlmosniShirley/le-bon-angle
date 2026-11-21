@@ -22,9 +22,9 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
-  <script src="assets/js/config.js?v=10" defer></script>
-  <script src="assets/js/main.js?v=10" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <script src="assets/js/config.js?v=11" defer></script>
+  <script src="assets/js/main.js?v=11" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -38,8 +38,7 @@
       <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
         <ul>
           <li><a href="methode.html">La méthode</a></li>
-          <li><a href="offres.html">Les offres</a></li>
-          <li><a href="accompagnement.html" aria-current="page">Accompagnement</a></li>
+          <li><a href="offres.html" aria-current="page">Les offres</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
@@ -98,7 +97,7 @@
               <div><dt>À prévoir</dt><dd>Votre analyse</dd></div>
               <div><dt>Livrable</dt><dd>Synthèse écrite</dd></div>
             </dl>
-            <p class="note-box small" data-if-deduction>Vous avez fait l’analyse il y a moins de <span data-deduction-jours>7</span> jours&nbsp;? <strong>Son prix est déduit.</strong> Indiquez votre code d’analyse au moment de réserver.</p>
+            <p class="note-box small" data-if-deduction>Les <span data-prix="analyse">12&nbsp;€</span> de l’analyse sont déduits du Débrief réservé dans les <span data-deduction-jours>7</span> jours suivant l’analyse. Indiquez votre code d’analyse au moment de réserver.</p>
             <a class="btn btn-primary" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-offre-lien="debrief">Clarifier mon positionnement</a>
             <p class="small muted" style="margin-top:1rem">Pas encore d’analyse&nbsp;? <a class="text-link" href="atelier.html">Commencez par là</a>&nbsp;: le débrief s’appuie dessus.</p>
           </aside>
@@ -111,12 +110,13 @@
             <h2 id="f-refonte">Refonte &amp; Candidature</h2>
             <p class="lead">Repartir avec des supports cohérents, lisibles et alignés avec le rôle que vous voulez réellement occuper.</p>
             <p class="format-for"><strong>Pour vous si</strong> vous savez ce que vous voulez viser, mais votre CV et votre LinkedIn racontent encore autre chose.</p>
+            <p class="note-box small">L’analyse fournit des pistes. La Refonte &amp; Candidature comprend un travail humain de cadrage, d’arbitrage, de réécriture et de correction.</p>
             <p class="list-title">Inclus</p>
             <ul class="checklist">
               <li>Entretien de cadrage</li>
               <li>Analyse humaine de votre parcours</li>
               <li>Choix d’une cible professionnelle principale</li>
-              <li>Refonte d’une version de CV</li>
+              <li>Refonte complète d’une version de CV</li>
               <li>Optimisation du titre LinkedIn</li>
               <li>Réécriture de la section «&nbsp;À propos&nbsp;»</li>
               <li>Pitch de présentation</li>
@@ -174,6 +174,7 @@
               <span class="tag tag-human" data-mention="acceleration">Tarif de lancement</span>
               <div class="price-main"><span data-prix="acceleration">690&nbsp;€</span><small>TTC</small></div>
               <span class="price-note" data-if-prix-cible="acceleration">Puis <span data-prix-cible="acceleration">790&nbsp;€</span> TTC après la période de lancement.</span>
+              <span class="price-note" data-precision="acceleration" hidden></span>
               <span class="price-note" data-offre-paiement="acceleration">Paiement comptant, ou en deux fois sur demande.</span>
             </div>
             <dl class="facts">
@@ -196,7 +197,7 @@
         </header>
         <ol class="steps">
           <li class="step"><span class="step-num" aria-hidden="true">01</span><h3>Vous choisissez</h3><p>Le format qui correspond à votre situation. En cas de doute, l’analyse aide à y voir clair.</p></li>
-          <li class="step"><span class="step-num" aria-hidden="true">02</span><h3>Vous réservez</h3><p>Le bouton ouvre l’agenda en ligne de Shirley. Le premier échange permet de vérifier que le format est le bon.</p></li>
+          <li class="step"><span class="step-num" aria-hidden="true">02</span><h3>Vous réservez</h3><p>Le bouton de la formule ouvre l’agenda en ligne de Shirley pour fixer le rendez-vous.</p></li>
           <li class="step"><span class="step-num" aria-hidden="true">03</span><h3>Vous préparez</h3><p>Votre CV, votre profil LinkedIn et, si vous l’avez faite, votre Analyse Le Bon Angle.</p></li>
           <li class="step"><span class="step-num" aria-hidden="true">04</span><h3>On travaille</h3><p>Selon le format&nbsp;: arbitrage, réécriture, stratégie, préparation. Avec des livrables écrits.</p></li>
         </ol>
@@ -226,11 +227,12 @@
     <section class="section section-dark on-dark cta-band" aria-labelledby="final-title">
       <div class="container">
         <h2 id="final-title">Pas sûr·e du bon format&nbsp;?</h2>
-        <p class="muted">Faites d’abord l’analyse.<span data-if-deduction> Si vous réservez le débrief dans les <span data-deduction-jours>7</span> jours, son prix est déduit.</span></p>
+        <p class="muted">Faites d’abord l’analyse.<span data-if-deduction> Les <span data-prix="analyse">12&nbsp;€</span> de l’analyse sont déduits du Débrief réservé dans les <span data-deduction-jours>7</span> jours suivant l’analyse.</span></p>
         <div class="btn-row">
           <a class="btn btn-primary" href="atelier.html">Analyser mon parcours — <span data-prix="analyse">12&nbsp;€</span></a>
-          <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Ou prendre rendez-vous</a>
+          <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a>
         </div>
+        <p class="micro">Un échange de 15 minutes pour vérifier si un accompagnement humain est adapté à votre situation. Ce rendez-vous ne constitue pas une séance de coaching.</p>
       </div>
     </section>
   </main>
@@ -255,7 +257,7 @@
         <ul class="footer-links">
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
-          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prendre rendez-vous</a></li>
+          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a></li>
           <li hidden data-cfg-if="LIEN_LINKEDIN"><a href="#" data-cfg-href="LIEN_LINKEDIN">LinkedIn</a></li>
           <li hidden data-cfg-if="EMAIL"><a href="#" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></li>
         </ul>

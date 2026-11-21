@@ -24,6 +24,9 @@ window.SITE_CONFIG = {
       prix: 12,                      // prix appliqué aujourd'hui
       prixCible: null,               // prix futur affiché ("Puis 19 €…") ; null = masqué
       mention: "Tarif de lancement", // affiché au-dessus du prix ("" pour masquer)
+      // Précision factuelle sur le lancement, ex. "jusqu'au 31 janvier 2027"
+      // ou "pour les 20 premiers clients". Vide = rien d'affiché.
+      precisionLancement: "",
       // Lien de paiement Payhip (le code d'analyse est envoyé par e-mail)
       lienPaiement: "https://payhip.com/b/k5c6D"
     },
@@ -52,6 +55,9 @@ window.SITE_CONFIG = {
       prix: 690,
       prixCible: 790,
       mention: "Tarif de lancement",
+      // Précision factuelle sur le lancement (date de fin, nombre de places…).
+      // Vide = rien d'affiché. Ne pas créer de fausse urgence.
+      precisionLancement: "",
       // Texte affiché sous le prix ("" pour masquer)
       paiement: "Paiement comptant, ou en deux fois sur demande.",
       lien: ""

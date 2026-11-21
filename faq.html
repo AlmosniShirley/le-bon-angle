@@ -22,9 +22,9 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
-  <script src="assets/js/config.js?v=10" defer></script>
-  <script src="assets/js/main.js?v=10" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <script src="assets/js/config.js?v=11" defer></script>
+  <script src="assets/js/main.js?v=11" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -39,7 +39,6 @@
         <ul>
           <li><a href="methode.html">La méthode</a></li>
           <li><a href="offres.html">Les offres</a></li>
-          <li><a href="accompagnement.html">Accompagnement</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html" aria-current="page">FAQ</a></li>
         </ul>
@@ -57,7 +56,8 @@
       <div class="container">
         <p class="eyebrow">Questions fréquentes</p>
         <h1 id="page-title">Les réponses, <em>sans détour</em>.</h1>
-        <p class="lead">Une question qui n’est pas ici&nbsp;? <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prenez rendez-vous</a> et posez-la directement.</p>
+        <p class="lead">Une question qui n’est pas ici&nbsp;? Posez-la lors d’un <a class="text-link" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>échange sur l’accompagnement</a>.</p>
+        <p class="micro">Un échange de 15 minutes pour vérifier si un accompagnement humain est adapté à votre situation. Ce rendez-vous ne constitue pas une séance de coaching.</p>
       </div>
     </section>
 
@@ -70,6 +70,14 @@
             <details>
               <summary>Est-ce que l’analyse remplace un accompagnement humain&nbsp;?</summary>
               <div class="faq-answer"><p>Non. L’analyse est rédigée par un agent d’IA configuré selon la méthode Le Bon Angle. Personne ne la relit avant vous. Elle vous donne une première base de travail&nbsp;: des angles, des formulations, des priorités. L’accompagnement humain sert à trancher, à contextualiser et à corriger ce que l’IA ne peut pas savoir.</p></div>
+            </details>
+            <details>
+              <summary>L’analyse à <span data-prix="analyse">12&nbsp;€</span> réécrit-elle entièrement mon CV&nbsp;?</summary>
+              <div class="faq-answer"><p>Non. L’analyse fournit une lecture structurée de votre parcours et des pistes concrètes de reformulation autour d’un angle identifié. La refonte complète et personnalisée du CV fait partie de l’offre <a class="text-link" href="accompagnement.html#refonte">Refonte &amp; Candidature</a>.</p></div>
+            </details>
+            <details>
+              <summary>Pourquoi payer un accompagnement humain si l’agent fournit déjà des recommandations&nbsp;?</summary>
+              <div class="faq-answer"><p>L’agent propose plusieurs pistes. L’accompagnement humain permet de trancher, de tenir compte de votre contexte, de corriger les formulations et de transformer les recommandations en stratégie concrète.</p></div>
             </details>
             <details>
               <summary>L’analyse garantit-elle de trouver un emploi&nbsp;?</summary>
@@ -85,6 +93,10 @@
                 <p>L’analyse (<span data-prix="analyse">12&nbsp;€</span>) est automatisée, sans rendez-vous, et livrée en quelques minutes. Elle propose.</p>
                 <p>L’accompagnement (à partir de <span data-prix="debrief">149&nbsp;€</span>) est humain. Il part de votre contexte réel, tranche entre les options, retravaille vos supports et vous aide à passer à l’action. <a class="text-link" href="offres.html#o-compare">Voir le comparatif</a>.</p>
               </div>
+            </details>
+            <details>
+              <summary>Quelle est la différence entre l’analyse et le Débrief&nbsp;?</summary>
+              <div class="faq-answer"><p>L’analyse est automatisée, rapide et sans rendez-vous. Le Débrief est un échange humain qui permet de choisir une cible prioritaire, d’arbitrer entre plusieurs options et de repartir avec une feuille de route.</p></div>
             </details>
             <details>
               <summary>Que se passe-t-il si l’analyse ne fonctionne pas&nbsp;?</summary>
@@ -142,7 +154,7 @@
             <details>
               <summary>Le prix de l’analyse est-il déduit si je prends un accompagnement&nbsp;?</summary>
               <div class="faq-answer">
-                <p data-if-deduction>Oui, pour le Débrief &amp; Positionnement, si vous le réservez dans les <span data-deduction-jours>7</span> jours qui suivent l’analyse. Indiquez votre code d’analyse au moment de réserver.</p>
+                <p data-if-deduction>Oui, pour le Débrief &amp; Positionnement. Les <span data-prix="analyse">12&nbsp;€</span> de l’analyse sont déduits du Débrief réservé dans les <span data-deduction-jours>7</span> jours suivant l’analyse. Indiquez votre code d’analyse au moment de réserver.</p>
                 <p hidden data-if-deduction-off>Pas actuellement.</p>
               </div>
             </details>
@@ -190,7 +202,7 @@
         <ul class="footer-links">
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
-          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prendre rendez-vous</a></li>
+          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a></li>
           <li hidden data-cfg-if="LIEN_LINKEDIN"><a href="#" data-cfg-href="LIEN_LINKEDIN">LinkedIn</a></li>
           <li hidden data-cfg-if="EMAIL"><a href="#" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></li>
         </ul>

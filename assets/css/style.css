@@ -355,6 +355,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 @media (min-width: 760px) { .chooser li { grid-template-columns: 1.4fr 1fr; } }
 .chooser q { font-family: var(--font-title); font-weight: 600; font-size: 1.1rem; quotes: "« " " »"; }
 .chooser a { justify-self: start; }
+.chooser .arrow-link { display: inline; }
+.chooser .arrow-link::after { display: inline-block; margin-left: 0.4rem; }
 
 /* Détail d'un accompagnement */
 .format { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
@@ -434,6 +436,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .cta-band h2 { max-width: 20ch; margin-inline: auto; }
 .cta-band p { max-width: 36em; margin-inline: auto; }
 .cta-band .btn-row { justify-content: center; margin-top: 1.75rem; }
+.cta-band .micro { margin: 1rem auto 0; }
+.analysis-block .note-box { margin-top: 1rem; }
+.offer .small.muted { margin-bottom: 1rem; }
 
 /* ---------- Pied de page ---------- */
 .site-footer { background: #fff; color: var(--ink); padding-block: 3rem 1.5rem; font-size: 0.95rem; border-top: 1px solid var(--border); }
