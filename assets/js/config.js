@@ -73,11 +73,12 @@ window.SITE_CONFIG = {
 
   /* Adresse e-mail publique (vide = non affichée). Si LIEN_RDV est vide,
      les boutons ouvrent un e-mail vers cette adresse. */
-  EMAIL: "",
+  EMAIL: "shirley.chiche@buildrh.co",
 
   LIEN_LINKEDIN: "",
   LIEN_BUILDRH: "https://build-rh.io",
   LIEN_BLOG: "https://prompt-humain.ghost.io",
+  LIEN_YOUTUBE: "https://www.youtube.com/@TDArHH",
 
   /* Chemin de la photo de Shirley, ex. "assets/images/shirley.jpg"
      (portrait 4:5, environ 800 × 1000 px, < 200 Ko). Vide = emplacement. */

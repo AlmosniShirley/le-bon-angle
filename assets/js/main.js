@@ -96,6 +96,12 @@
       link.setAttribute("href", href);
       if (/^https?:\/\//i.test(href)) markNewTab(link);
     });
+    each("[data-contact-analyse]", function (link) {
+      var email = cfg("EMAIL");
+      if (!email) { link.hidden = true; return; }
+      var body = "Bonjour Shirley,\n\nJ'ai fait l'Analyse Le Bon Angle et je souhaite être recontacté·e au sujet de mon analyse et de vos accompagnements.\n\nCe que je retiens de mon analyse, ou ma question :\n\n\nPrénom :\n";
+      link.setAttribute("href", "mailto:" + email + "?subject=" + encodeURIComponent("Analyse Le Bon Angle : je souhaite être recontacté·e") + "&body=" + encodeURIComponent(body));
+    });
     each("[data-rdv]", function (link) {
       var href = cfg("LIEN_RDV") || (cfg("EMAIL") ? "mailto:" + cfg("EMAIL") : "");
       if (!href) { link.hidden = true; return; }
@@ -146,7 +152,8 @@
       var data = JSON.parse(node.textContent);
       if (cfg("SITE_URL")) data.url = cfg("SITE_URL");
       if (cfg("EMAIL")) data.email = cfg("EMAIL");
-      if (cfg("LIEN_LINKEDIN")) data.sameAs = [cfg("LIEN_LINKEDIN")];
+      var same = ["LIEN_LINKEDIN", "LIEN_YOUTUBE", "LIEN_BUILDRH"].map(cfg).filter(Boolean);
+      if (same.length) data.sameAs = same;
       var items = [];
       ["analyse", "debrief", "refonte", "acceleration"].forEach(function (k) {
         var o = OFFRES[k];

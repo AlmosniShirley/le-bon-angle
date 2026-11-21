@@ -22,14 +22,14 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20">
-  <script src="assets/js/config.js?v=20" defer></script>
-  <script src="assets/js/main.js?v=20" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=22">
+  <script src="assets/js/config.js?v=22" defer></script>
+  <script src="assets/js/main.js?v=22" defer></script>
   <script src="assets/vendor/pdf.min.js" defer></script>
   <script src="assets/vendor/mammoth.browser.min.js" defer></script>
   <script src="assets/vendor/marked.min.js" defer></script>
   <script src="assets/vendor/purify.min.js" defer></script>
-  <script src="assets/js/atelier.js?v=20" defer></script>
+  <script src="assets/js/atelier.js?v=22" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -429,12 +429,18 @@
           </article>
         </div>
 
+        <div class="note-box sage recontact" data-cfg-if="EMAIL" hidden>
+          <p><strong>Vous préférez que Shirley vous recontacte&nbsp;?</strong> Un e-mail déjà rédigé s’ouvre&nbsp;: vous n’avez plus qu’à l’envoyer, en ajoutant si vous le souhaitez ce que vous retenez de votre analyse.</p>
+          <a class="btn btn-secondary" href="#" data-contact-analyse>Je souhaite être recontacté·e</a>
+        </div>
+
         <!-- Fin du PDF : suites possibles et mentions -->
         <div class="print-only print-next">
           <p class="print-next-title">Pour aller plus loin, avec Shirley</p>
           <p><strong>Vous hésitez encore entre plusieurs pistes&nbsp;?</strong> Débrief &amp; Positionnement, <span data-prix="debrief">149&nbsp;€</span> TTC&nbsp;: 60 à 75 minutes pour choisir une cible prioritaire et construire une feuille de route sur 30 jours.</p>
           <p><strong>Votre direction est identifiée&nbsp;?</strong> Refonte &amp; Candidature, <span data-prix="refonte">450&nbsp;€</span> TTC&nbsp;: refonte humaine du CV, de LinkedIn, du pitch et de la stratégie de candidature autour d’un même angle.</p>
           <p class="print-url">almosnishirley.github.io/le-bon-angle/offres.html</p>
+          <p data-cfg-if="EMAIL" hidden>Pour être recontacté·e par Shirley&nbsp;: <strong data-cfg-text="EMAIL"></strong></p>
         </div>
         <p class="print-only print-disclaimer">Analyse rédigée par un agent d’IA configuré selon la méthode Le Bon Angle. C’est une base de travail, à relire et à adapter&nbsp;: elle peut contenir des imprécisions et ne remplace pas un arbitrage humain. Aucune garantie de recrutement. Le Bon Angle est une offre de BUILD RH.</p>
 
@@ -466,6 +472,8 @@
         <ul class="footer-links">
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
+          <li><a href="https://build-rh.io" data-cfg-href="LIEN_BUILDRH">BUILD RH</a></li>
+          <li><a href="https://www.youtube.com/@TDArHH" data-cfg-href="LIEN_YOUTUBE">Chaîne YouTube</a></li>
           <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Échanger sur l’accompagnement</a></li>
           <li hidden data-cfg-if="LIEN_LINKEDIN"><a href="#" data-cfg-href="LIEN_LINKEDIN">LinkedIn</a></li>
           <li hidden data-cfg-if="EMAIL"><a href="#" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></li>
