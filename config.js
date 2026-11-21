@@ -47,9 +47,13 @@ window.SITE_CONFIG = {
   SITE_URL: "https://almosnishirley.github.io/le-bon-angle/",
 
   /* --- Informations légales (page mentions-legales.html) --- */
-  STATUT_JURIDIQUE: "", /* ex. "Entreprise individuelle (micro-entreprise)" */
-  SIRET: "",
-  ADRESSE: "",          /* adresse professionnelle ou de domiciliation */
+  SOCIETE: "BUILD RH",
+  STATUT_JURIDIQUE: "EURL au capital de 1 500 €",
+  RCS: "RCS Nanterre 839 929 528 · NAF 7022Z",
+  SIRET: "839 929 528 00017",
+  TVA_INTRA: "FR 02 839 929 528",
+  DIRECTION: "Shirley Almosni Chiche, gérante",
+  ADRESSE: "1 Allée des Châtaigniers, 92410 Ville-d'Avray",
   MEDIATEUR: "",        /* médiateur de la consommation (nom + site), obligatoire pour vendre */
 
   /* --- L'Atelier (atelier.html) --- */

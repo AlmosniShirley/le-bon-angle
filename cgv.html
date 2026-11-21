@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=2">
-  <script src="config.js?v=4" defer></script>
+  <script src="config.js?v=5" defer></script>
   <script src="script.js?v=2" defer></script>
 </head>
 <body>
@@ -31,11 +31,13 @@
 
       <h2>1. Vendeur</h2>
       <dl>
-        <dt>Nom commercial</dt><dd>Le Bon Angle</dd>
-        <div hidden data-cfg-if="NOM"><dt>Exploitant</dt><dd data-cfg-text="NOM"></dd></div>
-        <div hidden data-cfg-if="STATUT_JURIDIQUE"><dt>Statut</dt><dd data-cfg-text="STATUT_JURIDIQUE"></dd></div>
+        <dt>Nom commercial</dt><dd>Le Bon Angle, une offre de BUILD RH</dd>
+        <div hidden data-cfg-if="SOCIETE"><dt>Société</dt><dd><span data-cfg-text="SOCIETE"></span>, <span data-cfg-text="STATUT_JURIDIQUE"></span></dd></div>
+        <div hidden data-cfg-if="RCS"><dt>Immatriculation</dt><dd data-cfg-text="RCS"></dd></div>
         <div hidden data-cfg-if="SIRET"><dt>SIRET</dt><dd data-cfg-text="SIRET"></dd></div>
-        <div hidden data-cfg-if="ADRESSE"><dt>Adresse</dt><dd data-cfg-text="ADRESSE"></dd></div>
+        <div hidden data-cfg-if="TVA_INTRA"><dt>TVA intracommunautaire</dt><dd data-cfg-text="TVA_INTRA"></dd></div>
+        <div hidden data-cfg-if="ADRESSE"><dt>Siège social</dt><dd data-cfg-text="ADRESSE"></dd></div>
+        <div hidden data-cfg-if="DIRECTION"><dt>Gérante</dt><dd data-cfg-text="DIRECTION"></dd></div>
         <div hidden data-cfg-if="EMAIL"><dt>Contact</dt><dd><a class="text-link" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></dd></div>
       </dl>
 
