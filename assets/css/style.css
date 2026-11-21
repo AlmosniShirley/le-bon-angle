@@ -77,6 +77,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
 ::selection { background: var(--powder); }
 
+/* Un élément marqué « hidden » reste caché, quel que soit son style */
+[hidden] { display: none !important; }
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .skip-link { position: absolute; left: 1rem; top: -100px; z-index: 100; background: var(--ink); color: #fff; padding: 0.75rem 1rem; border-radius: var(--radius); font-weight: 700; }
 .skip-link:focus { top: 1rem; }
