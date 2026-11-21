@@ -162,6 +162,15 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: buildMessage(), accessCode: $("access").value.trim() })
     }).then(function (data) {
+      var rem = $("remaining");
+      if (typeof data.remaining === "number") {
+        rem.textContent = data.remaining > 0
+          ? "Il vous reste " + data.remaining + " analyse" + (data.remaining > 1 ? "s" : "") + " avec ce code."
+          : "C'était la dernière analyse incluse avec ce code.";
+        rem.hidden = false;
+      } else {
+        rem.hidden = true;
+      }
       return poll(data.conversationId, 1);
     }).then(function (markdown) {
       showResult(markdown);
@@ -235,6 +244,13 @@
     errorBox.hidden = true;
 
     if (CONFIG.ATELIER_ACCESS_CODE_REQUIRED) $("access-wrap").hidden = false;
+
+    var buyUrl = (CONFIG.ATELIER_ACHAT_URL || "").trim();
+    if (/^https:\/\//.test(buyUrl)) {
+      $("buy-link").href = buyUrl;
+      $("buy-price").textContent = (CONFIG.ATELIER_PRIX_TEXTE || "").trim();
+      $("buy-box").hidden = false;
+    }
 
     fileInput.addEventListener("change", function () { handleFile(fileInput.files[0]); });
     cvText.addEventListener("input", updateCount);

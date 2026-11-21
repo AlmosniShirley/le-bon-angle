@@ -12,7 +12,10 @@ DUST_WORKSPACE_ID = "LiNKoSV40F"
 DUST_AGENT_ID = "NVBu1Z6rj7"
 # Sites autorisés à appeler le relais (séparés par des virgules)
 ALLOWED_ORIGINS = "https://almosnishirley.github.io,http://localhost:8000"
+# Nombre d'analyses incluses dans un achat Payhip
+PAYHIP_MAX_USES = "1"
 
 # Secrets — à saisir en ligne de commande, jamais dans ce fichier :
 #   npx wrangler secret put DUST_API_KEY
 #   npx wrangler secret put ACCESS_CODE
+#   npx wrangler secret put PAYHIP_SECRET

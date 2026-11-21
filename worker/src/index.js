@@ -12,8 +12,17 @@
                               réponse   : { status: "running" | "done" | "error", content? }
 
    Secrets (wrangler secret put …) :
-     DUST_API_KEY   clé API Dust (obligatoire)
-     ACCESS_CODE    code d'accès à donner aux candidats (optionnel mais conseillé)
+     DUST_API_KEY    clé API Dust (obligatoire)
+     ACCESS_CODE     code personnel illimité (vous et vos candidats accompagnés)
+     PAYHIP_SECRET   « product secret key » du produit Payhip (codes achetés)
+
+   Variables (wrangler.toml) :
+     PAYHIP_MAX_USES nombre d'analyses incluses dans un achat (ex. "1" ou "3")
+
+   Accès : un code est accepté s'il est égal à ACCESS_CODE, ou si c'est une
+   clé de licence Payhip active dont le compteur d'utilisations est inférieur
+   à PAYHIP_MAX_USES. Une analyse n'est décomptée que si l'agent a bien été
+   contacté.
 
    Variables (wrangler.toml) :
      DUST_BASE_URL     https://dust.tt  ou  https://eu.dust.tt
@@ -25,6 +34,33 @@
    ===================================================================== */
 
 const MAX_MESSAGE_CHARS = 40000;
+const PAYHIP_API = "https://payhip.com/api/v2/license";
+
+/* Vérifie une clé Payhip. Renvoie { ok, uses, max } ou { ok:false, reason } */
+async function checkPayhipKey(env, key) {
+  if (!env.PAYHIP_SECRET || !/^[A-Za-z0-9-]{8,100}$/.test(key)) return { ok: false, reason: "invalid" };
+  const res = await fetch(`${PAYHIP_API}/verify?license_key=${encodeURIComponent(key)}`, {
+    headers: { "product-secret-key": env.PAYHIP_SECRET },
+  });
+  const text = await res.text();
+  let data = null;
+  try { data = JSON.parse(text).data; } catch { data = null; }
+  if (!res.ok || !data) return { ok: false, reason: "invalid" };
+  if (data.enabled === false) return { ok: false, reason: "disabled" };
+  const max = parseInt(env.PAYHIP_MAX_USES || "1", 10);
+  const uses = Number(data.uses) || 0;
+  if (uses >= max) return { ok: false, reason: "used", uses, max };
+  return { ok: true, uses, max };
+}
+
+async function consumePayhipKey(env, key) {
+  const res = await fetch(`${PAYHIP_API}/usage`, {
+    method: "PUT",
+    headers: { "product-secret-key": env.PAYHIP_SECRET, "Content-Type": "application/x-www-form-urlencoded" },
+    body: `license_key=${encodeURIComponent(key)}`,
+  });
+  if (!res.ok) console.log("Payhip usage error", res.status, (await res.text()).slice(0, 300));
+}
 
 /* Consignes ajoutées par le relais devant chaque demande.
    Le candidat ne les voit pas et ne peut pas les retirer. */
@@ -71,12 +107,28 @@ export default {
         let body;
         try { body = await request.json(); } catch { return json({ error: "Requête invalide." }, 400); }
 
-        if (env.ACCESS_CODE && (body.accessCode || "").trim() !== env.ACCESS_CODE) {
-          return json({ error: "Code d'accès incorrect." }, 401);
-        }
         const message = typeof body.message === "string" ? body.message.trim() : "";
         if (message.length < 200) return json({ error: "Le contenu du CV semble vide ou trop court." }, 400);
         if (message.length > MAX_MESSAGE_CHARS) return json({ error: "Le CV est trop long (40 000 caractères maximum)." }, 413);
+
+        /* Contrôle d'accès : code personnel ou clé Payhip achetée */
+        const code = (body.accessCode || "").trim();
+        let payhip = null;
+        const isPersonal = env.ACCESS_CODE && code === env.ACCESS_CODE;
+        if (!isPersonal) {
+          if (!env.PAYHIP_SECRET && env.ACCESS_CODE) return json({ error: "Code d'accès incorrect." }, 401);
+          if (env.PAYHIP_SECRET) {
+            payhip = await checkPayhipKey(env, code);
+            if (!payhip.ok) {
+              const msg = payhip.reason === "used"
+                ? "Ce code a déjà été utilisé pour toutes les analyses incluses dans votre achat."
+                : payhip.reason === "disabled"
+                  ? "Ce code a été désactivé."
+                  : "Code d'analyse introuvable. Vérifiez-le dans l'e-mail reçu après votre achat.";
+              return json({ error: msg }, 401);
+            }
+          }
+        }
 
         const res = await fetch(api, {
           method: "POST",
@@ -97,7 +149,12 @@ export default {
           console.log("Dust create error", res.status, JSON.stringify(data).slice(0, 500));
           return json({ error: "L'agent n'a pas pu être contacté." }, 502);
         }
-        return json({ conversationId: data.conversation.sId });
+        let remaining = null;
+        if (payhip && payhip.ok) {
+          await consumePayhipKey(env, code);
+          remaining = Math.max(0, payhip.max - payhip.uses - 1);
+        }
+        return json({ conversationId: data.conversation.sId, remaining });
       }
 
       /* ---------- Lecture de la réponse ---------- */

@@ -50,6 +50,7 @@ window.SITE_CONFIG = {
   STATUT_JURIDIQUE: "", /* ex. "Entreprise individuelle (micro-entreprise)" */
   SIRET: "",
   ADRESSE: "",          /* adresse professionnelle ou de domiciliation */
+  MEDIATEUR: "",        /* médiateur de la consommation (nom + site), obligatoire pour vendre */
 
   /* --- L'Atelier (atelier.html) --- */
   /* Adresse du relais Cloudflare Worker, ex.
@@ -59,5 +60,12 @@ window.SITE_CONFIG = {
 
   /* true = les candidats doivent saisir un code d'accès
      (à définir côté relais avec : npx wrangler secret put ACCESS_CODE) */
-  ATELIER_ACCESS_CODE_REQUIRED: true
+  ATELIER_ACCESS_CODE_REQUIRED: true,
+
+  /* Lien de la page produit Payhip « Analyse Atelier », ex.
+     "https://payhip.com/b/XXXXX". Si vide : le bouton d'achat est masqué. */
+  ATELIER_ACHAT_URL: "",
+
+  /* Texte du prix affiché à côté du bouton, ex. "9 € TTC pour 1 analyse" */
+  ATELIER_PRIX_TEXTE: ""
 };

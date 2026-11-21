@@ -98,6 +98,23 @@
 #submit-btn { margin-top: 0.75rem; justify-self: start; }
 #submit-btn:disabled { opacity: 0.6; cursor: wait; }
 
+.buy-box {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--powder);
+  border-radius: 8px;
+  display: grid; gap: 0.6rem; justify-items: start;
+}
+.buy-box p { margin: 0; }
+.buy-box .hint { color: var(--ink); }
+.remaining {
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  background: var(--tint);
+  border-left: 4px solid var(--powder);
+  border-radius: 0 8px 8px 0;
+}
+
 /* Progression */
 .progress { text-align: center; display: grid; justify-items: center; gap: 0.5rem; padding-block: 3rem; }
 .progress p { margin: 0; font-weight: 700; }
