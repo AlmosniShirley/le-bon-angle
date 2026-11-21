@@ -79,6 +79,7 @@ window.SITE_CONFIG = {
   LIEN_BUILDRH: "https://build-rh.io",
   LIEN_BLOG: "https://prompt-humain.ghost.io",
   LIEN_YOUTUBE: "https://www.youtube.com/@TDArHH",
+  LIEN_RESSOURCES: "https://almosnishirley.github.io/bibliotheque-ressources/",
 
   /* Chemin de la photo de Shirley, ex. "assets/images/shirley.jpg"
      (portrait 4:5, environ 800 × 1000 px, < 200 Ko). Vide = emplacement. */
