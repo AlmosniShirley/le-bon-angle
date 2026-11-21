@@ -141,8 +141,8 @@ Tant que `ATELIER_API_URL` est vide dans `config.js`, la page affiche « L'Ateli
 3. Dans le Worker, *Settings → Variables and Secrets* :
    | Nom | Type | Valeur |
    |---|---|---|
-   | `DUST_BASE_URL` | Text | `https://dust.tt` ou `https://eu.dust.tt` |
-   | `DUST_WORKSPACE_ID` | Text | l'identifiant de l'espace |
+   | `DUST_BASE_URL` | Text | `https://dust.tt` |
+   | `DUST_WORKSPACE_ID` | Text | `LiNKoSV40F` |
    | `DUST_AGENT_ID` | Text | `hgYs4LZhi2` |
    | `ALLOWED_ORIGINS` | Text | `https://almosnishirley.github.io` |
    | `DUST_API_KEY` | **Secret** | la clé API Dust |
