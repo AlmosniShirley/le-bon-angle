@@ -16,7 +16,7 @@ le-bon-angle/
 ├── methode.html            La méthode
 ├── offres.html             Les 4 offres + comparatif + guide de choix
 ├── atelier.html            Analyse Le Bon Angle : vente, formulaire, résultat
-├── accompagnement.html     Les 3 accompagnements humains (#debrief #refonte #acceleration)
+├── accompagnement.html     Les 3 accompagnements (#se-situer #construire #deployer)
 ├── a-propos.html           Shirley et BUILD RH
 ├── faq.html                Questions fréquentes
 ├── cgv.html                Conditions générales de vente (analyse)
@@ -44,31 +44,28 @@ L'adresse `atelier.html` est conservée pour ne casser aucun lien existant (Payh
 Tout est dans **`assets/js/config.js`**, bloc `OFFRES` :
 
 ```js
-analyse:      { prix: 12,  prixCible: 19,  mention: "Tarif de lancement", lienPaiement: "https://payhip.com/b/k5c6D" },
-debrief:      { prix: 149, lien: "", deductionAnalyse: true, deductionJours: 7 },
-refonte:      { prix: 450, lien: "" },
-acceleration: { prix: 690, prixCible: 790, mention: "Tarif de lancement", paiement: "…", lien: "" }
+analyse:    { prix: 0,   lienPaiement: "https://payhip.com/b/k5c6D" },   // 0 = gratuit (code sur e-mail via Payhip)
+situer:     { nom: "Se situer — …",   prix: 129, paiement: "", lien: "" },
+construire: { nom: "Construire — …",  prix: 390, paiement: "", lien: "" },
+deployer:   { nom: "Déployer — …",    prix: 690, paiement: "", lien: "" }
 ```
 
-- **Passer l'analyse à 19 €** : `prix: 19, prixCible: null, mention: ""`. Pensez à modifier aussi le prix **dans Payhip**.
-- Tous les prix du site (boutons, cartes, tableau comparatif, FAQ, données structurées) se mettent à jour seuls.
-- Les pages contiennent aussi le prix en dur, affiché si JavaScript est désactivé et lu par certains moteurs. Pour les aligner, faites un rechercher-remplacer (ex. `12 €`) dans les fichiers `.html`.
-- Déduction de l'analyse sur le débrief : `deductionAnalyse: false` masque toutes les mentions.
+- Prix en euros TTC. Les accompagnements sont réglés directement auprès de BUILD RH ; Payhip ne sert qu'à l'analyse.
+- `paiement` : texte facultatif affiché sous le prix (vide = rien).
+- Les pages contiennent aussi le prix en dur (affiché sans JavaScript, lu par les moteurs). Pour les aligner, rechercher-remplacer dans les `.html` (ex. `129&nbsp;€`).
+- Si l'analyse redevient payante : régler Payhip pour que la TVA soit **incluse** dans le prix (sinon 12 € affichés = 14,40 € payés).
 
-## 3. Liens de rendez-vous et de paiement
+## 3. Liens de rendez-vous et de contact
 
 | Besoin | Champ dans `config.js` |
 |---|---|
-| Agenda utilisé par tous les boutons « Prendre rendez-vous » | `LIEN_RDV` (Calendly) |
-| Lien propre au Débrief (ex. un type d'événement Calendly payant) | `OFFRES.debrief.lien` |
-| Lien propre à la Refonte | `OFFRES.refonte.lien` |
-| Lien propre à l'Accélération | `OFFRES.acceleration.lien` |
-| Paiement de l'analyse (Payhip) | `OFFRES.analyse.lienPaiement` |
-| E-mail public, LinkedIn, photo | `EMAIL`, `LIEN_LINKEDIN`, `PHOTO` |
+| Agenda utilisé par les boutons d'accompagnement et « Échanger sur l'accompagnement » | `LIEN_RDV` (Calendly) |
+| Lien propre à une formule | `OFFRES.situer.lien`, `OFFRES.construire.lien`, `OFFRES.deployer.lien` |
+| Page Payhip de l'analyse gratuite | `OFFRES.analyse.lienPaiement` |
+| E-mail (boutons « Me contacter », « Je souhaite être recontacté·e », pied de page) | `EMAIL` |
+| Liens vers les autres sites | `LIEN_BUILDRH`, `LIEN_YOUTUBE`, `LIEN_BLOG`, `LIEN_RESSOURCES` |
 
-Un lien d'offre vide renvoie vers `LIEN_RDV`. Si `LIEN_RDV` est vide aussi, les boutons ouvrent un e-mail vers `EMAIL`.
-
-**Si vous changez le lien Calendly** : il apparaît aussi en dur dans les pages (lien de secours sans JavaScript). Rechercher-remplacer `calendly.com/shirley-chiche-buildrh/call-decouverte` dans les `.html`.
+Ancres des formules (pour les liens directs) : `accompagnement.html#se-situer`, `#construire`, `#deployer`.
 
 ## 4. Modifier les textes
 
@@ -146,7 +143,7 @@ La page 404 utilise des chemins en `/le-bon-angle/…`. Si vous passez sur un no
 - [ ] La différence entre l'analyse automatisée et l'accompagnement est claire (offres.html, comparatif)
 
 **Prix**
-- [ ] 12 € / 19 € · 149 € · 450 € · 690 € / 790 € partout (accueil, offres, accompagnement, analyse, FAQ)
+- [ ] Analyse gratuite · 129 € · 390 € · 690 € TTC partout (accueil, offres, accompagnement, analyse, PDF, FAQ)
 - [ ] Même prix sur la page Payhip
 - [ ] Changer un prix dans `config.js` → visible partout après rechargement
 
@@ -156,12 +153,12 @@ La page 404 utilise des chemins en `/le-bon-angle/…`. Si vous passez sur un no
 - [ ] Erreurs : CV vide, code manquant, case non cochée, code invalide → message clair, focus sur le champ
 - [ ] Analyse complète : synthèse, sommaire cliquable, blocs séparés
 - [ ] Copier, Télécharger (.md), Imprimer / PDF fonctionnent
-- [ ] « Réserver un débrief » et « Voir la refonte complète » mènent au bon endroit
+- [ ] « Réserver un échange » et « Découvrir Construire » (page de résultat) mènent au bon endroit
 - [ ] Code personnel (`ACCESS_CODE`) toujours accepté
 
 **Liens**
 - [ ] Tous les boutons d'accompagnement ouvrent le bon lien (Calendly ou lien propre)
-- [ ] Menu, pied de page, ancres `#debrief`, `#refonte`, `#acceleration`
+- [ ] Menu, pied de page, ancres `#se-situer`, `#construire`, `#deployer`
 - [ ] Une adresse inexistante affiche la page 404
 
 **Mobile et accessibilité**

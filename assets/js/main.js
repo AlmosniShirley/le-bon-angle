@@ -85,7 +85,7 @@
       el.textContent = p;
       el.hidden = !p;
     });
-    var d = OFFRES.debrief || {};
+    var d = OFFRES.situer || {};
     each("[data-if-deduction]", function (el) { el.hidden = !d.deductionAnalyse; });
     each("[data-if-deduction-off]", function (el) { el.hidden = !!d.deductionAnalyse; });
     each("[data-deduction-jours]", function (el) { if (isNum(d.deductionJours)) el.textContent = String(d.deductionJours); });
@@ -95,6 +95,12 @@
       if (!href) return;
       link.setAttribute("href", href);
       if (/^https?:\/\//i.test(href)) markNewTab(link);
+    });
+    each("[data-contact=\"general\"]", function (link) {
+      var email = cfg("EMAIL");
+      if (!email) { link.hidden = true; return; }
+      var body = "Bonjour Shirley,\n\nMa situation actuelle :\n\n\nCe que je cherche à clarifier ou à construire :\n\n\nCe que j'ai déjà essayé :\n\n\nLa formule qui m'attire le plus (si j'en ai une) :\n\n";
+      link.setAttribute("href", "mailto:" + email + "?subject=" + encodeURIComponent("Le Bon Angle : prise de contact") + "&body=" + encodeURIComponent(body));
     });
     each("[data-contact-analyse]", function (link) {
       var email = cfg("EMAIL");
@@ -155,7 +161,7 @@
       var same = ["LIEN_LINKEDIN", "LIEN_YOUTUBE", "LIEN_BUILDRH"].map(cfg).filter(Boolean);
       if (same.length) data.sameAs = same;
       var items = [];
-      ["analyse", "debrief", "refonte", "acceleration"].forEach(function (k) {
+      ["analyse", "situer", "construire", "deployer"].forEach(function (k) {
         var o = OFFRES[k];
         if (o && isNum(o.prix)) items.push({ "@type": "Offer", name: o.nom, price: String(o.prix), priceCurrency: "EUR" });
       });

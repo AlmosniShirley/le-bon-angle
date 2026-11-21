@@ -31,35 +31,34 @@ window.SITE_CONFIG = {
       lienPaiement: "https://payhip.com/b/k5c6D"
     },
 
-    debrief: {
-      nom: "Débrief & Positionnement",
-      prix: 149,
+    /* Les trois accompagnements humains (prix en euros TTC).
+       lien : réservation ou paiement propre à l'offre ; vide = LIEN_RDV.
+       paiement : texte affiché sous le prix ("" pour masquer). */
+    situer: {
+      nom: "Se situer — Le débrief humain de votre trajectoire",
+      prix: 129,
       mention: "",
-      // Lien de réservation ou de paiement propre à cette offre.
-      // Vide = le bouton ouvre LIEN_RDV (ci-dessous).
+      paiement: "",
       lien: "",
-      // Prix de l'analyse déduit si le débrief est réservé dans les N jours
-      deductionAnalyse: false,      // true pour réafficher la déduction de l'analyse sur le Débrief
+      deductionAnalyse: false,       // sans objet : l'analyse est gratuite
       deductionJours: 7
     },
 
-    refonte: {
-      nom: "Refonte & Candidature",
-      prix: 450,
+    construire: {
+      nom: "Construire — La feuille de route professionnelle",
+      prix: 390,
       mention: "",
+      paiement: "",
       lien: ""
     },
 
-    acceleration: {
-      nom: "Accélération de recherche",
+    deployer: {
+      nom: "Déployer — Le parcours de mise en mouvement",
       prix: 690,
-      prixCible: 790,
-      mention: "Tarif de lancement",
-      // Précision factuelle sur le lancement (date de fin, nombre de places…).
-      // Vide = rien d'affiché. Ne pas créer de fausse urgence.
+      prixCible: null,
+      mention: "",
       precisionLancement: "",
-      // Texte affiché sous le prix ("" pour masquer)
-      paiement: "Paiement comptant, ou en deux fois sur demande.",
+      paiement: "",
       lien: ""
     }
   },
