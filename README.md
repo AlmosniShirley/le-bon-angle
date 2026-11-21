@@ -1,216 +1,181 @@
-# Le Bon Angle — site vitrine
+# Le Bon Angle — site Internet
 
-**Design de carrière et de rôle pour professionnels Tech en transformation.**
+**Une méthode de clarification et de repositionnement professionnel, augmentée par l'IA et prolongée par un accompagnement humain.** Une offre de BUILD RH.
 
-Site one-page statique (HTML, CSS, JavaScript vanilla). Pas de build, pas de dépendance, pas de base de données, pas de cookie. Hébergé sur GitHub Pages.
+Site statique (HTML, CSS, JavaScript vanilla) : pas de build, pas de base de données, pas de cookie, pas de traceur. Hébergé sur GitHub Pages.
 
 En ligne : <https://almosnishirley.github.io/le-bon-angle/>
 
-## Structure
+---
+
+## 1. Structure
 
 ```
 le-bon-angle/
-├── index.html               Page principale (tous les textes)
-├── config.js                ← Variables à personnaliser (nom, liens, photo…)
-├── styles.css               Styles (palette Build RH en haut du fichier)
-├── script.js                Application de la config + menu mobile
-├── mentions-legales.html    Mentions légales (remplies depuis config.js)
-├── confidentialite.html     Politique de confidentialité
-├── favicon.svg              Icône
-├── robots.txt
+├── index.html              Accueil
+├── methode.html            La méthode
+├── offres.html             Les 4 offres + comparatif + guide de choix
+├── atelier.html            Analyse Le Bon Angle : vente, formulaire, résultat
+├── accompagnement.html     Les 3 accompagnements humains (#debrief #refonte #acceleration)
+├── a-propos.html           Shirley et BUILD RH
+├── faq.html                Questions fréquentes
+├── cgv.html                Conditions générales de vente (analyse)
+├── confidentialite.html    Politique de confidentialité
+├── mentions-legales.html   Mentions légales
+├── 404.html                Page introuvable
+├── sitemap.xml · robots.txt · favicon.svg
 ├── assets/
-│   ├── fonts/               Poppins + Atkinson Hyperlegible (auto-hébergées)
-│   └── og-image.png         Image de partage 1200 × 630
-└── .github/workflows/deploy.yml   Déploiement par GitHub Actions (optionnel, voir § 5)
+│   ├── css/style.css       Toute la mise en forme (palette en haut du fichier)
+│   ├── js/config.js        ← PRIX, LIENS, PARAMÈTRES : le fichier à modifier
+│   ├── js/main.js          Applique config.js, menu mobile
+│   ├── js/atelier.js       Lecture du CV, envoi au relais, affichage du résultat
+│   ├── fonts/              Fraunces (titres) + Atkinson Hyperlegible (texte), auto-hébergées
+│   ├── images/og-image.png Image de partage 1200 × 630
+│   └── vendor/             pdf.js, mammoth, marked, DOMPurify (sans CDN)
+└── worker/                 Relais Cloudflare (garde la clé Dust secrète) — inchangé
 ```
 
-Ordre des sections de la page : Hero · Est-ce que cela vous parle ? · Design de rôle · Notre méthode · Les accompagnements · Neuroatypisme · À propos · Ce que nous ne promettons pas · FAQ · CTA final.
+L'adresse `atelier.html` est conservée pour ne casser aucun lien existant (Payhip, e-mails, partages).
 
 ---
 
-## 1. Variables à compléter (`config.js`)
+## 2. Modifier les prix
 
-Tout le contenu personnel est centralisé dans **`config.js`**. Un champ vide (`""`) est masqué automatiquement : aucun crochet `[…]` ni texte de démonstration n'apparaît sur le site.
+Tout est dans **`assets/js/config.js`**, bloc `OFFRES` :
 
-| Variable du brief               | Champ dans `config.js`        | Statut                     |
-|---------------------------------|-------------------------------|----------------------------|
-| `[NOM]`                         | `NOM`                         | à compléter                |
-| `[EMAIL]`                       | `EMAIL`                       | à compléter                |
-| `[LIEN_CALENDLY_OU_FORMULAIRE]` | `LIEN_CALENDLY_OU_FORMULAIRE` | **à compléter en priorité** |
-| `[LIEN_LINKEDIN]`               | `LIEN_LINKEDIN`               | à compléter                |
-| `[PHOTO]`                       | `PHOTO`                       | à compléter                |
-| `[LOCALISATION]`                | `LOCALISATION`                | à compléter                |
-| `[MENTIONS_LEGALES]`            | `MENTIONS_LEGALES`            | `mentions-legales.html` (par défaut) |
+```js
+analyse:      { prix: 12,  prixCible: 19,  mention: "Tarif de lancement", lienPaiement: "https://payhip.com/b/k5c6D" },
+debrief:      { prix: 149, lien: "", deductionAnalyse: true, deductionJours: 7 },
+refonte:      { prix: 450, lien: "" },
+acceleration: { prix: 690, prixCible: 790, mention: "Tarif de lancement", paiement: "…", lien: "" }
+```
 
-Champs complémentaires :
+- **Passer l'analyse à 19 €** : `prix: 19, prixCible: null, mention: ""`. Pensez à modifier aussi le prix **dans Payhip**.
+- Tous les prix du site (boutons, cartes, tableau comparatif, FAQ, données structurées) se mettent à jour seuls.
+- Les pages contiennent aussi le prix en dur, affiché si JavaScript est désactivé et lu par certains moteurs. Pour les aligner, faites un rechercher-remplacer (ex. `12 €`) dans les fichiers `.html`.
+- Déduction de l'analyse sur le débrief : `deductionAnalyse: false` masque toutes les mentions.
 
-| Champ              | Usage                                                         | Statut |
-|--------------------|---------------------------------------------------------------|--------|
-| `BIO`              | Courte biographie sous « À propos »                           | à compléter |
-| `FAQ_VISIO`        | Réponse à « Les rendez-vous sont-ils en visioconférence ? » (sinon : réponse neutre) | à compléter |
-| `SITE_URL`         | URL publique (données structurées)                            | rempli |
-| `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE` | Mentions légales (obligatoires)           | à compléter |
+## 3. Liens de rendez-vous et de paiement
 
-**CTA unique :** tous les boutons « Parler de ma situation » (header, hero, quatre cartes, CTA final) pointent vers `LIEN_CALENDLY_OU_FORMULAIRE`. Tant qu'il est vide, ils ouvrent un e-mail vers `EMAIL`. Si les deux sont vides, ils renvoient vers le bloc final de la page.
+| Besoin | Champ dans `config.js` |
+|---|---|
+| Agenda utilisé par tous les boutons « Prendre rendez-vous » | `LIEN_RDV` (Calendly) |
+| Lien propre au Débrief (ex. un type d'événement Calendly payant) | `OFFRES.debrief.lien` |
+| Lien propre à la Refonte | `OFFRES.refonte.lien` |
+| Lien propre à l'Accélération | `OFFRES.acceleration.lien` |
+| Paiement de l'analyse (Payhip) | `OFFRES.analyse.lienPaiement` |
+| E-mail public, LinkedIn, photo | `EMAIL`, `LIEN_LINKEDIN`, `PHOTO` |
 
-## 2. Modifier les textes
+Un lien d'offre vide renvoie vers `LIEN_RDV`. Si `LIEN_RDV` est vide aussi, les boutons ouvrent un e-mail vers `EMAIL`.
 
-Tous les textes sont dans **`index.html`**, en blocs commentés (`<!-- ===== HERO ===== -->`, etc.). Cherchez la phrase (Cmd/Ctrl + F) et remplacez-la.
+**Si vous changez le lien Calendly** : il apparaît aussi en dur dans les pages (lien de secours sans JavaScript). Rechercher-remplacer `calendly.com/shirley-chiche-buildrh/call-decouverte` dans les `.html`.
 
-Les **prix** apparaissent à trois endroits : les cartes d'offres, la réponse FAQ « Peut-on payer en plusieurs fois ? » et le bloc `application/ld+json` dans le `<head>`.
+## 4. Modifier les textes
 
-### Palette et contrastes
+Les textes sont dans les fichiers `.html`, découpés en blocs commentés (`<!-- ===== HERO ===== -->`…). Rechercher la phrase (Cmd + F), la remplacer.
 
-Définie en haut de `styles.css` (`:root`) :
+⚠️ L'en-tête (menu) et le pied de page sont **recopiés dans chaque page**. Pour ajouter un lien au menu, modifiez les 11 fichiers (rechercher `<nav id="main-nav"`).
+
+**Emplacements à compléter** (masqués par défaut) : `[PHOTO DE SHIRLEY À AJOUTER]`, `[PARCOURS DÉTAILLÉ À AJOUTER…]`, `[RÉFÉRENCES OU INTERVENTIONS À AJOUTER…]` (à propos). Remplacez la balise `<div class="placeholder">…</div>` par le vrai contenu. Pour les masquer tous d'un coup en attendant : `AFFICHER_EMPLACEMENTS: false`.
+
+**Photo** : portrait 4:5 (≈ 800 × 1000 px, < 200 Ko) dans `assets/images/`, puis `PHOTO: "assets/images/shirley.jpg"`.
+
+## 5. Paramètres de l'agent (Analyse)
+
+Bloc `ATELIER` de `config.js` :
+
+| Champ | Rôle |
+|---|---|
+| `API_URL` | Adresse du relais Cloudflare Worker. Vide = page « pas encore ouverte » |
+| `CODE_REQUIS` | Code d'analyse obligatoire (clé Payhip ou code personnel) |
+| `MAX_CARACTERES` | 40 000, identique au relais |
+| `ATTENTE_MAX_MINUTES` | Délai avant message « plus long que prévu » |
+
+Fonctionnement (inchangé) :
+
+```
+Navigateur ──► Relais Cloudflare Worker ──► API Dust ──► agent Le Bon Angle
+(atelier.js)    (worker/src/index.js : clé Dust, Payhip, consignes)
+```
+
+- `POST /analyze` `{ message, accessCode }` puis `GET /result?c=…` : contrat identique à l'ancienne version, **le relais n'a pas besoin d'être redéployé**.
+- Le message envoyé contient désormais en plus : situation actuelle, rôles envisagés, autres supports, priorité attendue. Il demande à l'agent de commencer par une section `## Synthèse`. Le résultat est découpé en blocs, un par titre, avec un sommaire.
+- Secrets (`DUST_API_KEY`, `ACCESS_CODE`, `PAYHIP_SECRET`) : **uniquement dans Cloudflare**, jamais dans `config.js`.
+- Mise en service du relais : voir les commentaires en tête de `worker/src/index.js` et `worker/wrangler.toml`.
+
+## 6. Pages légales
+
+`mentions-legales.html`, `cgv.html`, `confidentialite.html`. Les informations société (SIRET, adresse, médiateur…) viennent de `config.js` (section 4). Le reste du texte se modifie directement dans les pages. Toute modification juridique doit être relue par un·e professionnel·le du droit.
+
+## 7. Couleurs et typographie
+
+Charte Build RH, définie en haut de `assets/css/style.css` (`:root`).
 
 | Rôle | Couleur | Remarque |
 |---|---|---|
-| Rose poudré (blocs, CTA) | `#E7C2C0` | texte toujours noir dessus |
-| Rose très clair (fonds) | `#F8EFEE` | |
+| Rose poudré (boutons, blocs) | `#E7C2C0` | texte toujours noir dessus |
+| Rose très clair (sections alternées) | `#F8EFEE` | |
 | Noir | `#171717` | |
-| Blanc | `#FFFFFF` | |
-| Accent rose foncé | `#9B6B69` | **contraste 4,4:1 : réservé aux décors et grands textes** (sous-titre du hero) |
-| Accent lisible (petits textes) | `#7E5250` | ajouté pour respecter le WCAG AA (≥ 5,8:1) |
-| Gris secondaire | `#5F5958` | jamais posé sur le rose poudré |
+| Blanc (fond) | `#FFFFFF` | |
+| Rose foncé (décor, grands titres) | `#9B6B69` | 4,4:1 : jamais pour les petits textes |
+| Rose foncé lisible (liens, petits textes) | `#7E5250` | 5,8:1 |
+| Gris secondaire | `#5F5958` | jamais sur le rose poudré |
 | Bordures | `#D8C8C6` | |
 
-Polices : **Poppins** (titres) et **Atkinson Hyperlegible** (texte, conçue pour la lisibilité), auto-hébergées dans `assets/fonts/`, sans appel à Google.
+Polices : Poppins (titres) et Atkinson Hyperlegible (texte), auto-hébergées. Logo : équerre noire avec point rose foncé + « LE BON ANGLE » (CSS, classe `logo-mark`). Deux styles de boutons : `btn-primary` (rose poudré, contour noir) et `btn-secondary` (blanc, contour noir).
 
-## 3. Ajouter la photo
-
-1. Photo portrait (ratio 4:5, environ 800 × 1000 px, JPG ou WebP, moins de 200 Ko).
-2. Placez-la dans `assets/`, par exemple `assets/photo.jpg`.
-3. Dans `config.js` : `PHOTO: "assets/photo.jpg"`.
-
-Le texte alternatif reprend `NOM`. Sans photo, un bloc rose avec la marque s'affiche.
-
-## 4. Développement local
-
-Aucune installation ni build nécessaire.
+## 8. Tester en local et publier
 
 ```bash
 cd le-bon-angle
-python3 -m http.server 8000
-# puis ouvrir http://localhost:8000
+python3 -m http.server 8000      # puis http://localhost:8000
 ```
 
-Après une modification de `styles.css`, `script.js` ou `config.js`, incrémentez le `?v=` correspondant dans les trois fichiers HTML (`?v=2` → `?v=3`) pour éviter que les navigateurs gardent l'ancienne version en cache.
+Après modification de `style.css`, `config.js`, `main.js` ou `atelier.js` : remplacez `?v=10` par `?v=11` dans toutes les pages (rechercher-remplacer) pour vider le cache des navigateurs.
 
-## 5. Déploiement
+Publication : `git add -A && git commit -m "…" && git push` (GitHub Pages se met à jour en une à deux minutes).
 
-**Mode actuel : publication depuis la branche `main`** (Settings → Pages → Source : *Deploy from a branch*, `main` / root).
-
-```bash
-git add .
-git commit -m "Description de la modification"
-git push
-```
-
-Le site est mis à jour en une à deux minutes (onglet **Actions** du dépôt pour suivre).
-
-**Option : GitHub Actions.** Le workflow `.github/workflows/deploy.yml` publie uniquement les fichiers du site (pas le README). Il n'est pas encore poussé car le jeton GitHub local n'a pas le droit `workflow`. Pour l'activer :
-
-```bash
-gh auth refresh -s workflow
-git add .github && git commit -m "Ajout du workflow de déploiement" && git push
-```
-
-puis Settings → Pages → Source : **GitHub Actions**.
-
-**Nom de domaine (optionnel)** : fichier `CNAME` à la racine contenant le domaine, DNS chez le registrar, puis Settings → Pages → Custom domain + Enforce HTTPS. Mettez ensuite à jour l'URL dans `index.html` (`canonical`, `og:url`, `og:image`, JSON-LD) et `SITE_URL` dans `config.js`.
+La page 404 utilise des chemins en `/le-bon-angle/…`. Si vous passez sur un nom de domaine, remplacez ce préfixe par `/` dans `404.html`, et mettez à jour l'URL dans les balises `canonical` / `og:` des pages, `SITE_URL`, `sitemap.xml` et `robots.txt`. Ajoutez aussi le domaine à `ALLOWED_ORIGINS` du relais.
 
 ---
 
-## 6. L'Atelier (dépôt de CV + agent Dust)
+## Checklist de test avant publication
 
-Page `atelier.html` : le candidat dépose son CV (PDF, .docx ou texte, lu **dans son navigateur**), indique sa direction et ce qu'il veut recevoir, puis reçoit les propositions de l'agent Dust `NVBu1Z6rj7`.
+**Compréhension (test des 10 secondes)**
+- [ ] Une personne extérieure dit ce que fait Le Bon Angle après 10 secondes sur l'accueil
+- [ ] La différence entre l'analyse automatisée et l'accompagnement est claire (offres.html, comparatif)
 
-```
-Navigateur ──► Relais Cloudflare Worker ──► API Dust ──► agent NVBu1Z6rj7
- (atelier.js)    (worker/src/index.js,         (clé API gardée secrète
-                  garde la clé secrète)          dans le relais)
-```
+**Prix**
+- [ ] 12 € / 19 € · 149 € · 450 € · 690 € / 790 € partout (accueil, offres, accompagnement, analyse, FAQ)
+- [ ] Même prix sur la page Payhip
+- [ ] Changer un prix dans `config.js` → visible partout après rechargement
 
-Tant que `ATELIER_API_URL` est vide dans `config.js`, la page affiche « L'Atelier n'est pas encore ouvert ». La page n'est pas liée depuis l'accueil pour l'instant.
-
-### Mise en service (sans ligne de commande)
-
-1. **Dust** : Developers → API keys → *Create API key*. Copiez la clé (ne la partagez pas, ne la mettez dans aucun fichier).
-   Notez aussi l'identifiant de l'espace dans l'URL Dust (`https://dust.tt/w/<ID>/…`) et la région (`dust.tt` ou `eu.dust.tt`).
-2. **Cloudflare** : créez un compte gratuit sur <https://dash.cloudflare.com>, puis *Workers & Pages → Create → Create Worker*. Nommez-le `le-bon-angle-atelier`, déployez, puis *Edit code* : remplacez tout le code par le contenu de `worker/src/index.js` et cliquez sur *Deploy*.
-3. Dans le Worker, *Settings → Variables and Secrets* :
-   | Nom | Type | Valeur |
-   |---|---|---|
-   | `DUST_BASE_URL` | Text | `https://dust.tt` |
-   | `DUST_WORKSPACE_ID` | Text | `LiNKoSV40F` |
-   | `DUST_AGENT_ID` | Text | `NVBu1Z6rj7` |
-   | `ALLOWED_ORIGINS` | Text | `https://almosnishirley.github.io` |
-   | `DUST_API_KEY` | **Secret** | la clé API Dust |
-   | `ACCESS_CODE` | **Secret** | un code à donner aux candidats (conseillé) |
-4. Copiez l'adresse du Worker (`https://le-bon-angle-atelier.<vous>.workers.dev`) dans `config.js` → `ATELIER_API_URL`.
-   Si vous ne voulez pas de code d'accès : supprimez le secret `ACCESS_CODE` et mettez `ATELIER_ACCESS_CODE_REQUIRED: false`.
-5. Poussez le site (`git push`) et testez avec un vrai CV.
-
-Variante en ligne de commande (nécessite Node) : `cd worker && npx wrangler deploy`, puis `npx wrangler secret put DUST_API_KEY` et `npx wrangler secret put ACCESS_CODE`.
-
-### Protections en place
-- Clé Dust uniquement côté relais ; le relais n'accepte que les appels venant du site (`ALLOWED_ORIGINS`).
-- Code d'accès optionnel pour limiter l'usage (et donc la consommation de crédits Dust).
-- CV limité à 40 000 caractères ; e-mail et téléphone masqués par défaut avant l'envoi.
-- Consentement explicite obligatoire ; information détaillée dans `confidentialite.html#atelier`.
-- Réponse de l'agent affichée après nettoyage (DOMPurify) : aucun script ne peut s'exécuter.
-- Bibliothèques (pdf.js, mammoth, marked, DOMPurify) hébergées dans `assets/vendor/`, sans appel à un CDN.
-
-### À vérifier au premier test réel
-- Le format de l'API Dust utilisé par le relais (création de conversation avec `mentions`, lecture du message `agent_message`) correspond à la documentation Dust en vigueur : en cas d'erreur, consultez *Workers → le-bon-angle-atelier → Logs*.
-- La consommation de crédits Dust par analyse.
-- Les conditions de Dust pour les données personnelles (région d'hébergement, contrat de sous-traitance RGPD).
-
----
-
-## Checklist QA avant publication
-
-**Contenus et positionnement**
-- [ ] Le hero annonce « design de carrière et de rôle » ; « agent de carrière » n'apparaît que comme explication secondaire
-- [ ] Aucun texte de l'ancien positionnement (« Agent de carrière pour profils Tech », « Réserver un échange », « Choisir cette offre »)
-- [ ] Aucun témoignage, logo client, chiffre de résultat ou promesse de placement
-- [ ] Relecture orthographique complète
-
-**Tarifs**
-- [ ] DÉCLIC 150 € TTC · 90 minutes
-- [ ] SIGNATURE 390 € TTC · 2 à 3 semaines
-- [ ] TRAJECTOIRE 790 € TTC · 8 semaines · 2 × 395 € TTC
-- [ ] AGENT 1 290 € TTC · 12 semaines · 3 × 430 € TTC
-- [ ] Mêmes montants dans la FAQ et les données structurées
-- [ ] Mention TVA vérifiée (micro-entreprise en franchise : ajouter « TVA non applicable, art. 293 B du CGI » si besoin)
+**Parcours Analyse**
+- [ ] Bouton « Acheter mon analyse » → Payhip (nouvel onglet), code reçu par e-mail
+- [ ] Dépôt PDF, .docx, .txt ; CV scanné → message invitant à coller le texte
+- [ ] Erreurs : CV vide, code manquant, case non cochée, code invalide → message clair, focus sur le champ
+- [ ] Analyse complète : synthèse, sommaire cliquable, blocs séparés
+- [ ] Copier, Télécharger (.md), Imprimer / PDF fonctionnent
+- [ ] « Réserver un débrief » et « Voir la refonte complète » mènent au bon endroit
+- [ ] Code personnel (`ACCESS_CODE`) toujours accepté
 
 **Liens**
-- [ ] Les 7 boutons « Parler de ma situation » ouvrent l'outil de rendez-vous (nouvel onglet)
-- [ ] Les 5 liens du menu mènent à la bonne section, « Découvrir la méthode » mène à la méthode
-- [ ] LinkedIn, e-mail, mentions légales, confidentialité fonctionnels
+- [ ] Tous les boutons d'accompagnement ouvrent le bon lien (Calendly ou lien propre)
+- [ ] Menu, pied de page, ancres `#debrief`, `#refonte`, `#acceleration`
+- [ ] Une adresse inexistante affiche la page 404
 
-**Mobile**
-- [ ] iPhone et Android réels : menu (ouvrir, naviguer, fermer), lisibilité, boutons faciles à toucher
-- [ ] Largeur 320 px : aucun défilement horizontal
-- [ ] Tablette (768 px) : offres sur deux colonnes
+**Mobile et accessibilité**
+- [ ] iPhone et Android réels : menu, bouton « Analyser » visible en haut, formulaire utilisable
+- [ ] 320 px de large : aucun défilement horizontal (sauf le tableau comparatif, défilable)
+- [ ] Navigation au clavier (Tab, Entrée, Échap ferme le menu), focus visible
+- [ ] Zoom 200 %, test VoiceOver
+- [ ] Lighthouse : Accessibilité ≥ 95, SEO ≥ 95
 
-**Accessibilité**
-- [ ] Navigation complète au clavier (Tab, Maj+Tab, Entrée, Échap ferme le menu)
-- [ ] Focus visible partout (contour noir)
-- [ ] Lien « Aller au contenu » visible au premier Tab
-- [ ] FAQ ouvrable au clavier (Entrée / Espace)
-- [ ] Test lecteur d'écran (VoiceOver, NVDA)
-- [ ] Zoom 200 % sans perte de contenu
-- [ ] Lighthouse : Accessibilité ≥ 95
-
-**SEO**
-- [ ] Title : « Le Bon Angle | Design de carrière et de rôle pour professionnels Tech »
-- [ ] Meta description à jour
-- [ ] Une seule balise H1
-- [ ] Aperçu de partage vérifié (LinkedIn Post Inspector)
-- [ ] Données structurées validées (<https://validator.schema.org>)
+**SEO et partage**
+- [ ] Aperçu LinkedIn (Post Inspector) avec la nouvelle image
+- [ ] Sitemap soumis dans Google Search Console (facultatif)
 
 **Légal**
-- [ ] `STATUT_JURIDIQUE`, `SIRET`, `ADRESSE` renseignés
-- [ ] Politique de confidentialité adaptée à l'outil de rendez-vous choisi
-- [ ] Conditions générales de vente prévues avant tout paiement
+- [ ] CGV couvrant aussi les accompagnements humains (aujourd'hui elles ne couvrent que l'analyse)
+- [ ] Déduction de l'analyse sur le débrief mentionnée dans les CGV si elle est maintenue
+- [ ] Relecture juridique des modifications signalées

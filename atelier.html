@@ -4,156 +4,336 @@
   <meta charset="utf-8">
   <script>document.documentElement.className="js";</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Refonte carrière | Le Bon Angle</title>
-  <meta name="description" content="Déposez votre CV et recevez des propositions pour repenser votre CV, votre profil LinkedIn et votre pitch autour de votre rôle cible.">
-  <meta name="robots" content="noindex">
+  <title>Analyse Le Bon Angle — Analyse de CV et de parcours Tech augmentée par l’IA</title>
+  <meta name="description" content="Déposez votre CV, dites ce que vous visez : recevez en quelques minutes une analyse de parcours, un rôle cible proposé, un titre et un « À propos » LinkedIn, un pitch et vos priorités. 12 € TTC.">
   <meta name="theme-color" content="#F8EFEE">
+  <link rel="canonical" href="https://almosnishirley.github.io/le-bon-angle/atelier.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Le Bon Angle">
+  <meta property="og:title" content="Analyse Le Bon Angle — Analyse de CV et de parcours Tech augmentée par l’IA">
+  <meta property="og:description" content="Déposez votre CV, dites ce que vous visez : recevez en quelques minutes une analyse de parcours, un rôle cible proposé, un titre et un « À propos » LinkedIn, un pitch et vos priorités. 12 € TTC.">
+  <meta property="og:url" content="https://almosnishirley.github.io/le-bon-angle/atelier.html">
+  <meta property="og:image" content="https://almosnishirley.github.io/le-bon-angle/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Le Bon Angle — Votre parcours n’est peut-être pas flou. Il est peut-être mal cadré.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=3">
-  <link rel="stylesheet" href="atelier.css?v=2">
-
-  <script src="config.js?v=8" defer></script>
-  <script src="script.js?v=2" defer></script>
+  <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <script src="assets/js/config.js?v=10" defer></script>
+  <script src="assets/js/main.js?v=10" defer></script>
   <script src="assets/vendor/pdf.min.js" defer></script>
   <script src="assets/vendor/mammoth.browser.min.js" defer></script>
   <script src="assets/vendor/marked.min.js" defer></script>
   <script src="assets/vendor/purify.min.js" defer></script>
-  <script src="atelier.js?v=3" defer></script>
+  <script src="assets/js/atelier.js?v=10" defer></script>
 </head>
-
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="Le Bon Angle, retour à l'accueil">
+      <a class="logo" href="index.html" aria-label="Le Bon Angle, accueil">
         <span class="logo-mark" aria-hidden="true"></span>
         <span class="logo-text">LE BON ANGLE</span>
       </a>
-      <a class="text-link" href="index.html">Retour au site</a>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="methode.html">La méthode</a></li>
+          <li><a href="offres.html">Les offres</a></li>
+          <li><a href="accompagnement.html">Accompagnement</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary btn-sm header-cta" href="atelier.html" aria-current="page"><span class="long">Faire analyser mon parcours</span><span class="short">Analyser</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>
+        <span class="menu-toggle-label">Menu</span>
+      </button>
     </div>
   </header>
 
   <main id="contenu">
-    <!-- ============================ INTRO ============================ -->
-    <section class="atelier-hero" aria-labelledby="atelier-title">
-      <div class="container container-narrow">
-        <p class="eyebrow">Refonte carrière</p>
-        <h1 id="atelier-title">La refonte de votre carrière.</h1>
-        <p class="hero-lead">Déposez votre CV, dites ce que vous visez. L'agent Le Bon Angle vous propose une nouvelle version de vos supports : CV, profil LinkedIn, pitch, construits autour du rôle que vous voulez occuper.</p>
-        <p class="reassurance">Des propositions à retravailler, pas un CV généré à la chaîne. Vous gardez la main sur chaque mot.</p>
+
+    <!-- ============================ VENTE ============================ -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container analysis-block">
+        <div>
+          <p class="eyebrow">Analyse automatisée</p>
+          <h1 id="page-title">L’Analyse <em>Le Bon Angle</em></h1>
+          <p class="lead">Une première lecture structurée de votre parcours pour clarifier votre direction et améliorer vos supports.</p>
+          <p class="hero-target">Vous déposez votre CV et répondez à quelques questions. Un agent d’IA configuré selon la méthode Le Bon Angle rédige vos propositions, en quelques minutes.</p>
+        </div>
+        <aside class="buy-card frame" aria-label="Prix de l'analyse">
+          <div class="price">
+            <span class="tag tag-ia" data-mention="analyse">Tarif de lancement</span>
+            <div class="price-main"><span data-prix="analyse">12&nbsp;€</span><small>TTC</small></div>
+          </div>
+          <dl class="facts">
+            <div><dt>Délai</dt><dd>1 à 3 minutes en général</dd></div>
+            <div><dt>Format</dt><dd>En ligne, automatisé</dd></div>
+            <div><dt>Paiement</dt><dd>Sécurisé, via Payhip</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#commencer">Faire analyser mon parcours</a>
+          <a class="arrow-link secondary-link" href="accompagnement.html">Voir les accompagnements humains</a>
+        </aside>
       </div>
     </section>
 
-    <!-- ======================= ATELIER FERMÉ ======================= -->
+    <section class="section" aria-labelledby="s-what">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow">Vous fournissez</p>
+            <h2 id="s-what">Ce qu’il vous faut</h2>
+            <ul class="checklist">
+              <li>Votre CV (PDF, Word .docx ou texte)</li>
+              <li>Votre situation actuelle</li>
+              <li>Ce que vous visez, même si c’est encore flou</li>
+              <li>Ce que vous voulez changer</li>
+              <li>Les rôles que vous envisagez</li>
+              <li>Vos supports actuels, comme votre profil LinkedIn (facultatif)</li>
+            </ul>
+            <p class="muted small">Prévoyez le temps de relire votre CV et de répondre aux questions. Plus vos réponses sont précises, plus l’analyse l’est.</p>
+          </div>
+          <div>
+            <p class="eyebrow">Vous recevez</p>
+            <h2>Votre analyse, en détail</h2>
+            <ul class="checklist">
+              <li><strong>Une synthèse de votre parcours.</strong> Comment il se lit aujourd’hui, en quelques lignes.</li>
+              <li><strong>L’analyse de votre CV.</strong> Ce qui ressort, ce qui est sous-exploité, ce qui brouille la lecture.</li>
+              <li><strong>La clarification de votre trajectoire.</strong> Les directions cohérentes avec votre parcours et vos envies.</li>
+              <li><strong>Un CV repensé.</strong> Une nouvelle version du texte de votre CV, structurée autour de votre rôle cible (le contenu, pas la mise en page).</li>
+              <li><strong>Un positionnement.</strong> Comment vous présenter&nbsp;: ce que vous faites, pour qui, avec quelle valeur.</li>
+              <li><strong>Un rôle ou un angle cible.</strong> Avec les intitulés de poste à rechercher.</li>
+              <li><strong>Un titre LinkedIn.</strong> Prêt à copier, centré sur la cible plutôt que sur une liste d’outils.</li>
+              <li><strong>Une section «&nbsp;À propos&nbsp;» LinkedIn.</strong> Rédigée, à relire et à adapter.</li>
+              <li><strong>Un pitch de 30 secondes à 1 minute.</strong> Pour un entretien, un événement, un premier appel.</li>
+              <li><strong>Une proposition de valeur en une phrase.</strong> Ce que vous apportez, dit simplement.</li>
+              <li><strong>Les incohérences à corriger.</strong> Ce qui, dans vos supports, contredit la cible ou se contredit.</li>
+              <li><strong>Vos priorités d’amélioration, dans l’ordre.</strong> Par quoi commencer.</li>
+            </ul>
+            <p class="muted small">Tout est livré par écrit, en une seule fois, à copier, télécharger ou imprimer. Ce sont des propositions rédigées par l’IA&nbsp;: une base de travail, pas un CV final mis en page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-border" aria-labelledby="s-scope">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">En toute transparence</p>
+          <h2 id="s-scope">Ce que l’analyse est, et ce qu’elle n’est pas</h2>
+        </header>
+        <div class="grid grid-3 grid-gap-lg">
+          <div class="card">
+            <h3>Ce qui est automatisé</h3>
+            <p>Toute l’analyse. Elle est rédigée par un agent d’IA configuré selon la méthode Le Bon Angle. Personne ne la relit avant vous.</p>
+            <p>C’est une base de travail&nbsp;: gardez ce qui sonne juste, corrigez le reste. Elle peut contenir des imprécisions.</p>
+          </div>
+          <div class="card">
+            <h3>Ce qui n’est pas inclus</h3>
+            <ul class="minuslist">
+              <li>Un rendez-vous humain</li>
+              <li>Une validation personnalisée</li>
+              <li>Une réécriture illimitée</li>
+              <li>Une garantie de recrutement</li>
+              <li>Une recherche d’emploi faite à votre place</li>
+            </ul>
+          </div>
+          <div class="card" id="confidentialite-analyse">
+            <h3>Vos données</h3>
+            <ul class="checklist small">
+              <li>Votre fichier est lu dans votre navigateur. Il n’est pas envoyé tel quel.</li>
+              <li>Seuls le texte extrait, que vous relisez, et vos réponses sont transmis, après votre accord.</li>
+              <li>E-mail et téléphone masqués par défaut.</li>
+              <li>Ce site ne stocke rien. L’échange est conservé dans l’espace Dust du Bon Angle&nbsp;: vous pouvez demander sa suppression.</li>
+            </ul>
+            <a class="text-link small" href="confidentialite.html#atelier">Politique de confidentialité</a>
+          </div>
+        </div>
+        <div class="note-box sage section-foot">
+          <p><strong>Et après&nbsp;?</strong> Si vous hésitez encore entre plusieurs directions, le <a class="text-link" href="accompagnement.html#debrief">Débrief &amp; Positionnement</a> (<span data-prix="debrief">149&nbsp;€</span>) vous aide à trancher<span data-if-deduction>, et le prix de l’analyse est déduit si vous le réservez dans les <span data-deduction-jours>7</span> jours</span>. Si votre cible est claire, la <a class="text-link" href="accompagnement.html#refonte">Refonte &amp; Candidature</a> reprend vos supports en profondeur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ANALYSE FERMÉE ======================= -->
     <section class="section" id="atelier-closed" hidden aria-labelledby="closed-title">
       <div class="container container-narrow">
-        <div class="no-promise">
-          <h2 id="closed-title">La Refonte carrière n'est pas encore ouverte.</h2>
+        <div class="card">
+          <h2 id="closed-title">L’analyse n’est pas encore ouverte.</h2>
           <p>En attendant, un premier échange permet de travailler votre positionnement de vive voix.</p>
-          <p><a class="btn btn-primary" href="index.html#contact" data-booking>Parler de ma situation</a></p>
+          <a class="btn btn-primary" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prendre rendez-vous</a>
         </div>
       </div>
     </section>
 
     <!-- ========================= FORMULAIRE ========================= -->
-    <section class="section section-tint" id="atelier-app" aria-label="Formulaire de la Refonte carrière">
+    <section class="section" id="atelier-app" aria-labelledby="commencer">
       <div class="container container-narrow">
-        <form id="atelier-form" class="atelier-form" novalidate>
+        <header class="section-head">
+          <p class="eyebrow">C’est parti</p>
+          <h2 id="commencer" tabindex="-1">Lancer votre analyse</h2>
+          <p>Six étapes. Seules les étapes 1 et 6 sont obligatoires, mais chaque réponse rend l’analyse plus juste.</p>
+        </header>
 
-          <!-- Étape 1 -->
-          <fieldset class="card a-step">
-            <legend><span class="step-num" aria-hidden="true">01</span> Votre CV</legend>
+        <div class="buy-box" id="buy-box" hidden>
+          <p><strong>Pas encore de code d’analyse&nbsp;?</strong> <span data-prix="analyse">12&nbsp;€</span> TTC pour une analyse.</p>
+          <a class="btn btn-primary" href="#" data-paiement-analyse>Acheter mon analyse — <span data-prix="analyse">12&nbsp;€</span><span class="visually-hidden"> (nouvel onglet)</span></a>
+          <p class="small">Paiement sécurisé via Payhip. Le code (appelé «&nbsp;clé de licence&nbsp;») arrive par e-mail juste après l’achat. Gardez cette page ouverte et remplissez le formulaire en attendant. <a class="text-link" href="cgv.html">Conditions générales de vente</a>.</p>
+        </div>
 
+        <form id="atelier-form" class="app-steps" novalidate>
+
+          <!-- 1. CV -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">01</span> Votre CV</legend>
             <div class="dropzone" id="dropzone">
               <label for="cv-file" class="dropzone-label">
-                <strong>Choisir un fichier</strong> ou le glisser ici
-                <span class="hint">PDF, Word (.docx) ou texte · le fichier est lu dans votre navigateur</span>
+                <span><strong>Choisir un fichier</strong> ou le glisser ici</span>
+                <span class="hint">PDF, Word (.docx) ou texte · lu dans votre navigateur, jamais envoyé tel quel</span>
               </label>
               <input type="file" id="cv-file" accept=".pdf,.docx,.txt,.md,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain">
             </div>
             <p class="file-status" id="file-status" role="status" aria-live="polite"></p>
 
-            <label class="field-label" for="cv-text">Texte du CV <span class="hint">(rempli automatiquement, modifiable, ou à coller directement)</span></label>
-            <textarea id="cv-text" name="cv" rows="8" required aria-describedby="cv-count"></textarea>
-            <p class="hint" id="cv-count"></p>
-
+            <div class="field">
+              <label class="field-label" for="cv-text">Texte du CV <span class="hint">Rempli automatiquement depuis le fichier, modifiable. Vous pouvez aussi le coller directement.</span></label>
+              <textarea id="cv-text" name="cv" rows="9" required aria-describedby="cv-count"></textarea>
+              <p class="hint" id="cv-count" aria-live="polite"></p>
+            </div>
             <label class="check">
               <input type="checkbox" id="redact" checked>
-              <span>Masquer automatiquement mon e-mail et mon numéro de téléphone avant l'envoi</span>
+              <span>Masquer automatiquement mon e-mail et mon numéro de téléphone avant l’envoi</span>
             </label>
           </fieldset>
 
-          <!-- Étape 2 -->
-          <fieldset class="card a-step">
-            <legend><span class="step-num" aria-hidden="true">02</span> Votre direction <span class="optional">facultatif</span></legend>
-
-            <label class="field-label" for="trajectoire">Trajectoire envisagée</label>
-            <select id="trajectoire">
-              <option value="">Je ne sais pas encore</option>
-              <option>Évolution dans mon métier actuel</option>
-              <option>Changement de rôle dans la Tech</option>
-              <option>CDI dans une autre organisation</option>
-              <option>Freelance ou conseil</option>
-              <option>Projet entrepreneurial</option>
-              <option>Changement de métier</option>
-            </select>
-
-            <label class="field-label" for="role">Le rôle que vous visez</label>
-            <input type="text" id="role" autocomplete="off">
-
-            <label class="field-label" for="change">Ce que vous voulez changer, ou ce qui ne vous convient plus</label>
-            <textarea id="change" rows="3"></textarea>
-
-            <label class="field-label" for="linkedin">Votre profil LinkedIn actuel <span class="hint">(titre et section « À propos », à copier-coller)</span></label>
-            <textarea id="linkedin" rows="4"></textarea>
-          </fieldset>
-
-          <!-- Étape 3 -->
-          <fieldset class="card a-step">
-            <legend><span class="step-num" aria-hidden="true">03</span> Ce que vous voulez recevoir</legend>
-            <div class="checks" id="deliverables">
-              <label class="check"><input type="checkbox" value="Une nouvelle version de mon CV, structurée autour de mon rôle cible" checked><span>CV repensé</span></label>
-              <label class="check"><input type="checkbox" value="Un nouveau titre LinkedIn et une nouvelle section « À propos »" checked><span>Titre et « À propos » LinkedIn</span></label>
-              <label class="check"><input type="checkbox" value="Un pitch de présentation de 30 secondes à 1 minute"><span>Pitch de présentation</span></label>
-              <label class="check"><input type="checkbox" value="Les incohérences ou points faibles de mon parcours tel qu'il est présenté aujourd'hui"><span>Incohérences à corriger</span></label>
-              <label class="check"><input type="checkbox" value="Une proposition de valeur en une phrase"><span>Proposition de valeur</span></label>
+          <!-- 2. Situation -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">02</span> Votre situation <span class="optional">facultatif</span></legend>
+            <div class="field">
+              <label class="field-label" for="situation">Aujourd’hui, vous êtes…</label>
+              <select id="situation">
+                <option value="">Choisir</option>
+                <option value="poste">En poste, et je veux évoluer</option>
+                <option value="poste-partir">En poste, et je veux partir</option>
+                <option value="recherche">En recherche d’emploi</option>
+                <option value="transition">En transition ou en reconversion</option>
+                <option value="freelance">Freelance ou consultant·e</option>
+                <option value="autre">Autre situation</option>
+              </select>
             </div>
-            <label class="field-label" for="other">Autre demande</label>
-            <input type="text" id="other" autocomplete="off">
+            <div class="field">
+              <label class="field-label" for="situation-detail">En deux ou trois phrases, ce qui se passe pour vous <span class="hint">Ex. «&nbsp;Je suis lead dev depuis 4 ans, je fais de plus en plus de produit et je ne sais plus comment me présenter.&nbsp;»</span></label>
+              <textarea id="situation-detail" rows="3"></textarea>
+            </div>
           </fieldset>
 
-          <!-- Envoi -->
-          <fieldset class="card a-step">
-            <legend><span class="step-num" aria-hidden="true">04</span> Envoi</legend>
-
-            <div id="access-wrap" hidden>
-              <label class="field-label" for="access">Code d'analyse <span class="hint">(la « clé de licence » reçue par e-mail après votre achat, ou le code communiqué par Le Bon Angle)</span></label>
-              <input type="text" id="access" autocomplete="off" spellcheck="false" autocapitalize="characters">
-
-              <div class="buy-box" id="buy-box" hidden>
-                <p><strong>Pas encore de code&nbsp;?</strong> <span id="buy-price"></span></p>
-                <a class="btn btn-white" id="buy-link" href="#" target="_blank" rel="noopener">Acheter une analyse<span class="visually-hidden"> (nouvel onglet)</span></a>
-                <p class="hint">Paiement sécurisé via Payhip. Le code arrive par e-mail juste après l'achat. Voir les <a class="text-link" href="cgv.html">conditions générales de vente</a>.</p>
+          <!-- 3. Cible -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">03</span> Ce que vous visez <span class="optional">facultatif</span></legend>
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="trajectoire">Trajectoire envisagée</label>
+                <select id="trajectoire">
+                  <option value="">Je ne sais pas encore</option>
+                  <option>Évolution dans mon métier actuel</option>
+                  <option>Changement de rôle dans la Tech</option>
+                  <option>Même rôle, dans une autre organisation</option>
+                  <option>Freelance ou conseil</option>
+                  <option>Projet entrepreneurial</option>
+                  <option>Changement de métier</option>
+                </select>
               </div>
+              <div class="field">
+                <label class="field-label" for="role">Le rôle que vous visez <span class="hint">Même approximatif</span></label>
+                <input type="text" id="role" autocomplete="off">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="roles">Les rôles ou intitulés que vous envisagez <span class="hint">Listez-les, même si vous hésitez entre plusieurs</span></label>
+              <textarea id="roles" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label class="field-label" for="change">Ce que vous voulez changer, ou ce qui ne vous convient plus</label>
+              <textarea id="change" rows="3"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- 4. Supports -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">04</span> Vos supports actuels <span class="optional">facultatif</span></legend>
+            <div class="field">
+              <label class="field-label" for="linkedin">Votre profil LinkedIn <span class="hint">Copiez-collez votre titre et votre section «&nbsp;À propos&nbsp;»</span></label>
+              <textarea id="linkedin" rows="4"></textarea>
+            </div>
+            <div class="field">
+              <label class="field-label" for="autres-supports">Autres supports <span class="hint">Pitch actuel, texte de portfolio, présentation d’offre freelance… (collez le texte&nbsp;: les liens ne sont pas consultés)</span></label>
+              <textarea id="autres-supports" rows="3"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- 5. Résultat attendu -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">05</span> Ce que vous attendez</legend>
+            <fieldset class="field">
+              <legend class="field-label">Votre priorité</legend>
+              <div class="choice-cards">
+                <label class="check"><input type="radio" name="attente" value="Y voir plus clair sur ma direction : je ne sais pas encore quel rôle viser."><span>Y voir plus clair sur ma direction</span></label>
+                <label class="check"><input type="radio" name="attente" value="Améliorer mes supports pour un rôle que j'ai déjà choisi."><span>Améliorer mes supports pour un rôle déjà choisi</span></label>
+                <label class="check"><input type="radio" name="attente" value="Les deux : clarifier ma direction puis aligner mes supports." checked><span>Les deux</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="field">
+              <legend class="field-label">Les propositions à recevoir <span class="hint">Tout est coché par défaut. Décochez ce dont vous n’avez pas besoin.</span></legend>
+              <div class="checks cols-2" id="deliverables">
+                <label class="check"><input type="checkbox" value="Une analyse de mon CV : signaux forts, points faibles, ce qui brouille la lecture" checked><span>Analyse du CV</span></label>
+                <label class="check"><input type="checkbox" value="Une nouvelle version de mon CV, structurée autour de mon rôle cible" checked><span>CV repensé</span></label>
+                <label class="check"><input type="checkbox" value="Une clarification de ma trajectoire : les directions cohérentes avec mon parcours" checked><span>Clarification de la trajectoire</span></label>
+                <label class="check"><input type="checkbox" value="Une proposition de positionnement" checked><span>Positionnement</span></label>
+                <label class="check"><input type="checkbox" value="Une proposition de rôle ou d'angle cible, avec les intitulés à rechercher" checked><span>Rôle ou angle cible</span></label>
+                <label class="check"><input type="checkbox" value="Un nouveau titre LinkedIn" checked><span>Titre LinkedIn</span></label>
+                <label class="check"><input type="checkbox" value="Une nouvelle section « À propos » LinkedIn" checked><span>Section «&nbsp;À propos&nbsp;» LinkedIn</span></label>
+                <label class="check"><input type="checkbox" value="Un pitch de présentation de 30 secondes à 1 minute" checked><span>Pitch</span></label>
+                <label class="check"><input type="checkbox" value="Une proposition de valeur en une phrase" checked><span>Proposition de valeur</span></label>
+                <label class="check"><input type="checkbox" value="Les incohérences à corriger dans la présentation de mon parcours" checked><span>Incohérences à corriger</span></label>
+                <label class="check"><input type="checkbox" value="Les priorités d'amélioration, dans l'ordre" checked><span>Priorités d’amélioration</span></label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label class="field-label" for="other">Autre demande</label>
+              <input type="text" id="other" autocomplete="off">
+            </div>
+          </fieldset>
+
+          <!-- 6. Envoi -->
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">06</span> Code et envoi</legend>
+            <div class="field" id="access-wrap">
+              <label class="field-label" for="access">Code d’analyse <span class="hint">La «&nbsp;clé de licence&nbsp;» reçue par e-mail après l’achat, ou le code communiqué par Le Bon Angle</span></label>
+              <input type="text" id="access" autocomplete="off" spellcheck="false" autocapitalize="characters">
             </div>
 
             <div class="privacy-box">
-              <p><strong>Où vont vos données&nbsp;?</strong> Le texte de votre CV et vos réponses sont envoyés à l'agent Le Bon Angle, hébergé sur la plateforme Dust, qui utilise un modèle d'IA pour rédiger les propositions. Ce site ne stocke rien. L'échange est conservé dans l'espace Dust du Bon Angle&nbsp;: vous pouvez demander sa suppression à tout moment. <a class="text-link" href="confidentialite.html#atelier">En savoir plus</a></p>
+              <p><strong>Où vont vos données&nbsp;?</strong> Le texte de votre CV et vos réponses sont envoyés à l’agent Le Bon Angle, hébergé sur la plateforme Dust, qui utilise un modèle d’IA pour rédiger les propositions. Ce site ne stocke rien. L’échange est conservé dans l’espace Dust du Bon Angle&nbsp;: vous pouvez demander sa suppression à tout moment. <a class="text-link" href="confidentialite.html#atelier">En savoir plus</a></p>
             </div>
 
             <label class="check check-consent">
               <input type="checkbox" id="consent" required>
-              <span>J'accepte que mon CV et mes réponses soient traités de cette façon pour produire les propositions.</span>
+              <span>J’accepte que mon CV et mes réponses soient traités de cette façon pour produire les propositions. Je demande l’exécution immédiate de l’analyse (voir les <a class="text-link" href="cgv.html">CGV</a>).</span>
             </label>
 
             <p class="form-error" id="form-error" role="alert"></p>
-            <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Lancer l'analyse</button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Lancer l’analyse</button>
           </fieldset>
         </form>
 
-        <!-- Progression -->
-        <div class="card progress" id="progress" hidden>
+        <div class="card progress" id="progress" hidden tabindex="-1">
           <span class="spinner" aria-hidden="true"></span>
           <p id="progress-text" role="status" aria-live="polite">Analyse en cours…</p>
           <p class="hint">Cela prend en général une à trois minutes. Gardez cette page ouverte.</p>
@@ -164,22 +344,57 @@
     <!-- ========================== RÉSULTAT ========================== -->
     <section class="section" id="result" hidden aria-labelledby="result-title" tabindex="-1">
       <div class="container container-narrow">
-        <p class="eyebrow">Propositions</p>
-        <h2 id="result-title">Votre nouvelle version, à retravailler.</h2>
-        <div class="result-actions">
-          <button type="button" class="btn btn-primary" id="copy-btn">Copier le texte</button>
-          <button type="button" class="btn btn-white" id="download-btn">Télécharger (.md)</button>
-          <button type="button" class="btn btn-ghost" id="restart-btn">Recommencer</button>
+        <div class="result-head">
+          <div>
+            <p class="eyebrow">Votre analyse</p>
+            <h2 id="result-title">Vos propositions, à retravailler.</h2>
+            <p>Cette analyse est une <strong>base de travail</strong>, pas un verdict. Gardez ce qui sonne juste, corrigez ce qui ne vous ressemble pas.</p>
+          </div>
+          <div class="result-actions">
+            <button type="button" class="btn btn-primary" id="copy-btn">Copier le texte</button>
+            <button type="button" class="btn btn-secondary" id="download-btn">Télécharger (.md)</button>
+            <button type="button" class="btn btn-secondary" id="print-btn">Imprimer ou PDF</button>
+          </div>
+          <p class="hint" id="copy-status" role="status" aria-live="polite"></p>
+          <p class="remaining" id="remaining" hidden></p>
         </div>
-        <p class="hint" id="copy-status" role="status" aria-live="polite"></p>
-        <p class="remaining" id="remaining" hidden></p>
-        <article class="card result-body" id="result-body"></article>
 
-        <div class="cta-box result-cta">
-          <h2>Aller plus loin avec un accompagnement&nbsp;?</h2>
-          <p>Ces propositions sont un point de départ. Un premier échange permet de vérifier le rôle cible et le positionnement.</p>
-          <a class="btn btn-white btn-lg" href="index.html#contact" data-booking>Parler de ma situation</a>
+        <div class="card result-summary">
+          <div>
+            <p class="list-title">Votre demande</p>
+            <dl>
+              <dt>Rôle visé</dt><dd id="sum-role"></dd>
+              <dt>Trajectoire</dt><dd id="sum-traj"></dd>
+              <dt>Priorité</dt><dd id="sum-attente"></dd>
+            </dl>
+          </div>
+          <nav id="toc-wrap" aria-label="Sommaire de l'analyse">
+            <p class="list-title">Sommaire</p>
+            <ol class="toc" id="toc"></ol>
+          </nav>
         </div>
+
+        <div class="result-body" id="result-body"></div>
+
+        <div class="next-steps">
+          <article class="card">
+            <span class="tag tag-human">Encore des doutes</span>
+            <h3>Vous hésitez encore entre plusieurs directions&nbsp;?</h3>
+            <p>Réservez un Débrief &amp; Positionnement avec Shirley&nbsp;: une heure pour trancher, une feuille de route sur 30 jours. <strong><span data-prix="debrief">149&nbsp;€</span> TTC</strong><span data-if-deduction>, moins le prix de cette analyse si vous réservez sous <span data-deduction-jours>7</span> jours</span>.</p>
+            <a class="btn btn-primary" href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-offre-lien="debrief">Réserver un débrief</a>
+          </article>
+          <article class="card">
+            <span class="tag tag-human">Passer à l’action</span>
+            <h3>Vous savez ce que vous voulez viser&nbsp;?</h3>
+            <p>Et vous voulez refaire vos supports en profondeur&nbsp;? Découvrez l’accompagnement Refonte &amp; Candidature. <strong><span data-prix="refonte">450&nbsp;€</span> TTC</strong>.</p>
+            <a class="btn btn-secondary" href="accompagnement.html#refonte">Voir la refonte complète</a>
+          </article>
+        </div>
+
+        <div class="privacy-box">
+          <p><strong>Confidentialité.</strong> Ce site n’a rien conservé&nbsp;: si vous fermez cette page, l’analyse disparaît de votre écran. Copiez-la ou téléchargez-la. L’échange reste dans l’espace Dust du Bon Angle, et vous pouvez demander sa suppression à tout moment. <a class="text-link" href="confidentialite.html#atelier">Politique de confidentialité</a> · <a class="text-link" href="cgv.html">CGV</a></p>
+        </div>
+        <p style="margin-top:1.5rem"><button type="button" class="btn btn-secondary btn-sm" id="restart-btn">Lancer une autre analyse</button></p>
       </div>
     </section>
   </main>
@@ -187,17 +402,40 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <p class="logo logo-footer"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">LE BON ANGLE</span></p>
-        <p class="footer-tagline">Design de carrière et de rôle pour professionnels Tech</p>
+        <a class="logo" href="index.html" aria-label="Le Bon Angle, accueil"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">LE BON ANGLE</span></a>
+        <p class="footer-tagline">Clarifier le rôle que vous voulez occuper et rendre votre parcours lisible. Une offre de <a href="https://build-rh.io" data-cfg-href="LIEN_BUILDRH">BUILD RH</a>.</p>
       </div>
-      <ul class="footer-links">
-        <li><a href="mentions-legales.html" data-cfg-href="MENTIONS_LEGALES">Mentions légales</a></li>
-        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-        <li><a href="cgv.html">Conditions générales de vente</a></li>
-      </ul>
+      <div>
+        <p class="footer-title">Le Bon Angle</p>
+        <ul class="footer-links">
+          <li><a href="methode.html">La méthode</a></li>
+          <li><a href="offres.html">Les offres</a></li>
+          <li><a href="atelier.html">Analyse Le Bon Angle</a></li>
+          <li><a href="accompagnement.html">Accompagnement</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">En savoir plus</p>
+        <ul class="footer-links">
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="faq.html">Questions fréquentes</a></li>
+          <li><a href="https://calendly.com/shirley-chiche-buildrh/call-decouverte" data-rdv>Prendre rendez-vous</a></li>
+          <li hidden data-cfg-if="LIEN_LINKEDIN"><a href="#" data-cfg-href="LIEN_LINKEDIN">LinkedIn</a></li>
+          <li hidden data-cfg-if="EMAIL"><a href="#" data-cfg-href="EMAIL"><span data-cfg-text="EMAIL"></span></a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Informations</p>
+        <ul class="footer-links">
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="cgv.html">Conditions générales de vente</a></li>
+        </ul>
+      </div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span data-year></span> Le Bon Angle</p>
+      <p>© <span data-year>2026</span> Le Bon Angle · BUILD RH</p>
+      <p>Sans cookie ni outil de mesure d’audience.</p>
     </div>
   </footer>
 </body>
