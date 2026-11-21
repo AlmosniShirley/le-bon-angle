@@ -54,7 +54,7 @@ window.SITE_CONFIG = {
   TVA_INTRA: "FR 02 839 929 528",
   DIRECTION: "Shirley Almosni Chiche, gérante",
   ADRESSE: "1 Allée des Châtaigniers, 92410 Ville-d'Avray",
-  MEDIATEUR: "",        /* médiateur de la consommation (nom + site), obligatoire pour vendre */
+  MEDIATEUR: "CM2C (Centre de la Médiation de la Consommation de Conciliateurs de Justice), saisine en ligne sur https://cm2c.net",
 
   /* --- L'Atelier (atelier.html) --- */
   /* Adresse du relais Cloudflare Worker, ex.

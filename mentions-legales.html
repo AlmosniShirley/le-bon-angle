@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=2">
-  <script src="config.js?v=5" defer></script>
+  <script src="config.js?v=6" defer></script>
   <script src="script.js?v=2" defer></script>
 </head>
 <body>
@@ -47,6 +47,9 @@
 
       <h2>Responsabilité</h2>
       <p>Les informations publiées sur ce site sont fournies à titre indicatif. L'accompagnement proposé ne constitue ni une prestation de recrutement ou de placement, ni un suivi médical ou thérapeutique, et n'emporte aucune garantie d'obtention d'un poste ou d'une mission.</p>
+
+      <h2 hidden data-cfg-if="MEDIATEUR">Médiation de la consommation</h2>
+      <p hidden data-cfg-if="MEDIATEUR">Conformément aux articles L611-1 et suivants du Code de la consommation, en cas de litige non résolu à l'amiable, vous pouvez recourir gratuitement au médiateur de la consommation&nbsp;: <span data-cfg-text="MEDIATEUR"></span>.</p>
 
       <h2>Données personnelles</h2>
       <p>Voir la <a class="text-link" href="confidentialite.html">politique de confidentialité</a>.</p>
