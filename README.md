@@ -121,6 +121,53 @@ puis Settings → Pages → Source : **GitHub Actions**.
 
 ---
 
+## 6. L'Atelier (dépôt de CV + agent Dust)
+
+Page `atelier.html` : le candidat dépose son CV (PDF, .docx ou texte, lu **dans son navigateur**), indique sa direction et ce qu'il veut recevoir, puis reçoit les propositions de l'agent Dust `hgYs4LZhi2`.
+
+```
+Navigateur ──► Relais Cloudflare Worker ──► API Dust ──► agent hgYs4LZhi2
+ (atelier.js)    (worker/src/index.js,         (clé API gardée secrète
+                  garde la clé secrète)          dans le relais)
+```
+
+Tant que `ATELIER_API_URL` est vide dans `config.js`, la page affiche « L'Atelier n'est pas encore ouvert ». La page n'est pas liée depuis l'accueil pour l'instant.
+
+### Mise en service (sans ligne de commande)
+
+1. **Dust** : Developers → API keys → *Create API key*. Copiez la clé (ne la partagez pas, ne la mettez dans aucun fichier).
+   Notez aussi l'identifiant de l'espace dans l'URL Dust (`https://dust.tt/w/<ID>/…`) et la région (`dust.tt` ou `eu.dust.tt`).
+2. **Cloudflare** : créez un compte gratuit sur <https://dash.cloudflare.com>, puis *Workers & Pages → Create → Create Worker*. Nommez-le `le-bon-angle-atelier`, déployez, puis *Edit code* : remplacez tout le code par le contenu de `worker/src/index.js` et cliquez sur *Deploy*.
+3. Dans le Worker, *Settings → Variables and Secrets* :
+   | Nom | Type | Valeur |
+   |---|---|---|
+   | `DUST_BASE_URL` | Text | `https://dust.tt` ou `https://eu.dust.tt` |
+   | `DUST_WORKSPACE_ID` | Text | l'identifiant de l'espace |
+   | `DUST_AGENT_ID` | Text | `hgYs4LZhi2` |
+   | `ALLOWED_ORIGINS` | Text | `https://almosnishirley.github.io` |
+   | `DUST_API_KEY` | **Secret** | la clé API Dust |
+   | `ACCESS_CODE` | **Secret** | un code à donner aux candidats (conseillé) |
+4. Copiez l'adresse du Worker (`https://le-bon-angle-atelier.<vous>.workers.dev`) dans `config.js` → `ATELIER_API_URL`.
+   Si vous ne voulez pas de code d'accès : supprimez le secret `ACCESS_CODE` et mettez `ATELIER_ACCESS_CODE_REQUIRED: false`.
+5. Poussez le site (`git push`) et testez avec un vrai CV.
+
+Variante en ligne de commande (nécessite Node) : `cd worker && npx wrangler deploy`, puis `npx wrangler secret put DUST_API_KEY` et `npx wrangler secret put ACCESS_CODE`.
+
+### Protections en place
+- Clé Dust uniquement côté relais ; le relais n'accepte que les appels venant du site (`ALLOWED_ORIGINS`).
+- Code d'accès optionnel pour limiter l'usage (et donc la consommation de crédits Dust).
+- CV limité à 40 000 caractères ; e-mail et téléphone masqués par défaut avant l'envoi.
+- Consentement explicite obligatoire ; information détaillée dans `confidentialite.html#atelier`.
+- Réponse de l'agent affichée après nettoyage (DOMPurify) : aucun script ne peut s'exécuter.
+- Bibliothèques (pdf.js, mammoth, marked, DOMPurify) hébergées dans `assets/vendor/`, sans appel à un CDN.
+
+### À vérifier au premier test réel
+- Le format de l'API Dust utilisé par le relais (création de conversation avec `mentions`, lecture du message `agent_message`) correspond à la documentation Dust en vigueur : en cas d'erreur, consultez *Workers → le-bon-angle-atelier → Logs*.
+- La consommation de crédits Dust par analyse.
+- Les conditions de Dust pour les données personnelles (région d'hébergement, contrat de sous-traitance RGPD).
+
+---
+
 ## Checklist QA avant publication
 
 **Contenus et positionnement**

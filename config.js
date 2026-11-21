@@ -49,5 +49,15 @@ window.SITE_CONFIG = {
   /* --- Informations légales (page mentions-legales.html) --- */
   STATUT_JURIDIQUE: "", /* ex. "Entreprise individuelle (micro-entreprise)" */
   SIRET: "",
-  ADRESSE: ""           /* adresse professionnelle ou de domiciliation */
+  ADRESSE: "",          /* adresse professionnelle ou de domiciliation */
+
+  /* --- L'Atelier (atelier.html) --- */
+  /* Adresse du relais Cloudflare Worker, ex.
+     "https://le-bon-angle-atelier.VOTRE-SOUS-DOMAINE.workers.dev"
+     Si vide : la page Atelier affiche « pas encore ouvert ». */
+  ATELIER_API_URL: "",
+
+  /* true = les candidats doivent saisir un code d'accès
+     (à définir côté relais avec : npx wrangler secret put ACCESS_CODE) */
+  ATELIER_ACCESS_CODE_REQUIRED: true
 };

@@ -1,0 +1,18 @@
+# Configuration du relais Cloudflare Worker (voir README, section « Atelier »)
+name = "le-bon-angle-atelier"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+# https://dust.tt  (région US)  ou  https://eu.dust.tt  (région Europe)
+DUST_BASE_URL = "https://dust.tt"
+# Identifiant de l'espace Dust : dans l'URL de Dust, après /w/
+DUST_WORKSPACE_ID = ""
+# Identifiant de l'agent Dust
+DUST_AGENT_ID = "hgYs4LZhi2"
+# Sites autorisés à appeler le relais (séparés par des virgules)
+ALLOWED_ORIGINS = "https://almosnishirley.github.io,http://localhost:8000"
+
+# Secrets — à saisir en ligne de commande, jamais dans ce fichier :
+#   npx wrangler secret put DUST_API_KEY
+#   npx wrangler secret put ACCESS_CODE
