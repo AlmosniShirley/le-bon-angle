@@ -25,6 +25,7 @@
 
   /* 12 → « 12 € » ; 1290 → « 1 290 € » (espaces insécables) */
   function euros(n) {
+    if (n === 0) return "Gratuit";
     var s = Math.round(n * 100) % 100 ? n.toFixed(2).replace(".", ",") : String(Math.round(n));
     return s.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
   }

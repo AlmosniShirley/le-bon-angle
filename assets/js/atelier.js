@@ -125,6 +125,9 @@
     if (val("role")) parts.push("## Rôle visé\n" + clean(val("role")));
     if (val("roles")) parts.push("## Rôles ou intitulés que j'envisage\n" + clean(val("roles")));
     if (val("change")) parts.push("## Ce que je veux changer\n" + clean(val("change")));
+    var mode = selectedText("mode-travail");
+    if (mode || val("zone")) parts.push("## Mode de travail et zone géographique\n" + [mode ? "Mode de travail souhaité : " + mode : "", val("zone") ? "Zone géographique : " + clean(val("zone")) : ""].filter(Boolean).join("\n"));
+    if (val("langues")) parts.push("## Langues parlées\n" + clean(val("langues")));
 
     var supports = [];
     if (val("linkedin")) supports.push("### Mon profil LinkedIn actuel (titre et « À propos »)\n" + clean(val("linkedin")));
@@ -140,7 +143,12 @@
   function api(path, options) {
     return fetch(API + path, options).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (data) {
-        if (!r.ok) throw new Error(data.error || "Le service est momentanément indisponible. Réessayez dans quelques minutes.");
+        if (!r.ok) {
+          var err = new Error(data.error || "Le service est momentanément indisponible. Réessayez dans quelques minutes.");
+          err.status = r.status;
+          err.path = path;
+          throw err;
+        }
         return data;
       });
     }, function () {
@@ -182,6 +190,7 @@
   function onSubmit(e) {
     e.preventDefault();
     showError("");
+    $("service-full").hidden = true;
     Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
 
     var n = cvText.value.trim().length;
@@ -219,6 +228,15 @@
       showResult(markdown);
     }).catch(function (err) {
       setBusy(false);
+      /* L'agent n'a pas pu être contacté (ex. limite de crédits atteinte) :
+         le relais n'a pas consommé le code. Message dédié, rassurant. */
+      if (err && err.status === 502 && err.path === "/analyze") {
+        var full = $("service-full");
+        full.hidden = false;
+        full.scrollIntoView({ block: "center" });
+        full.focus({ preventScroll: true });
+        return;
+      }
       showError(err.message || "Une erreur est survenue.");
       errorBox.scrollIntoView({ block: "center" });
     });
