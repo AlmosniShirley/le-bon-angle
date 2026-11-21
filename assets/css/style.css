@@ -566,8 +566,60 @@ fieldset.field { border: 0; padding: 0; margin-inline: 0; min-width: 0; }
   .spinner { animation-duration: 3s; }
 }
 
+/* ---------- PDF de l'analyse (impression / « Enregistrer au format PDF ») ---------- */
+.print-only { display: none; }
+
 @media print {
-  .site-header, .site-footer, .result-actions, .next-steps, .skip-link { display: none !important; }
-  body { background: #fff; }
-  .result-part { border: 0; padding: 0; break-inside: avoid-page; }
+  @page {
+    size: A4;
+    margin: 16mm 16mm 18mm;
+    @bottom-left { content: "Le Bon Angle · une offre de BUILD RH"; font: 8pt "Atkinson Hyperlegible", Arial, sans-serif; color: #5F5958; }
+    @bottom-right { content: "Page " counter(page) " / " counter(pages); font: 8pt "Atkinson Hyperlegible", Arial, sans-serif; color: #5F5958; }
+  }
+  html, body { background: #fff !important; }
+  body { font-size: 10.5pt; line-height: 1.5; color: #171717; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; }
+
+  /* On n'imprime que le résultat */
+  .site-header, .site-footer, .skip-link, main > section:not(#result),
+  .result-head, .remaining, .next-steps, .privacy-box, #restart-btn, #toc-wrap { display: none !important; }
+  #result { padding: 0 !important; display: block !important; }
+  .container, .container-narrow { max-width: none; padding: 0; }
+  .print-only { display: block; }
+
+  /* En-tête */
+  .print-header { border-bottom: 3px solid var(--powder); padding-bottom: 7mm; margin-bottom: 7mm; }
+  .print-brands { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9mm; }
+  .print-brands .logo { font-size: 11pt; }
+  .print-buildrh { height: 12mm; width: auto; }
+  .print-kicker { font-family: var(--font-title); font-weight: 600; font-size: 8.5pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-dark); margin: 0 0 1.5mm; }
+  .print-title { font-family: var(--font-title); font-weight: 800; font-size: 22pt; line-height: 1.15; margin: 0 0 2mm; }
+  .print-date { color: var(--muted); font-size: 9.5pt; margin: 0; }
+
+  /* Rappel de la demande */
+  .result-summary { display: block; background: var(--surface-2); border: 0; border-radius: 3mm; padding: 4mm 5mm; margin-bottom: 6mm; break-inside: avoid; }
+  .result-summary .list-title { margin-bottom: 2mm; }
+  .result-summary dl { display: grid; grid-template-columns: max-content 1fr; gap: 1mm 5mm; }
+  .result-summary dt { font-size: 8pt; align-self: baseline; }
+  .result-summary dd { margin: 0; }
+
+  /* Contenu de l'analyse */
+  .result-body { display: block; margin: 0; }
+  .result-part { border: 0; border-radius: 0; padding: 0; margin: 0 0 6mm; background: none; break-inside: auto; }
+  .result-part h1, .result-part h2 { font-size: 14pt; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 1.5px solid var(--powder); color: var(--ink); }
+  .result-part h3 { font-size: 11.5pt; margin: 4mm 0 2mm; color: var(--accent-dark); }
+  .result-part h4 { font-size: 10.5pt; margin: 3mm 0 1.5mm; }
+  .result-part h1, .result-part h2, .result-part h3, .result-part h4 { break-after: avoid; page-break-after: avoid; }
+  .result-part p, .result-part li { orphans: 3; widows: 3; }
+  .result-part li { margin-bottom: 1mm; }
+  .result-part blockquote { background: var(--surface-2); border-left: 3px solid var(--powder); padding: 2.5mm 4mm; break-inside: avoid; }
+  .result-part table { display: table; font-size: 9pt; break-inside: avoid; }
+  .result-part a { color: var(--ink); text-decoration: none; }
+
+  /* Fin du document */
+  .print-next { border: 1.5px solid var(--powder); border-radius: 3mm; padding: 5mm 6mm; margin-top: 8mm; break-inside: avoid; }
+  .print-next p { margin: 0 0 2.5mm; font-size: 9.5pt; }
+  .print-next-title { font-family: var(--font-title); font-weight: 800; font-size: 11.5pt !important; margin-bottom: 3mm !important; }
+  .print-url { color: var(--accent-dark); font-weight: 700; margin: 0 !important; }
+  .print-disclaimer { font-size: 8pt; color: var(--muted); margin-top: 5mm; }
 }

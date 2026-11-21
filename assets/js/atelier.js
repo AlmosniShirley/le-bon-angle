@@ -312,6 +312,20 @@
     $("copy-status").textContent = "Fichier téléchargé (format Markdown, lisible dans n'importe quel éditeur de texte).";
   }
 
+  /* PDF : mise en page dédiée (voir @media print dans style.css).
+     Le titre de la page sert de nom de fichier proposé par le navigateur. */
+  function printResult() {
+    var d = new Date();
+    $("print-date").textContent = d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+    var previous = document.title;
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    document.title = "Analyse Le Bon Angle " + pad(d.getDate()) + "-" + pad(d.getMonth() + 1) + "-" + d.getFullYear();
+    var restore = function () { document.title = previous; window.removeEventListener("afterprint", restore); };
+    window.addEventListener("afterprint", restore);
+    $("copy-status").textContent = "Dans la fenêtre qui s'ouvre, choisissez « Enregistrer au format PDF » comme destination.";
+    setTimeout(function () { window.print(); }, 50);
+  }
+
   function restart() {
     $("result").hidden = true;
     $("result-body").innerHTML = "";
@@ -373,7 +387,7 @@
     form.addEventListener("submit", onSubmit);
     $("copy-btn").addEventListener("click", copyResult);
     $("download-btn").addEventListener("click", downloadResult);
-    $("print-btn").addEventListener("click", function () { window.print(); });
+    $("print-btn").addEventListener("click", printResult);
     $("restart-btn").addEventListener("click", restart);
   }
 
