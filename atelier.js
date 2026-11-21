@@ -101,7 +101,7 @@
     var other = $("other").value.trim();
     if (other) wanted.push("- " + other);
 
-    var parts = ["Bonjour. J'utilise l'Atelier Le Bon Angle pour repenser mes supports professionnels."];
+    var parts = ["Bonjour. J'utilise la Refonte carrière Le Bon Angle pour repenser mes supports professionnels."];
     parts.push("## Ce que je souhaite recevoir\n" + (wanted.length ? wanted.join("\n") : "- Vos recommandations les plus utiles pour mon CV et mon profil LinkedIn"));
     var traj = $("trajectoire").value;
     parts.push("## Trajectoire envisagée\n" + (traj || "Je ne sais pas encore."));
