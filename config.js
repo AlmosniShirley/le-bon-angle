@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
      Tous les boutons « Parler de ma situation » (header, hero,
      cartes d'offres, CTA final) pointent ici.
      Si vide : les boutons ouvrent un e-mail vers EMAIL. */
-  LIEN_CALENDLY_OU_FORMULAIRE: "",
+  LIEN_CALENDLY_OU_FORMULAIRE: "https://calendly.com/shirley-chiche-buildrh/call-decouverte",
 
   /* [LIEN_LINKEDIN] — URL complète du profil LinkedIn */
   LIEN_LINKEDIN: "",
