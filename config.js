@@ -71,5 +71,5 @@ window.SITE_CONFIG = {
   ATELIER_ACHAT_URL: "https://payhip.com/b/k5c6D",
 
   /* Texte du prix affiché à côté du bouton, ex. "9 € TTC pour 1 analyse" */
-  ATELIER_PRIX_TEXTE: ""
+  ATELIER_PRIX_TEXTE: "12 € TTC pour 1 analyse."
 };
