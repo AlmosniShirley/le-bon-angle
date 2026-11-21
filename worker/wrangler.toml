@@ -1,5 +1,5 @@
 # Configuration du relais Cloudflare Worker (voir README, section « Atelier »)
-name = "le-bon-angle-atelier"
+name = "plain-frost-72f7"
 main = "src/index.js"
 compatibility_date = "2024-09-23"
 

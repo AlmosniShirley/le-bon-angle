@@ -55,7 +55,7 @@ window.SITE_CONFIG = {
   /* Adresse du relais Cloudflare Worker, ex.
      "https://le-bon-angle-atelier.VOTRE-SOUS-DOMAINE.workers.dev"
      Si vide : la page Atelier affiche « pas encore ouvert ». */
-  ATELIER_API_URL: "",
+  ATELIER_API_URL: "https://plain-frost-72f7.shirley-chiche.workers.dev",
 
   /* true = les candidats doivent saisir un code d'accès
      (à définir côté relais avec : npx wrangler secret put ACCESS_CODE) */
