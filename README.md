@@ -123,10 +123,10 @@ puis Settings → Pages → Source : **GitHub Actions**.
 
 ## 6. L'Atelier (dépôt de CV + agent Dust)
 
-Page `atelier.html` : le candidat dépose son CV (PDF, .docx ou texte, lu **dans son navigateur**), indique sa direction et ce qu'il veut recevoir, puis reçoit les propositions de l'agent Dust `hgYs4LZhi2`.
+Page `atelier.html` : le candidat dépose son CV (PDF, .docx ou texte, lu **dans son navigateur**), indique sa direction et ce qu'il veut recevoir, puis reçoit les propositions de l'agent Dust `NVBu1Z6rj7`.
 
 ```
-Navigateur ──► Relais Cloudflare Worker ──► API Dust ──► agent hgYs4LZhi2
+Navigateur ──► Relais Cloudflare Worker ──► API Dust ──► agent NVBu1Z6rj7
  (atelier.js)    (worker/src/index.js,         (clé API gardée secrète
                   garde la clé secrète)          dans le relais)
 ```
@@ -143,7 +143,7 @@ Tant que `ATELIER_API_URL` est vide dans `config.js`, la page affiche « L'Ateli
    |---|---|---|
    | `DUST_BASE_URL` | Text | `https://dust.tt` |
    | `DUST_WORKSPACE_ID` | Text | `LiNKoSV40F` |
-   | `DUST_AGENT_ID` | Text | `hgYs4LZhi2` |
+   | `DUST_AGENT_ID` | Text | `NVBu1Z6rj7` |
    | `ALLOWED_ORIGINS` | Text | `https://almosnishirley.github.io` |
    | `DUST_API_KEY` | **Secret** | la clé API Dust |
    | `ACCESS_CODE` | **Secret** | un code à donner aux candidats (conseillé) |

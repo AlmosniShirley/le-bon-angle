@@ -9,7 +9,7 @@ DUST_BASE_URL = "https://dust.tt"
 # Identifiant de l'espace Dust : dans l'URL de Dust, après /w/
 DUST_WORKSPACE_ID = "LiNKoSV40F"
 # Identifiant de l'agent Dust
-DUST_AGENT_ID = "hgYs4LZhi2"
+DUST_AGENT_ID = "NVBu1Z6rj7"
 # Sites autorisés à appeler le relais (séparés par des virgules)
 ALLOWED_ORIGINS = "https://almosnishirley.github.io,http://localhost:8000"
 

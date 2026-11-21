@@ -18,7 +18,7 @@
    Variables (wrangler.toml) :
      DUST_BASE_URL     https://dust.tt  ou  https://eu.dust.tt
      DUST_WORKSPACE_ID identifiant de l'espace Dust (visible dans l'URL : /w/<ID>/…)
-     DUST_AGENT_ID     identifiant de l'agent (hgYs4LZhi2)
+     DUST_AGENT_ID     identifiant de l'agent (copie dédiée à l'Atelier)
      ALLOWED_ORIGINS   origines autorisées, séparées par des virgules
 
    Aucun CV n'est stocké par ce relais.
