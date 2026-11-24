@@ -21,13 +21,13 @@ window.SITE_CONFIG = {
   OFFRES: {
     analyse: {
       nom: "Analyse Le Bon Angle",
-      prix: 0,                       // 0 = gratuit (code obtenu sur e-mail via Payhip, produit à 0 €)
+      prix: 5,                       // prix TTC payé sur Payhip (0 = gratuit)
       prixCible: null,               // prix futur affiché ("Puis 19 €…") ; null = masqué
       mention: "",                   // affiché au-dessus du prix ("" pour masquer)
       // Précision factuelle sur le lancement, ex. "jusqu'au 31 janvier 2027"
       // ou "pour les 20 premiers clients". Vide = rien d'affiché.
       precisionLancement: "",
-      // Page Payhip (produit à 0 €) : la personne donne son e-mail et reçoit son code
+      // Page de paiement Payhip : le code d'analyse est envoyé par e-mail après l'achat
       lienPaiement: "https://payhip.com/b/k5c6D"
     },
 
@@ -40,7 +40,7 @@ window.SITE_CONFIG = {
       mention: "",
       paiement: "",
       lien: "",
-      deductionAnalyse: false,       // sans objet : l'analyse est gratuite
+      deductionAnalyse: false,       // true pour déduire le prix de l'analyse de la séance
       deductionJours: 7
     },
 

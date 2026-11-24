@@ -270,6 +270,8 @@
   }
 
   function showResult(markdown) {
+    // Retire les marqueurs de citation internes de Dust (ex. « :cite[ekx] »)
+    markdown = String(markdown || "").replace(/[ \t]*:cite\[[^\]]*\]/g, "");
     lastMarkdown = markdown;
     var html = window.marked ? window.marked.parse(markdown) : "";
     var safe = html && window.DOMPurify ? window.DOMPurify.sanitize(html) : "";

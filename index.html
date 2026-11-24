@@ -22,12 +22,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=29">
+  <link rel="stylesheet" href="assets/css/style.css?v=41">
   <script type="application/ld+json" id="ld-json">
     {"@context":"https://schema.org","@type":"ProfessionalService","name":"Le Bon Angle","url":"https://almosnishirley.github.io/le-bon-angle/","slogan":"Construire une trajectoire professionnelle qui tient dans la réalité.","description":"Analyse de parcours, orientation professionnelle et accompagnement de carrière pour clarifier sa direction, développer ses compétences et passer à l’action.","inLanguage":"fr","parentOrganization":{"@type":"Organization","name":"BUILD RH","url":"https://build-rh.io"}}
     </script>
-  <script src="assets/js/config.js?v=29" defer></script>
-  <script src="assets/js/main.js?v=28" defer></script>
+  <script src="assets/js/config.js?v=40" defer></script>
+  <script src="assets/js/main.js?v=40" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -66,7 +66,7 @@
           <p>Le Bon Angle vous aide à comprendre votre parcours, clarifier votre direction professionnelle et passer à l’action sans vous enfermer dans une étiquette ou une trajectoire toute faite.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="#accompagnements">Découvrir les accompagnements</a>
-            <a class="btn btn-secondary" href="atelier.html">Commencer par l’analyse gratuite</a>
+            <a class="btn btn-secondary" href="atelier.html">Commencer par l’analyse — <span data-prix="analyse">5&nbsp;€</span></a>
           </div>
         </div>
 
@@ -139,10 +139,10 @@
           </ul>
           <p><strong>Le Bon Angle commence là où l’analyse automatique s’arrête.</strong></p>
         </div>
-        <aside class="buy-card frame" aria-label="Analyse gratuite">
+        <aside class="buy-card frame" aria-label="Analyse à 5 €">
           <div class="price">
             <span class="tag tag-ia">Point de départ possible</span>
-            <div class="price-main">Gratuit</div>
+            <div class="price-main"><span data-prix="analyse">5&nbsp;€</span><small>TTC</small></div>
             <span class="price-note">L’Analyse Le Bon Angle&nbsp;: une première lecture de votre CV et de votre parcours, en quelques minutes.</span>
           </div>
           <ul class="checklist small">
@@ -164,7 +164,7 @@
           <h2 id="retours-title">Ce qu’en disent les premières personnes qui l’ont essayée</h2>
           <p class="muted small">Messages reçus après une Analyse Le Bon Angle, reproduits avec l’accord de leurs auteurs et anonymisés.</p>
         </header>
-        <div class="grid grid-2 grid-gap-lg">
+        <div class="grid grid-3 grid-gap-lg">
           <figure class="card testimonial">
             <blockquote>
               <p>Oui, j’ai trouvé l’analyse intéressante&nbsp;! Elle m’a permis d’identifier quelques points faibles de mon CV, notamment sur la manière de valoriser mon parcours et mon positionnement exécutif.</p>
@@ -178,6 +178,15 @@
               <p>Oui… des choses que je savais déjà plus ou moins sans oser me les avouer, mais l’analyse est plutôt fine et rassurante… Reste à mettre en pratique&nbsp;!</p>
             </blockquote>
             <figcaption>Utilisateur·rice de l’Analyse</figcaption>
+          </figure>
+          <figure class="card testimonial">
+            <blockquote>
+              <p>Super outil, très clair et bien structuré dès l’onboarding (accès simple, code/clé facile à prendre en main, export PDF pratique).</p>
+              <p>Ce qui m’a particulièrement marqué, c’est la détection des incohérences entre mon CV et ma bio LinkedIn, ainsi que les requêtes de recherche (avec OR et AND) qui m’ont permis de repérer des offres passées sous mon radar sur LinkedIn et Google.</p>
+              <p>L’analyse met bien en lumière les points d’amélioration concrets — comme l’ajout de chiffres et de preuves d’impact — tout en gardant un cadre structuré.</p>
+              <p>À noter côté vigilance&nbsp;: comme sur tout LLM, il faut garder du recul sur certaines reformulations ou fusions de missions et savoir quand s’arrêter d’itérer.</p>
+            </blockquote>
+            <figcaption>Thomas, dev freelance</figcaption>
           </figure>
         </div>
       </div>
@@ -196,7 +205,7 @@
             <p class="eyebrow">1. Se situer</p>
             <h3 id="t-se-situer" class="format-title">Le débrief humain de votre trajectoire</h3>
             <p class="lead">Vous avez fait analyser votre CV, mais vous ne savez pas vraiment quoi faire de ces résultats&nbsp;? Cette séance vous aide à mettre l’analyse en perspective avec votre parcours, vos expériences et votre fonctionnement professionnel.</p>
-            <p class="small muted">Pas encore d’analyse&nbsp;? <a class="text-link" href="atelier.html">Faites l’analyse gratuite</a>&nbsp;: elle prépare la séance, sans être obligatoire.</p>
+            <p class="small muted">Pas encore d’analyse&nbsp;? <a class="text-link" href="atelier.html">Faites l’analyse</a> (<span data-prix="analyse">5&nbsp;€</span>)&nbsp;: elle prépare la séance, sans être obligatoire.</p>
             <p class="list-title">Ce que nous clarifions</p>
             <ul class="checklist">
               <li>ce que votre CV montre — et ce qu’il ne montre pas</li>
@@ -411,7 +420,7 @@
           <h2 id="start-title">Comment démarrer&nbsp;?</h2>
         </header>
         <ol class="steps steps-3">
-          <li class="step"><span class="step-num" aria-hidden="true">01</span><h3>Choisissez par où commencer</h3><p>Faites l’<a class="text-link" href="atelier.html">analyse gratuite</a> pour une première lecture, ou contactez-moi directement si une formule vous attire déjà.</p></li>
+          <li class="step"><span class="step-num" aria-hidden="true">01</span><h3>Choisissez par où commencer</h3><p>Faites l’<a class="text-link" href="atelier.html">analyse</a> (<span data-prix="analyse">5&nbsp;€</span>) pour une première lecture, ou contactez-moi directement si une formule vous attire déjà.</p></li>
           <li class="step"><span class="step-num" aria-hidden="true">02</span><h3>Un premier échange de 15 minutes</h3><p>Nous vérifions ensemble que la formule correspond à votre situation et à votre niveau d’engagement. Ce n’est pas encore une séance.</p></li>
           <li class="step"><span class="step-num" aria-hidden="true">03</span><h3>Les séances commencent</h3><p>Séances individuelles, exercices courts entre les rendez-vous, et un livrable écrit à la fin&nbsp;: synthèse, feuille de route ou plan d’action selon la formule.</p></li>
         </ol>
@@ -428,7 +437,7 @@
         <div class="faq">
           <details>
             <summary>Dois-je avoir fait analyser mon CV par une IA&nbsp;?</summary>
-            <div class="faq-answer"><p>Non. L’analyse IA peut constituer un point de départ, mais elle n’est pas obligatoire. Nous pouvons partir directement de votre parcours et de votre situation actuelle. Si vous voulez commencer par là, <a class="text-link" href="atelier.html">l’analyse est gratuite</a>.</p></div>
+            <div class="faq-answer"><p>Non. L’analyse IA peut constituer un point de départ, mais elle n’est pas obligatoire. Nous pouvons partir directement de votre parcours et de votre situation actuelle. Si vous voulez commencer par là, <a class="text-link" href="atelier.html">l’analyse coûte <span data-prix="analyse">5&nbsp;€</span></a>.</p></div>
           </details>
           <details>
             <summary>Est-ce du coaching ou du recrutement&nbsp;?</summary>
@@ -462,7 +471,7 @@
         <p><strong>Pas de promesse magique. Pas de parcours standard. Un travail concret sur la suite.</strong></p>
         <div class="btn-row">
           <a class="btn btn-primary" href="mailto:shirley.chiche@buildrh.co" data-contact="general">Me contacter</a>
-          <a class="text-link" href="atelier.html">Ou commencer par l’analyse gratuite</a>
+          <a class="text-link" href="atelier.html">Ou commencer par l’analyse (<span data-prix="analyse">5&nbsp;€</span>)</a>
         </div>
       </div>
     </section>
