@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.className="js";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Codes du questionnaire — Le Bon Angle</title>
+  <meta name="theme-color" content="#F8EFEE">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css?v=41">
+  <style>
+    .codes { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    .codes th, .codes td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .codes th { font-size: .85rem; color: var(--muted); font-weight: 700; }
+    .codes code { font-size: .9rem; letter-spacing: .02em; white-space: nowrap; }
+    .etat { white-space: nowrap; }
+    .etat { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .82rem; font-weight: 700; background: var(--powder); }
+    .etat.fait { background: var(--surface-2); color: var(--muted); }
+    .mini { min-height: 34px; padding: .3rem .8rem; font-size: .85rem; }
+    .resultat-code { background: var(--powder); border-radius: var(--radius); padding: 1rem 1.25rem; margin-top: 1.25rem; }
+    .resultat-code p { margin: 0 0 .5rem; }
+    .lien-copie { width: 100%; font: inherit; font-size: .9rem; padding: .6rem .75rem; border: 1px solid var(--field); border-radius: var(--radius); background: #fff; }
+    .table-wrap { overflow-x: auto; }
+    .vide-liste { color: var(--muted); }
+    @media (max-width: 640px) { .codes .col-date { display: none; } }
+  </style>
+</head>
+<body>
+  <main id="contenu">
+    <section class="section">
+      <div class="container container-narrow">
+        <p class="eyebrow">Espace privé</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">Codes du questionnaire préparatoire</h1>
+
+        <!-- Connexion -->
+        <form id="login" class="app-steps" novalidate>
+          <fieldset class="a-step">
+            <legend>Votre code personnel</legend>
+            <div class="field">
+              <label class="field-label" for="admin">Code personnel</label>
+              <input type="text" id="admin" autocomplete="off" spellcheck="false" autocapitalize="characters" style="max-width:20rem;text-transform:uppercase">
+            </div>
+            <p class="form-error" id="login-error" role="alert"></p>
+            <button class="btn btn-primary" type="submit" id="login-btn" style="margin-top:1.25rem">Entrer</button>
+          </fieldset>
+        </form>
+
+        <div id="espace" class="app-steps" hidden>
+          <!-- Créer -->
+          <form id="creer" class="a-step" novalidate>
+            <h2 style="font-size:1.25rem;margin-top:0">Créer un code</h2>
+            <div class="field">
+              <label class="field-label" for="nom">Prénom et nom de la personne accompagnée</label>
+              <input type="text" id="nom" autocomplete="off">
+            </div>
+            <p class="form-error" id="creer-error" role="alert"></p>
+            <button class="btn btn-primary" type="submit" id="creer-btn" style="margin-top:1.25rem">Créer le code</button>
+            <div class="resultat-code" id="resultat" hidden>
+              <p><strong>Code créé pour <span id="r-nom"></span> : <code id="r-code"></code></strong></p>
+              <p>Lien à lui envoyer (le code est déjà dedans) :</p>
+              <input class="lien-copie" id="r-lien" readonly>
+              <p style="margin-top:.75rem"><button class="btn btn-secondary mini" type="button" id="copier">Copier le lien</button> <span id="copie-ok" role="status"></span></p>
+            </div>
+          </form>
+
+          <!-- Liste -->
+          <div class="a-step">
+            <h2 style="font-size:1.25rem;margin-top:0">Tous les codes</h2>
+            <p class="hint">« Envoyé » : la personne a rempli et envoyé son questionnaire, le code ne fonctionne plus.</p>
+            <div class="table-wrap">
+              <table class="codes">
+                <thead><tr><th>Personne</th><th>Code</th><th class="col-date">Créé le</th><th>État</th><th></th></tr></thead>
+                <tbody id="liste"></tbody>
+              </table>
+            </div>
+            <p class="vide-liste" id="vide" hidden>Aucun code pour l’instant.</p>
+          </div>
+          <p><button class="btn btn-secondary btn-sm" type="button" id="quitter">Se déconnecter</button></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/questionnaire-config.js?v=1"></script>
+  <script src="assets/js/espace-shirley.js?v=1"></script>
+</body>
+</html>
