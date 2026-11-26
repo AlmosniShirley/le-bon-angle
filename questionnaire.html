@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.className="js";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Questionnaire préparatoire — Le Bon Angle</title>
+  <meta name="theme-color" content="#F8EFEE">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=41">
+  <style>
+    .field input[type="email"] { width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: #fff; border: 1px solid var(--field); border-radius: var(--radius); padding: 0.75rem 0.9rem; min-height: 48px; }
+    .field input[type="email"]:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+    #code { max-width: 18rem; letter-spacing: .06em; text-transform: uppercase; }
+    .ouinon { display: flex; gap: 1.5rem; }
+    .doc-bloc + .doc-bloc { border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: 1.5rem; }
+    .doc-bloc h3 { font-size: 1.05rem; margin: 0 0 0.6rem; }
+    .brouillon { color: var(--muted); font-size: .92rem; margin: .75rem 0 0; }
+    .bonjour { font-family: var(--font-title); font-weight: 800; font-size: 1.3rem; margin: 0; }
+  </style>
+  <script src="assets/js/config.js?v=40" defer></script>
+  <script src="assets/js/main.js?v=40" defer></script>
+  <script src="assets/js/questionnaire-config.js?v=1" defer></script>
+  <script src="assets/vendor/pdf.min.js" defer></script>
+  <script src="assets/vendor/mammoth.browser.min.js" defer></script>
+  <script src="assets/js/questionnaire.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Le Bon Angle, accueil">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">LE BON ANGLE</span>
+      </a>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="methode.html">La méthode</a></li>
+          <li><a href="offres.html">Les offres</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary btn-sm header-cta" href="atelier.html"><span class="long">Faire analyser mon parcours</span><span class="short">Analyser</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>
+        <span class="menu-toggle-label">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container container-narrow">
+        <p class="eyebrow">Accompagnement · réservé aux personnes accompagnées</p>
+        <h1 id="page-title">Questionnaire <em>préparatoire</em></h1>
+        <p class="lead">Ces questions préparent notre séance : elles me permettent d’arriver en connaissant déjà ton parcours, ta façon de travailler et ce que tu cherches. Il n’y a pas de bonne réponse. Écris comme tu parles, quelques lignes suffisent.</p>
+        <p class="hero-target"><strong>Environ 30 à 45 minutes.</strong> Tu peux t’arrêter et revenir : tes réponses restent enregistrées sur cet appareil jusqu’à l’envoi. Un seul envoi, avec ton code personnel.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-narrow">
+
+        <!-- Étape 1 : code -->
+        <form id="code-form" class="app-steps" novalidate>
+          <fieldset class="a-step">
+            <legend>Ton code personnel</legend>
+            <div class="field">
+              <label class="field-label" for="code">Code <span class="hint">Il figure dans le message que je t’ai envoyé.</span></label>
+              <input type="text" id="code" autocomplete="off" spellcheck="false" autocapitalize="characters" placeholder="Q-XXXX-XXXX">
+            </div>
+            <p class="form-error" id="code-error" role="alert"></p>
+            <button type="submit" class="btn btn-primary" id="code-btn" style="margin-top:1.25rem">Accéder au questionnaire</button>
+            <p class="hint" style="margin-top:1rem">Pas de code ? <a class="text-link" data-contact href="#">Écris-moi</a>.</p>
+          </fieldset>
+        </form>
+
+        <!-- Étape 2 : questionnaire -->
+        <form id="form" class="app-steps" novalidate hidden>
+          <p class="bonjour" id="bonjour"></p>
+
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true">01</span> Toi</legend>
+            <div class="field-row">
+              <div class="field"><label class="field-label" for="nom">Prénom et nom</label><input type="text" id="nom" autocomplete="name"></div>
+              <div class="field"><label class="field-label" for="email">E-mail <span class="hint">pour que je puisse te répondre</span></label><input type="email" id="email" autocomplete="email"></div>
+            </div>
+          </fieldset>
+
+          <div id="sections" class="app-steps"></div>
+
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true" id="num-docs"></span> Tes documents</legend>
+            <p class="a-intro">Dépose un fichier (PDF, Word .docx ou texte), ou colle le texte ou un lien. Les fichiers me sont transmis tels quels.</p>
+            <div id="documents"></div>
+          </fieldset>
+
+          <fieldset class="a-step">
+            <legend><span class="n" aria-hidden="true" id="num-envoi"></span> Envoyer</legend>
+            <div class="privacy-box">
+              <p><strong>Où vont tes réponses ?</strong> Elles me sont envoyées par e-mail, avec tes documents. Un agent d’IA (hébergé sur la plateforme Dust) en rédige au passage une première synthèse pour moi ; il ne reçoit ni ton e-mail ni ton téléphone. Je conserve tes réponses le temps de l’accompagnement, et tu peux demander leur suppression à tout moment. <a class="text-link" href="confidentialite.html#questionnaire">En savoir plus</a></p>
+            </div>
+            <label class="check check-consent">
+              <input type="checkbox" id="consent">
+              <span>J’accepte que mes réponses et mes documents soient traités de cette façon pour préparer mon accompagnement.</span>
+            </label>
+            <p class="form-error" id="form-error" role="alert"></p>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer mon questionnaire</button>
+            <p class="brouillon" id="brouillon" aria-live="polite"></p>
+          </fieldset>
+        </form>
+
+        <!-- Étape 3 : merci -->
+        <div id="merci" class="card" tabindex="-1" hidden>
+          <h2>Merci, c’est envoyé.</h2>
+          <p>J’ai bien reçu ton questionnaire et tes documents. Je les lirai avant notre séance.</p>
+          <p style="margin-bottom:0">Un oubli ou un ajout ? <a class="text-link" data-contact href="#">Écris-moi</a> simplement.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html" aria-label="Le Bon Angle, accueil"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">LE BON ANGLE</span></a>
+        <p class="footer-tagline">Clarifier le rôle que vous voulez occuper et rendre votre parcours lisible. Une offre de <a href="https://build-rh.io" data-cfg-href="LIEN_BUILDRH">BUILD RH</a>.</p>
+      </div>
+      <div>
+        <p class="footer-title">Le Bon Angle</p>
+        <ul class="footer-links">
+          <li><a href="methode.html">La méthode</a></li>
+          <li><a href="offres.html">Les offres</a></li>
+          <li><a href="atelier.html">Analyse Le Bon Angle</a></li>
+          <li><a href="accompagnement.html">Accompagnement</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Informations</p>
+        <ul class="footer-links">
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="cgv.html">Conditions générales de vente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-year>2026</span> Le Bon Angle · BUILD RH</p>
+      <p>Sans cookie ni outil de mesure d’audience.</p>
+    </div>
+  </footer>
+</body>
+</html>
